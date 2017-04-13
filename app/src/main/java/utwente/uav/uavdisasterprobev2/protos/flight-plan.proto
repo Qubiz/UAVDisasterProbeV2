@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package uavdisasterprobev2;
+
+option java_package = "utwente.uav.uavdisasterprobev2.protos";
+option java_outer_classname = "FlightPlanProtos";
+
+message FlightPlan {
+    message FlightElement {
+
+        enum FlightType {
+            WAYPOINT = 0;
+            HOTPOINT = 1;
+        }
+
+        FlightType flight_type = 1;
+        double latitude = 2;
+        double longitude = 3;
+        double altitude = 4;
+        int32 gimbal_pitch = 5;
+        WaypointElement waypoint_element = 6;
+        HotpointElement hotpoint_element = 7;
+
+        message WaypointElement {
+            double yaw = 1;
+        }
+
+        message HotpointElement {
+            double radius = 1;
+            double surrounding_angle = 2;
+            bool clockwise = 3;
+            int32 photos = 4;
+            StartPoint start_point = 5;
+
+            enum StartPoint{
+                NORTH = 0;
+                SOUTH = 1;
+                WEST = 2;
+                EAST = 3;
+                NEAREST = 4;
+            }
+        }
+    }
+
+    repeated FlightElement flight_element = 1;
+}
+

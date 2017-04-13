@@ -38,6 +38,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <!-- GOOGLE MAPS -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCjAm-15VquPwGFlTLifuLvIK8RBuLnQJ8" />
+        <!-- GOOGLE MAPS -->
+
         <!-- DJI SDK -->
         <uses-library android:name="com.android.future.usb.accessory" />
         <meta-data
@@ -59,7 +69,10 @@
         </service>
         <!-- DJI SDK -->
 
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden|keyboard"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

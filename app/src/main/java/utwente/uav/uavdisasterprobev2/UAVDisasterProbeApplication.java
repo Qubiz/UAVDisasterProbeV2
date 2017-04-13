@@ -54,6 +54,7 @@ public class UAVDisasterProbeApplication extends Application {
             notifyStatusChange();
         }
     };
+
     /**
      * When starting SDK services, an instance of interface DJISDKManager.DJISDKManagerCallback will be used to listen to
      * the SDK Registration result and the product changing.
@@ -69,7 +70,6 @@ public class UAVDisasterProbeApplication extends Application {
                         Toast.makeText(getApplicationContext(), "REGISTRATION SUCCESS", Toast.LENGTH_LONG).show();
                     }
                 });
-
                 DJISDKManager.getInstance().startConnectionToProduct();
             } else {
                 Handler handler = new Handler(Looper.getMainLooper());
@@ -80,8 +80,6 @@ public class UAVDisasterProbeApplication extends Application {
                     }
                 });
             }
-
-            Log.e(UAVDisasterProbeApplication.class.getSimpleName(), error.toString());
         }
 
         @Override
@@ -126,6 +124,7 @@ public class UAVDisasterProbeApplication extends Application {
         handler = new Handler(Looper.getMainLooper());
 
         DJISDKManager.getInstance().registerApp(this, sdkManagerCallback);
+
     }
 
     private void notifyStatusChange() {
