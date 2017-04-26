@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_connect_bridge"
+        android:orderInCategory="100"
+        app:showAsAction="always|withText"
+        android:icon="@drawable/disconnected_white"
+        android:title="Bridge"/>
+    <item
+        android:id="@+id/action_refresh"
+        android:title="Refresh">
+    </item>
+</menu>

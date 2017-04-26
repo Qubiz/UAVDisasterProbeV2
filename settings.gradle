@@ -1,2 +1,3 @@
-include ':app'
+include ':app', ':android-uilib-release'
+include ':dJISDKLIB'
 include ':dJISDKLIB'

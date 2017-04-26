@@ -1,10 +1,17 @@
 package utwente.uav.uavdisasterprobev2;
 
+import android.app.AlertDialog;
 import android.app.Application;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.multidex.MultiDex;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.NumberPicker;
 import android.widget.Toast;
 
 import dji.common.error.DJIError;
@@ -130,5 +137,11 @@ public class UAVDisasterProbeApplication extends Application {
     private void notifyStatusChange() {
         handler.removeCallbacks(updateRunnable);
         handler.postDelayed(updateRunnable, 500);
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 }

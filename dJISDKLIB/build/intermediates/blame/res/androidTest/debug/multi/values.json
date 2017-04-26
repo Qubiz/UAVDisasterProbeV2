@@ -4016,8 +4016,8 @@
                     "startLine": 223,
                     "startColumn": 4,
                     "startOffset": 26159,
-                    "endColumn": 44,
-                    "endOffset": 26199
+                    "endColumn": 46,
+                    "endOffset": 26201
                 },
                 "from": {
                     "file": "D:\\Mathijs\\AndroidStudioProjects\\UAVDisasterProbeV2\\dJISDKLIB\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
@@ -4025,8 +4025,8 @@
                         "startLine": 223,
                         "startColumn": 4,
                         "startOffset": 26159,
-                        "endColumn": 44,
-                        "endOffset": 26199
+                        "endColumn": 46,
+                        "endOffset": 26201
                     }
                 }
             },
@@ -4034,20 +4034,20 @@
                 "to": {
                     "startLine": 224,
                     "startColumn": 4,
-                    "startOffset": 26204,
+                    "startOffset": 26206,
                     "endLine": 230,
                     "endColumn": 12,
-                    "endOffset": 26490
+                    "endOffset": 26492
                 },
                 "from": {
                     "file": "D:\\Mathijs\\AndroidStudioProjects\\UAVDisasterProbeV2\\dJISDKLIB\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 224,
                         "startColumn": 4,
-                        "startOffset": 26204,
+                        "startOffset": 26206,
                         "endLine": 230,
                         "endColumn": 12,
-                        "endOffset": 26490
+                        "endOffset": 26492
                     }
                 }
             },
@@ -4055,20 +4055,20 @@
                 "to": {
                     "startLine": 231,
                     "startColumn": 4,
-                    "startOffset": 26495,
+                    "startOffset": 26497,
                     "endLine": 233,
                     "endColumn": 12,
-                    "endOffset": 26650
+                    "endOffset": 26652
                 },
                 "from": {
                     "file": "D:\\Mathijs\\AndroidStudioProjects\\UAVDisasterProbeV2\\dJISDKLIB\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 231,
                         "startColumn": 4,
-                        "startOffset": 26495,
+                        "startOffset": 26497,
                         "endLine": 233,
                         "endColumn": 12,
-                        "endOffset": 26650
+                        "endOffset": 26652
                     }
                 }
             },
@@ -4076,20 +4076,20 @@
                 "to": {
                     "startLine": 234,
                     "startColumn": 4,
-                    "startOffset": 26655,
+                    "startOffset": 26657,
                     "endLine": 236,
                     "endColumn": 12,
-                    "endOffset": 26779
+                    "endOffset": 26781
                 },
                 "from": {
                     "file": "D:\\Mathijs\\AndroidStudioProjects\\UAVDisasterProbeV2\\dJISDKLIB\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 234,
                         "startColumn": 4,
-                        "startOffset": 26655,
+                        "startOffset": 26657,
                         "endLine": 236,
                         "endColumn": 12,
-                        "endOffset": 26779
+                        "endOffset": 26781
                     }
                 }
             },
@@ -4097,20 +4097,20 @@
                 "to": {
                     "startLine": 237,
                     "startColumn": 4,
-                    "startOffset": 26784,
+                    "startOffset": 26786,
                     "endLine": 244,
                     "endColumn": 12,
-                    "endOffset": 27224
+                    "endOffset": 27226
                 },
                 "from": {
                     "file": "D:\\Mathijs\\AndroidStudioProjects\\UAVDisasterProbeV2\\dJISDKLIB\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 237,
                         "startColumn": 4,
-                        "startOffset": 26784,
+                        "startOffset": 26786,
                         "endLine": 244,
                         "endColumn": 12,
-                        "endOffset": 27224
+                        "endOffset": 27226
                     }
                 }
             }

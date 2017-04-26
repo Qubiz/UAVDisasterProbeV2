@@ -161,6 +161,7 @@ public class FlightPlan {
     public void start() {
         if(MissionControl.getInstance().scheduledCount() > 0) {
             MissionControl.getInstance().startTimeline();
+            Log.d("START", "LETS GO!");
         }
     }
 
