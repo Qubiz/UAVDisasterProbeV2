@@ -11,73 +11,207 @@
         android:id="@+id/map"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+    </fragment>
+
+    <!-- Widgets in top status bar -->
+    <LinearLayout
+        android:id="@+id/signal"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="@color/dark_gray"
+        android:orientation="horizontal">
+
+        <dji.ui.widget.PreFlightStatusWidget
+            android:id="@+id/status"
+            android:layout_width="238dp"
+            android:layout_height="25dp"/>
+
+        <dji.ui.widget.FlightModeWidget
+            android:layout_width="103dp"
+            android:layout_height="22dp"/>
+
+        <dji.ui.widget.GPSSignalWidget
+            android:layout_width="44dp"
+            android:layout_height="22dp"/>
+
+        <dji.ui.widget.VisionWidget
+            android:layout_width="22dp"
+            android:layout_height="22dp"/>
+
+        <dji.ui.widget.RemoteControlSignalWidget
+            android:layout_width="38dp"
+            android:layout_height="22dp"/>
+
+        <dji.ui.widget.VideoSignalWidget
+            android:layout_width="38dp"
+            android:layout_height="22dp"/>
+
+        <dji.ui.widget.WiFiSignalWidget
+            android:layout_width="22dp"
+            android:layout_height="20dp"/>
+
+        <dji.ui.widget.BatteryWidget
+            android:layout_width="56dp"
+            android:layout_height="22dp"/>
+
+        <dji.ui.widget.ConnectionWidget
+            android:layout_marginTop="5dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"/>
+    </LinearLayout>
+
+    <dji.ui.widget.RemainingFlightTimeWidget
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="18dp"
+        android:layout_width="match_parent"
+        android:background="@color/transparent"
+        android:layout_height="20dp"
+        android:id="@+id/remaining_time_widget"/>
+
+    <!--  -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/remaining_time_widget"
+        android:padding="12dp"
+        android:orientation="vertical"
+        android:background="@color/dark_gray">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FLIGHT PLAN"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/load_file_button"
+            android:text="Load"
+            android:drawableTop="@drawable/file_black_small"
+            android:textSize="12sp"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:layout_marginBottom="10dp"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/product_connected_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:textStyle="bold">
-            </TextView>
+                android:text="File: "
+                android:textStyle="bold"
+                android:textColor="@color/white" />
 
-            <LinearLayout
-                android:id="@+id/start_stop_wrapper"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/create_flight_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:textStyle="bold">
-                </Button>
-
-                <Button
-                    android:id="@+id/prepare_flight_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:textStyle="bold">
-                </Button>
-
-                <Button
-                    android:id="@+id/start_flight_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:textStyle="bold">
-                </Button>
-
-                <Button
-                    android:id="@+id/stop_flight_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:textStyle="bold">
-                </Button>
-
-                <dji.ui.widget.ConnectionWidget
-                    android:layout_marginTop="5dp"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"/>
-
-            </LinearLayout>
+                android:textStyle="italic"
+                android:text="not loaded"
+                android:textColor="@color/white"
+                android:id="@+id/current_file_text_view"/>
         </LinearLayout>
-    </fragment>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prepare"
+            android:drawableTop="@drawable/upload_black_small"
+            android:enabled="false"
+            android:textSize="12sp"
+            android:id="@+id/prepare_flight_button"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Status: "
+                android:textColor="@color/white"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="n/a"
+                android:textColor="@color/white"
+                android:id="@+id/status_prepared_text_view"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <dji.ui.widget.dashboard.DashboardWidget
+            android:id="@+id/Compass"
+            android:layout_width="405dp"
+            android:layout_height="91dp"
+            android:layout_marginEnd="12dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_marginBottom="130dp"
+        android:id="@+id/linearLayout">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
+
+            <dji.ui.widget.TakeOffWidget
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="12dp" />
+
+            <dji.ui.widget.ReturnHomeWidget
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="12dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/play_black_small"
+                android:text="START"
+                android:textSize="12sp"
+                android:enabled="false"
+                android:id="@+id/start_pause_flight_button"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/stop_black_small"
+                android:text="STOP"
+                android:textSize="12sp"
+                android:enabled="false"
+                android:id="@+id/stop_flight_button"/>
+        </LinearLayout>
+    </LinearLayout>
+
 </RelativeLayout>

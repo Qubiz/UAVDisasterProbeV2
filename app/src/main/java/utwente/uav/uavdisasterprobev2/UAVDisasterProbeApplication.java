@@ -32,6 +32,10 @@ public class UAVDisasterProbeApplication extends Application {
 
     private static BaseProduct product;
 
+    public static final String DEBUG_TAG = "UAVDP";
+
+    private static Context context;
+
     private Handler handler;
     private Runnable updateRunnable = new Runnable() {
         @Override
@@ -132,6 +136,8 @@ public class UAVDisasterProbeApplication extends Application {
 
         DJISDKManager.getInstance().registerApp(this, sdkManagerCallback);
 
+
+        context = getApplicationContext();
     }
 
     private void notifyStatusChange() {
@@ -143,5 +149,9 @@ public class UAVDisasterProbeApplication extends Application {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);
+    }
+
+    public static Context getContext() {
+        return context;
     }
 }

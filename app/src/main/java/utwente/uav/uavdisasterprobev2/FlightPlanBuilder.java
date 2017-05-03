@@ -12,15 +12,14 @@ import utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightE
 import utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement;
 import utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement;
 
-
 /**
  * Created by Mathijs on 4/12/2017.
  */
 
 public class FlightPlanBuilder {
 
-    FlightPlan.Builder flightPlan;
-    FlightPlan.FlightElement.Builder flightElement;
+    private FlightPlan.Builder flightPlan;
+    private FlightPlan.FlightElement.Builder flightElement;
 
     public FlightPlanBuilder() {
         flightPlan = FlightPlan.newBuilder();
@@ -78,7 +77,7 @@ public class FlightPlanBuilder {
         flightPlan.addFlightElement(flightElement);
     }
 
-    public void writeToFile() {
+    public void writeToFile(String fileName) {
         if(flightPlan.getFlightElementList().size() > 0) {
             try {
                 File folder = new File(Environment.getExternalStorageDirectory(), "FlightPlans");
@@ -91,7 +90,7 @@ public class FlightPlanBuilder {
                     }
                 }
 
-                File file = new File(folder, "flight" + ".fp");
+                File file = new File(folder, fileName + ".fp");
 
                 if(!file.exists()) {
                     if(file.createNewFile()) {

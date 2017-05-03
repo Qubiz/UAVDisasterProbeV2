@@ -4,3319 +4,3575 @@
 package utwente.uav.uavdisasterprobev2.protos;
 
 public final class FlightPlanProtos {
-  private FlightPlanProtos() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
+    private FlightPlanProtos() {
+    }
 
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  public interface FlightPlanOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:uavdisasterprobev2.FlightPlan)
-      com.google.protobuf.MessageOrBuilder {
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistryLite registry) {
+    }
 
-    /**
-     * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-     */
-    java.util.List<utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement> 
+    public static void registerAllExtensions(
+            com.google.protobuf.ExtensionRegistry registry) {
+        registerAllExtensions(
+                (com.google.protobuf.ExtensionRegistryLite) registry);
+    }
+
+    public interface FlightPlanOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:uavdisasterprobev2.FlightPlan)
+            com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+         */
+        java.util.List<utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement>
         getFlightElementList();
-    /**
-     * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-     */
-    utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement getFlightElement(int index);
-    /**
-     * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-     */
-    int getFlightElementCount();
-    /**
-     * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-     */
-    java.util.List<? extends utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElementOrBuilder> 
+
+        /**
+         * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+         */
+        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement getFlightElement(int index);
+
+        /**
+         * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+         */
+        int getFlightElementCount();
+
+        /**
+         * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+         */
+        java.util.List<? extends utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElementOrBuilder>
         getFlightElementOrBuilderList();
-    /**
-     * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-     */
-    utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElementOrBuilder getFlightElementOrBuilder(
-        int index);
-  }
-  /**
-   * Protobuf type {@code uavdisasterprobev2.FlightPlan}
-   */
-  public  static final class FlightPlan extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:uavdisasterprobev2.FlightPlan)
-      FlightPlanOrBuilder {
-    // Use FlightPlan.newBuilder() to construct.
-    private FlightPlan(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private FlightPlan() {
-      flightElement_ = java.util.Collections.emptyList();
+
+        /**
+         * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+         */
+        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElementOrBuilder getFlightElementOrBuilder(
+                int index);
     }
 
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private FlightPlan(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                flightElement_ = new java.util.ArrayList<utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              flightElement_.add(
-                  input.readMessage(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.parser(), extensionRegistry));
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          flightElement_ = java.util.Collections.unmodifiableList(flightElement_);
-        }
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.class, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.Builder.class);
-    }
-
-    public interface FlightElementOrBuilder extends
-        // @@protoc_insertion_point(interface_extends:uavdisasterprobev2.FlightPlan.FlightElement)
-        com.google.protobuf.MessageOrBuilder {
-
-      /**
-       * <code>.uavdisasterprobev2.FlightPlan.FlightElement.FlightType flight_type = 1;</code>
-       */
-      int getFlightTypeValue();
-      /**
-       * <code>.uavdisasterprobev2.FlightPlan.FlightElement.FlightType flight_type = 1;</code>
-       */
-      utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType getFlightType();
-
-      /**
-       * <code>double latitude = 2;</code>
-       */
-      double getLatitude();
-
-      /**
-       * <code>double longitude = 3;</code>
-       */
-      double getLongitude();
-
-      /**
-       * <code>double altitude = 4;</code>
-       */
-      double getAltitude();
-
-      /**
-       * <code>int32 gimbal_pitch = 5;</code>
-       */
-      int getGimbalPitch();
-
-      /**
-       * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
-       */
-      boolean hasWaypointElement();
-      /**
-       * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
-       */
-      utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement getWaypointElement();
-      /**
-       * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
-       */
-      utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElementOrBuilder getWaypointElementOrBuilder();
-
-      /**
-       * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
-       */
-      boolean hasHotpointElement();
-      /**
-       * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
-       */
-      utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement getHotpointElement();
-      /**
-       * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
-       */
-      utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElementOrBuilder getHotpointElementOrBuilder();
-    }
-    /**
-     * Protobuf type {@code uavdisasterprobev2.FlightPlan.FlightElement}
-     */
-    public  static final class FlightElement extends
-        com.google.protobuf.GeneratedMessageV3 implements
-        // @@protoc_insertion_point(message_implements:uavdisasterprobev2.FlightPlan.FlightElement)
-        FlightElementOrBuilder {
-      // Use FlightElement.newBuilder() to construct.
-      private FlightElement(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-        super(builder);
-      }
-      private FlightElement() {
-        flightType_ = 0;
-        latitude_ = 0D;
-        longitude_ = 0D;
-        altitude_ = 0D;
-        gimbalPitch_ = 0;
-      }
-
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-      getUnknownFields() {
-        return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-      }
-      private FlightElement(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        int mutable_bitField0_ = 0;
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!input.skipField(tag)) {
-                  done = true;
-                }
-                break;
-              }
-              case 8: {
-                int rawValue = input.readEnum();
-
-                flightType_ = rawValue;
-                break;
-              }
-              case 17: {
-
-                latitude_ = input.readDouble();
-                break;
-              }
-              case 25: {
-
-                longitude_ = input.readDouble();
-                break;
-              }
-              case 33: {
-
-                altitude_ = input.readDouble();
-                break;
-              }
-              case 40: {
-
-                gimbalPitch_ = input.readInt32();
-                break;
-              }
-              case 50: {
-                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.Builder subBuilder = null;
-                if (waypointElement_ != null) {
-                  subBuilder = waypointElement_.toBuilder();
-                }
-                waypointElement_ = input.readMessage(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(waypointElement_);
-                  waypointElement_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              case 58: {
-                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.Builder subBuilder = null;
-                if (hotpointElement_ != null) {
-                  subBuilder = hotpointElement_.toBuilder();
-                }
-                hotpointElement_ = input.readMessage(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(hotpointElement_);
-                  hotpointElement_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.class, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder.class);
-      }
-
-      /**
-       * Protobuf enum {@code uavdisasterprobev2.FlightPlan.FlightElement.FlightType}
-       */
-      public enum FlightType
-          implements com.google.protobuf.ProtocolMessageEnum {
-        /**
-         * <code>WAYPOINT = 0;</code>
-         */
-        WAYPOINT(0),
-        /**
-         * <code>HOTPOINT = 1;</code>
-         */
-        HOTPOINT(1),
-        UNRECOGNIZED(-1),
-        ;
-
-        /**
-         * <code>WAYPOINT = 0;</code>
-         */
-        public static final int WAYPOINT_VALUE = 0;
-        /**
-         * <code>HOTPOINT = 1;</code>
-         */
-        public static final int HOTPOINT_VALUE = 1;
-
-
-        public final int getNumber() {
-          if (this == UNRECOGNIZED) {
-            throw new java.lang.IllegalArgumentException(
-                "Can't get the number of an unknown enum value.");
-          }
-          return value;
-        }
-
-        /**
-         * @deprecated Use {@link #forNumber(int)} instead.
-         */
-        @java.lang.Deprecated
-        public static FlightType valueOf(int value) {
-          return forNumber(value);
-        }
-
-        public static FlightType forNumber(int value) {
-          switch (value) {
-            case 0: return WAYPOINT;
-            case 1: return HOTPOINT;
-            default: return null;
-          }
-        }
-
-        public static com.google.protobuf.Internal.EnumLiteMap<FlightType>
-            internalGetValueMap() {
-          return internalValueMap;
-        }
-        private static final com.google.protobuf.Internal.EnumLiteMap<
-            FlightType> internalValueMap =
-              new com.google.protobuf.Internal.EnumLiteMap<FlightType>() {
-                public FlightType findValueByNumber(int number) {
-                  return FlightType.forNumber(number);
-                }
-              };
-
-        public final com.google.protobuf.Descriptors.EnumValueDescriptor
-            getValueDescriptor() {
-          return getDescriptor().getValues().get(ordinal());
-        }
-        public final com.google.protobuf.Descriptors.EnumDescriptor
-            getDescriptorForType() {
-          return getDescriptor();
-        }
-        public static final com.google.protobuf.Descriptors.EnumDescriptor
-            getDescriptor() {
-          return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.getDescriptor().getEnumTypes().get(0);
-        }
-
-        private static final FlightType[] VALUES = values();
-
-        public static FlightType valueOf(
-            com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-          if (desc.getType() != getDescriptor()) {
-            throw new java.lang.IllegalArgumentException(
-              "EnumValueDescriptor is not for this type.");
-          }
-          if (desc.getIndex() == -1) {
-            return UNRECOGNIZED;
-          }
-          return VALUES[desc.getIndex()];
-        }
-
-        private final int value;
-
-        private FlightType(int value) {
-          this.value = value;
-        }
-
-        // @@protoc_insertion_point(enum_scope:uavdisasterprobev2.FlightPlan.FlightElement.FlightType)
-      }
-
-      public interface WaypointElementOrBuilder extends
-          // @@protoc_insertion_point(interface_extends:uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement)
-          com.google.protobuf.MessageOrBuilder {
-
-        /**
-         * <code>double yaw = 1;</code>
-         */
-        double getYaw();
-      }
-      /**
-       * Protobuf type {@code uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement}
-       */
-      public  static final class WaypointElement extends
-          com.google.protobuf.GeneratedMessageV3 implements
-          // @@protoc_insertion_point(message_implements:uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement)
-          WaypointElementOrBuilder {
-        // Use WaypointElement.newBuilder() to construct.
-        private WaypointElement(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-          super(builder);
-        }
-        private WaypointElement() {
-          yaw_ = 0D;
-        }
-
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-          return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-        }
-        private WaypointElement(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          this();
-          int mutable_bitField0_ = 0;
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                default: {
-                  if (!input.skipField(tag)) {
-                    done = true;
-                  }
-                  break;
-                }
-                case 9: {
-
-                  yaw_ = input.readDouble();
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e).setUnfinishedMessage(this);
-          } finally {
-            makeExtensionsImmutable();
-          }
-        }
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_WaypointElement_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_WaypointElement_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.class, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.Builder.class);
-        }
-
-        public static final int YAW_FIELD_NUMBER = 1;
-        private double yaw_;
-        /**
-         * <code>double yaw = 1;</code>
-         */
-        public double getYaw() {
-          return yaw_;
-        }
-
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-          byte isInitialized = memoizedIsInitialized;
-          if (isInitialized == 1) return true;
-          if (isInitialized == 0) return false;
-
-          memoizedIsInitialized = 1;
-          return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                            throws java.io.IOException {
-          if (yaw_ != 0D) {
-            output.writeDouble(1, yaw_);
-          }
-        }
-
-        public int getSerializedSize() {
-          int size = memoizedSize;
-          if (size != -1) return size;
-
-          size = 0;
-          if (yaw_ != 0D) {
-            size += com.google.protobuf.CodedOutputStream
-              .computeDoubleSize(1, yaw_);
-          }
-          memoizedSize = size;
-          return size;
-        }
-
-        private static final long serialVersionUID = 0L;
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-          if (obj == this) {
-           return true;
-          }
-          if (!(obj instanceof utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement)) {
-            return super.equals(obj);
-          }
-          utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement other = (utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement) obj;
-
-          boolean result = true;
-          result = result && (
-              java.lang.Double.doubleToLongBits(getYaw())
-              == java.lang.Double.doubleToLongBits(
-                  other.getYaw()));
-          return result;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-          if (memoizedHashCode != 0) {
-            return memoizedHashCode;
-          }
-          int hash = 41;
-          hash = (19 * hash) + getDescriptor().hashCode();
-          hash = (37 * hash) + YAW_FIELD_NUMBER;
-          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-              java.lang.Double.doubleToLongBits(getYaw()));
-          hash = (29 * hash) + unknownFields.hashCode();
-          memoizedHashCode = hash;
-          return hash;
-        }
-
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parseFrom(
-            com.google.protobuf.ByteString data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data);
-        }
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parseFrom(
-            com.google.protobuf.ByteString data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parseFrom(byte[] data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data);
-        }
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parseFrom(
-            byte[] data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parseFrom(java.io.InputStream input)
-            throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input);
-        }
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parseFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parseDelimitedFrom(java.io.InputStream input)
-            throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageV3
-              .parseDelimitedWithIOException(PARSER, input);
-        }
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parseDelimitedFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageV3
-              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parseFrom(
-            com.google.protobuf.CodedInputStream input)
-            throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input);
-        }
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parseFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder() {
-          return DEFAULT_INSTANCE.toBuilder();
-        }
-        public static Builder newBuilder(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement prototype) {
-          return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() {
-          return this == DEFAULT_INSTANCE
-              ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          Builder builder = new Builder(parent);
-          return builder;
-        }
-        /**
-         * Protobuf type {@code uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement}
-         */
-        public static final class Builder extends
-            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement)
-            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElementOrBuilder {
-          public static final com.google.protobuf.Descriptors.Descriptor
-              getDescriptor() {
-            return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_WaypointElement_descriptor;
-          }
-
-          protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-              internalGetFieldAccessorTable() {
-            return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_WaypointElement_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                    utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.class, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.Builder.class);
-          }
-
-          // Construct using utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.newBuilder()
-          private Builder() {
-            maybeForceBuilderInitialization();
-          }
-
-          private Builder(
-              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            super(parent);
-            maybeForceBuilderInitialization();
-          }
-          private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
-          }
-          public Builder clear() {
-            super.clear();
-            yaw_ = 0D;
-
-            return this;
-          }
-
-          public com.google.protobuf.Descriptors.Descriptor
-              getDescriptorForType() {
-            return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_WaypointElement_descriptor;
-          }
-
-          public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement getDefaultInstanceForType() {
-            return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.getDefaultInstance();
-          }
-
-          public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement build() {
-            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement result = buildPartial();
-            if (!result.isInitialized()) {
-              throw newUninitializedMessageException(result);
-            }
-            return result;
-          }
-
-          public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement buildPartial() {
-            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement result = new utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement(this);
-            result.yaw_ = yaw_;
-            onBuilt();
-            return result;
-          }
-
-          public Builder clone() {
-            return (Builder) super.clone();
-          }
-          public Builder setField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              Object value) {
-            return (Builder) super.setField(field, value);
-          }
-          public Builder clearField(
-              com.google.protobuf.Descriptors.FieldDescriptor field) {
-            return (Builder) super.clearField(field);
-          }
-          public Builder clearOneof(
-              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-            return (Builder) super.clearOneof(oneof);
-          }
-          public Builder setRepeatedField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              int index, Object value) {
-            return (Builder) super.setRepeatedField(field, index, value);
-          }
-          public Builder addRepeatedField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              Object value) {
-            return (Builder) super.addRepeatedField(field, value);
-          }
-          public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement) {
-              return mergeFrom((utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement)other);
-            } else {
-              super.mergeFrom(other);
-              return this;
-            }
-          }
-
-          public Builder mergeFrom(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement other) {
-            if (other == utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.getDefaultInstance()) return this;
-            if (other.getYaw() != 0D) {
-              setYaw(other.getYaw());
-            }
-            onChanged();
-            return this;
-          }
-
-          public final boolean isInitialized() {
-            return true;
-          }
-
-          public Builder mergeFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parsedMessage = null;
-            try {
-              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement) e.getUnfinishedMessage();
-              throw e.unwrapIOException();
-            } finally {
-              if (parsedMessage != null) {
-                mergeFrom(parsedMessage);
-              }
-            }
-            return this;
-          }
-
-          private double yaw_ ;
-          /**
-           * <code>double yaw = 1;</code>
-           */
-          public double getYaw() {
-            return yaw_;
-          }
-          /**
-           * <code>double yaw = 1;</code>
-           */
-          public Builder setYaw(double value) {
-            
-            yaw_ = value;
-            onChanged();
-            return this;
-          }
-          /**
-           * <code>double yaw = 1;</code>
-           */
-          public Builder clearYaw() {
-            
-            yaw_ = 0D;
-            onChanged();
-            return this;
-          }
-          public final Builder setUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return this;
-          }
-
-          public final Builder mergeUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return this;
-          }
-
-
-          // @@protoc_insertion_point(builder_scope:uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement)
-        }
-
-        // @@protoc_insertion_point(class_scope:uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement)
-        private static final utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement DEFAULT_INSTANCE;
-        static {
-          DEFAULT_INSTANCE = new utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement();
-        }
-
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement getDefaultInstance() {
-          return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<WaypointElement>
-            PARSER = new com.google.protobuf.AbstractParser<WaypointElement>() {
-          public WaypointElement parsePartialFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-              return new WaypointElement(input, extensionRegistry);
-          }
-        };
-
-        public static com.google.protobuf.Parser<WaypointElement> parser() {
-          return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<WaypointElement> getParserForType() {
-          return PARSER;
-        }
-
-        public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement getDefaultInstanceForType() {
-          return DEFAULT_INSTANCE;
-        }
-
-      }
-
-      public interface HotpointElementOrBuilder extends
-          // @@protoc_insertion_point(interface_extends:uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement)
-          com.google.protobuf.MessageOrBuilder {
-
-        /**
-         * <code>double radius = 1;</code>
-         */
-        double getRadius();
-
-        /**
-         * <code>double surrounding_angle = 2;</code>
-         */
-        double getSurroundingAngle();
-
-        /**
-         * <code>bool clockwise = 3;</code>
-         */
-        boolean getClockwise();
-
-        /**
-         * <code>int32 photos = 4;</code>
-         */
-        int getPhotos();
-
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint start_point = 5;</code>
-         */
-        int getStartPointValue();
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint start_point = 5;</code>
-         */
-        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint getStartPoint();
-      }
-      /**
-       * Protobuf type {@code uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement}
-       */
-      public  static final class HotpointElement extends
-          com.google.protobuf.GeneratedMessageV3 implements
-          // @@protoc_insertion_point(message_implements:uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement)
-          HotpointElementOrBuilder {
-        // Use HotpointElement.newBuilder() to construct.
-        private HotpointElement(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-          super(builder);
-        }
-        private HotpointElement() {
-          radius_ = 0D;
-          surroundingAngle_ = 0D;
-          clockwise_ = false;
-          photos_ = 0;
-          startPoint_ = 0;
-        }
-
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-          return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-        }
-        private HotpointElement(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          this();
-          int mutable_bitField0_ = 0;
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                default: {
-                  if (!input.skipField(tag)) {
-                    done = true;
-                  }
-                  break;
-                }
-                case 9: {
-
-                  radius_ = input.readDouble();
-                  break;
-                }
-                case 17: {
-
-                  surroundingAngle_ = input.readDouble();
-                  break;
-                }
-                case 24: {
-
-                  clockwise_ = input.readBool();
-                  break;
-                }
-                case 32: {
-
-                  photos_ = input.readInt32();
-                  break;
-                }
-                case 40: {
-                  int rawValue = input.readEnum();
-
-                  startPoint_ = rawValue;
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e).setUnfinishedMessage(this);
-          } finally {
-            makeExtensionsImmutable();
-          }
-        }
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_HotpointElement_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_HotpointElement_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.class, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.Builder.class);
-        }
-
-        /**
-         * Protobuf enum {@code uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint}
-         */
-        public enum StartPoint
-            implements com.google.protobuf.ProtocolMessageEnum {
-          /**
-           * <code>NORTH = 0;</code>
-           */
-          NORTH(0),
-          /**
-           * <code>SOUTH = 1;</code>
-           */
-          SOUTH(1),
-          /**
-           * <code>WEST = 2;</code>
-           */
-          WEST(2),
-          /**
-           * <code>EAST = 3;</code>
-           */
-          EAST(3),
-          /**
-           * <code>NEAREST = 4;</code>
-           */
-          NEAREST(4),
-          UNRECOGNIZED(-1),
-          ;
-
-          /**
-           * <code>NORTH = 0;</code>
-           */
-          public static final int NORTH_VALUE = 0;
-          /**
-           * <code>SOUTH = 1;</code>
-           */
-          public static final int SOUTH_VALUE = 1;
-          /**
-           * <code>WEST = 2;</code>
-           */
-          public static final int WEST_VALUE = 2;
-          /**
-           * <code>EAST = 3;</code>
-           */
-          public static final int EAST_VALUE = 3;
-          /**
-           * <code>NEAREST = 4;</code>
-           */
-          public static final int NEAREST_VALUE = 4;
-
-
-          public final int getNumber() {
-            if (this == UNRECOGNIZED) {
-              throw new java.lang.IllegalArgumentException(
-                  "Can't get the number of an unknown enum value.");
-            }
-            return value;
-          }
-
-          /**
-           * @deprecated Use {@link #forNumber(int)} instead.
-           */
-          @java.lang.Deprecated
-          public static StartPoint valueOf(int value) {
-            return forNumber(value);
-          }
-
-          public static StartPoint forNumber(int value) {
-            switch (value) {
-              case 0: return NORTH;
-              case 1: return SOUTH;
-              case 2: return WEST;
-              case 3: return EAST;
-              case 4: return NEAREST;
-              default: return null;
-            }
-          }
-
-          public static com.google.protobuf.Internal.EnumLiteMap<StartPoint>
-              internalGetValueMap() {
-            return internalValueMap;
-          }
-          private static final com.google.protobuf.Internal.EnumLiteMap<
-              StartPoint> internalValueMap =
-                new com.google.protobuf.Internal.EnumLiteMap<StartPoint>() {
-                  public StartPoint findValueByNumber(int number) {
-                    return StartPoint.forNumber(number);
-                  }
-                };
-
-          public final com.google.protobuf.Descriptors.EnumValueDescriptor
-              getValueDescriptor() {
-            return getDescriptor().getValues().get(ordinal());
-          }
-          public final com.google.protobuf.Descriptors.EnumDescriptor
-              getDescriptorForType() {
-            return getDescriptor();
-          }
-          public static final com.google.protobuf.Descriptors.EnumDescriptor
-              getDescriptor() {
-            return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.getDescriptor().getEnumTypes().get(0);
-          }
-
-          private static final StartPoint[] VALUES = values();
-
-          public static StartPoint valueOf(
-              com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-            if (desc.getType() != getDescriptor()) {
-              throw new java.lang.IllegalArgumentException(
-                "EnumValueDescriptor is not for this type.");
-            }
-            if (desc.getIndex() == -1) {
-              return UNRECOGNIZED;
-            }
-            return VALUES[desc.getIndex()];
-          }
-
-          private final int value;
-
-          private StartPoint(int value) {
-            this.value = value;
-          }
-
-          // @@protoc_insertion_point(enum_scope:uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint)
-        }
-
-        public static final int RADIUS_FIELD_NUMBER = 1;
-        private double radius_;
-        /**
-         * <code>double radius = 1;</code>
-         */
-        public double getRadius() {
-          return radius_;
-        }
-
-        public static final int SURROUNDING_ANGLE_FIELD_NUMBER = 2;
-        private double surroundingAngle_;
-        /**
-         * <code>double surrounding_angle = 2;</code>
-         */
-        public double getSurroundingAngle() {
-          return surroundingAngle_;
-        }
-
-        public static final int CLOCKWISE_FIELD_NUMBER = 3;
-        private boolean clockwise_;
-        /**
-         * <code>bool clockwise = 3;</code>
-         */
-        public boolean getClockwise() {
-          return clockwise_;
-        }
-
-        public static final int PHOTOS_FIELD_NUMBER = 4;
-        private int photos_;
-        /**
-         * <code>int32 photos = 4;</code>
-         */
-        public int getPhotos() {
-          return photos_;
-        }
-
-        public static final int START_POINT_FIELD_NUMBER = 5;
-        private int startPoint_;
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint start_point = 5;</code>
-         */
-        public int getStartPointValue() {
-          return startPoint_;
-        }
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint start_point = 5;</code>
-         */
-        public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint getStartPoint() {
-          utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint result = utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint.valueOf(startPoint_);
-          return result == null ? utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint.UNRECOGNIZED : result;
-        }
-
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-          byte isInitialized = memoizedIsInitialized;
-          if (isInitialized == 1) return true;
-          if (isInitialized == 0) return false;
-
-          memoizedIsInitialized = 1;
-          return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                            throws java.io.IOException {
-          if (radius_ != 0D) {
-            output.writeDouble(1, radius_);
-          }
-          if (surroundingAngle_ != 0D) {
-            output.writeDouble(2, surroundingAngle_);
-          }
-          if (clockwise_ != false) {
-            output.writeBool(3, clockwise_);
-          }
-          if (photos_ != 0) {
-            output.writeInt32(4, photos_);
-          }
-          if (startPoint_ != utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint.NORTH.getNumber()) {
-            output.writeEnum(5, startPoint_);
-          }
-        }
-
-        public int getSerializedSize() {
-          int size = memoizedSize;
-          if (size != -1) return size;
-
-          size = 0;
-          if (radius_ != 0D) {
-            size += com.google.protobuf.CodedOutputStream
-              .computeDoubleSize(1, radius_);
-          }
-          if (surroundingAngle_ != 0D) {
-            size += com.google.protobuf.CodedOutputStream
-              .computeDoubleSize(2, surroundingAngle_);
-          }
-          if (clockwise_ != false) {
-            size += com.google.protobuf.CodedOutputStream
-              .computeBoolSize(3, clockwise_);
-          }
-          if (photos_ != 0) {
-            size += com.google.protobuf.CodedOutputStream
-              .computeInt32Size(4, photos_);
-          }
-          if (startPoint_ != utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint.NORTH.getNumber()) {
-            size += com.google.protobuf.CodedOutputStream
-              .computeEnumSize(5, startPoint_);
-          }
-          memoizedSize = size;
-          return size;
-        }
-
-        private static final long serialVersionUID = 0L;
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-          if (obj == this) {
-           return true;
-          }
-          if (!(obj instanceof utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement)) {
-            return super.equals(obj);
-          }
-          utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement other = (utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement) obj;
-
-          boolean result = true;
-          result = result && (
-              java.lang.Double.doubleToLongBits(getRadius())
-              == java.lang.Double.doubleToLongBits(
-                  other.getRadius()));
-          result = result && (
-              java.lang.Double.doubleToLongBits(getSurroundingAngle())
-              == java.lang.Double.doubleToLongBits(
-                  other.getSurroundingAngle()));
-          result = result && (getClockwise()
-              == other.getClockwise());
-          result = result && (getPhotos()
-              == other.getPhotos());
-          result = result && startPoint_ == other.startPoint_;
-          return result;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-          if (memoizedHashCode != 0) {
-            return memoizedHashCode;
-          }
-          int hash = 41;
-          hash = (19 * hash) + getDescriptor().hashCode();
-          hash = (37 * hash) + RADIUS_FIELD_NUMBER;
-          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-              java.lang.Double.doubleToLongBits(getRadius()));
-          hash = (37 * hash) + SURROUNDING_ANGLE_FIELD_NUMBER;
-          hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-              java.lang.Double.doubleToLongBits(getSurroundingAngle()));
-          hash = (37 * hash) + CLOCKWISE_FIELD_NUMBER;
-          hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-              getClockwise());
-          hash = (37 * hash) + PHOTOS_FIELD_NUMBER;
-          hash = (53 * hash) + getPhotos();
-          hash = (37 * hash) + START_POINT_FIELD_NUMBER;
-          hash = (53 * hash) + startPoint_;
-          hash = (29 * hash) + unknownFields.hashCode();
-          memoizedHashCode = hash;
-          return hash;
-        }
-
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parseFrom(
-            com.google.protobuf.ByteString data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data);
-        }
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parseFrom(
-            com.google.protobuf.ByteString data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parseFrom(byte[] data)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data);
-        }
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parseFrom(
-            byte[] data,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parseFrom(java.io.InputStream input)
-            throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input);
-        }
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parseFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parseDelimitedFrom(java.io.InputStream input)
-            throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageV3
-              .parseDelimitedWithIOException(PARSER, input);
-        }
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parseDelimitedFrom(
-            java.io.InputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageV3
-              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parseFrom(
-            com.google.protobuf.CodedInputStream input)
-            throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input);
-        }
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parseFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageV3
-              .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder() {
-          return DEFAULT_INSTANCE.toBuilder();
-        }
-        public static Builder newBuilder(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement prototype) {
-          return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() {
-          return this == DEFAULT_INSTANCE
-              ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          Builder builder = new Builder(parent);
-          return builder;
-        }
-        /**
-         * Protobuf type {@code uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement}
-         */
-        public static final class Builder extends
-            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-            // @@protoc_insertion_point(builder_implements:uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement)
-            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElementOrBuilder {
-          public static final com.google.protobuf.Descriptors.Descriptor
-              getDescriptor() {
-            return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_HotpointElement_descriptor;
-          }
-
-          protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-              internalGetFieldAccessorTable() {
-            return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_HotpointElement_fieldAccessorTable
-                .ensureFieldAccessorsInitialized(
-                    utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.class, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.Builder.class);
-          }
-
-          // Construct using utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.newBuilder()
-          private Builder() {
-            maybeForceBuilderInitialization();
-          }
-
-          private Builder(
-              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            super(parent);
-            maybeForceBuilderInitialization();
-          }
-          private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
-          }
-          public Builder clear() {
-            super.clear();
-            radius_ = 0D;
-
-            surroundingAngle_ = 0D;
-
-            clockwise_ = false;
-
-            photos_ = 0;
-
-            startPoint_ = 0;
-
-            return this;
-          }
-
-          public com.google.protobuf.Descriptors.Descriptor
-              getDescriptorForType() {
-            return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_HotpointElement_descriptor;
-          }
-
-          public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement getDefaultInstanceForType() {
-            return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.getDefaultInstance();
-          }
-
-          public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement build() {
-            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement result = buildPartial();
-            if (!result.isInitialized()) {
-              throw newUninitializedMessageException(result);
-            }
-            return result;
-          }
-
-          public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement buildPartial() {
-            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement result = new utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement(this);
-            result.radius_ = radius_;
-            result.surroundingAngle_ = surroundingAngle_;
-            result.clockwise_ = clockwise_;
-            result.photos_ = photos_;
-            result.startPoint_ = startPoint_;
-            onBuilt();
-            return result;
-          }
-
-          public Builder clone() {
-            return (Builder) super.clone();
-          }
-          public Builder setField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              Object value) {
-            return (Builder) super.setField(field, value);
-          }
-          public Builder clearField(
-              com.google.protobuf.Descriptors.FieldDescriptor field) {
-            return (Builder) super.clearField(field);
-          }
-          public Builder clearOneof(
-              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-            return (Builder) super.clearOneof(oneof);
-          }
-          public Builder setRepeatedField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              int index, Object value) {
-            return (Builder) super.setRepeatedField(field, index, value);
-          }
-          public Builder addRepeatedField(
-              com.google.protobuf.Descriptors.FieldDescriptor field,
-              Object value) {
-            return (Builder) super.addRepeatedField(field, value);
-          }
-          public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement) {
-              return mergeFrom((utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement)other);
-            } else {
-              super.mergeFrom(other);
-              return this;
-            }
-          }
-
-          public Builder mergeFrom(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement other) {
-            if (other == utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.getDefaultInstance()) return this;
-            if (other.getRadius() != 0D) {
-              setRadius(other.getRadius());
-            }
-            if (other.getSurroundingAngle() != 0D) {
-              setSurroundingAngle(other.getSurroundingAngle());
-            }
-            if (other.getClockwise() != false) {
-              setClockwise(other.getClockwise());
-            }
-            if (other.getPhotos() != 0) {
-              setPhotos(other.getPhotos());
-            }
-            if (other.startPoint_ != 0) {
-              setStartPointValue(other.getStartPointValue());
-            }
-            onChanged();
-            return this;
-          }
-
-          public final boolean isInitialized() {
-            return true;
-          }
-
-          public Builder mergeFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parsedMessage = null;
-            try {
-              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement) e.getUnfinishedMessage();
-              throw e.unwrapIOException();
-            } finally {
-              if (parsedMessage != null) {
-                mergeFrom(parsedMessage);
-              }
-            }
-            return this;
-          }
-
-          private double radius_ ;
-          /**
-           * <code>double radius = 1;</code>
-           */
-          public double getRadius() {
-            return radius_;
-          }
-          /**
-           * <code>double radius = 1;</code>
-           */
-          public Builder setRadius(double value) {
-            
-            radius_ = value;
-            onChanged();
-            return this;
-          }
-          /**
-           * <code>double radius = 1;</code>
-           */
-          public Builder clearRadius() {
-            
-            radius_ = 0D;
-            onChanged();
-            return this;
-          }
-
-          private double surroundingAngle_ ;
-          /**
-           * <code>double surrounding_angle = 2;</code>
-           */
-          public double getSurroundingAngle() {
-            return surroundingAngle_;
-          }
-          /**
-           * <code>double surrounding_angle = 2;</code>
-           */
-          public Builder setSurroundingAngle(double value) {
-            
-            surroundingAngle_ = value;
-            onChanged();
-            return this;
-          }
-          /**
-           * <code>double surrounding_angle = 2;</code>
-           */
-          public Builder clearSurroundingAngle() {
-            
-            surroundingAngle_ = 0D;
-            onChanged();
-            return this;
-          }
-
-          private boolean clockwise_ ;
-          /**
-           * <code>bool clockwise = 3;</code>
-           */
-          public boolean getClockwise() {
-            return clockwise_;
-          }
-          /**
-           * <code>bool clockwise = 3;</code>
-           */
-          public Builder setClockwise(boolean value) {
-            
-            clockwise_ = value;
-            onChanged();
-            return this;
-          }
-          /**
-           * <code>bool clockwise = 3;</code>
-           */
-          public Builder clearClockwise() {
-            
-            clockwise_ = false;
-            onChanged();
-            return this;
-          }
-
-          private int photos_ ;
-          /**
-           * <code>int32 photos = 4;</code>
-           */
-          public int getPhotos() {
-            return photos_;
-          }
-          /**
-           * <code>int32 photos = 4;</code>
-           */
-          public Builder setPhotos(int value) {
-            
-            photos_ = value;
-            onChanged();
-            return this;
-          }
-          /**
-           * <code>int32 photos = 4;</code>
-           */
-          public Builder clearPhotos() {
-            
-            photos_ = 0;
-            onChanged();
-            return this;
-          }
-
-          private int startPoint_ = 0;
-          /**
-           * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint start_point = 5;</code>
-           */
-          public int getStartPointValue() {
-            return startPoint_;
-          }
-          /**
-           * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint start_point = 5;</code>
-           */
-          public Builder setStartPointValue(int value) {
-            startPoint_ = value;
-            onChanged();
-            return this;
-          }
-          /**
-           * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint start_point = 5;</code>
-           */
-          public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint getStartPoint() {
-            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint result = utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint.valueOf(startPoint_);
-            return result == null ? utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint.UNRECOGNIZED : result;
-          }
-          /**
-           * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint start_point = 5;</code>
-           */
-          public Builder setStartPoint(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint value) {
-            if (value == null) {
-              throw new NullPointerException();
-            }
-            
-            startPoint_ = value.getNumber();
-            onChanged();
-            return this;
-          }
-          /**
-           * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint start_point = 5;</code>
-           */
-          public Builder clearStartPoint() {
-            
-            startPoint_ = 0;
-            onChanged();
-            return this;
-          }
-          public final Builder setUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return this;
-          }
-
-          public final Builder mergeUnknownFields(
-              final com.google.protobuf.UnknownFieldSet unknownFields) {
-            return this;
-          }
-
-
-          // @@protoc_insertion_point(builder_scope:uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement)
-        }
-
-        // @@protoc_insertion_point(class_scope:uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement)
-        private static final utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement DEFAULT_INSTANCE;
-        static {
-          DEFAULT_INSTANCE = new utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement();
-        }
-
-        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement getDefaultInstance() {
-          return DEFAULT_INSTANCE;
-        }
-
-        private static final com.google.protobuf.Parser<HotpointElement>
-            PARSER = new com.google.protobuf.AbstractParser<HotpointElement>() {
-          public HotpointElement parsePartialFrom(
-              com.google.protobuf.CodedInputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-              return new HotpointElement(input, extensionRegistry);
-          }
-        };
-
-        public static com.google.protobuf.Parser<HotpointElement> parser() {
-          return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<HotpointElement> getParserForType() {
-          return PARSER;
-        }
-
-        public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement getDefaultInstanceForType() {
-          return DEFAULT_INSTANCE;
-        }
-
-      }
-
-      public static final int FLIGHT_TYPE_FIELD_NUMBER = 1;
-      private int flightType_;
-      /**
-       * <code>.uavdisasterprobev2.FlightPlan.FlightElement.FlightType flight_type = 1;</code>
-       */
-      public int getFlightTypeValue() {
-        return flightType_;
-      }
-      /**
-       * <code>.uavdisasterprobev2.FlightPlan.FlightElement.FlightType flight_type = 1;</code>
-       */
-      public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType getFlightType() {
-        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType result = utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType.valueOf(flightType_);
-        return result == null ? utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType.UNRECOGNIZED : result;
-      }
-
-      public static final int LATITUDE_FIELD_NUMBER = 2;
-      private double latitude_;
-      /**
-       * <code>double latitude = 2;</code>
-       */
-      public double getLatitude() {
-        return latitude_;
-      }
-
-      public static final int LONGITUDE_FIELD_NUMBER = 3;
-      private double longitude_;
-      /**
-       * <code>double longitude = 3;</code>
-       */
-      public double getLongitude() {
-        return longitude_;
-      }
-
-      public static final int ALTITUDE_FIELD_NUMBER = 4;
-      private double altitude_;
-      /**
-       * <code>double altitude = 4;</code>
-       */
-      public double getAltitude() {
-        return altitude_;
-      }
-
-      public static final int GIMBAL_PITCH_FIELD_NUMBER = 5;
-      private int gimbalPitch_;
-      /**
-       * <code>int32 gimbal_pitch = 5;</code>
-       */
-      public int getGimbalPitch() {
-        return gimbalPitch_;
-      }
-
-      public static final int WAYPOINT_ELEMENT_FIELD_NUMBER = 6;
-      private utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement waypointElement_;
-      /**
-       * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
-       */
-      public boolean hasWaypointElement() {
-        return waypointElement_ != null;
-      }
-      /**
-       * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
-       */
-      public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement getWaypointElement() {
-        return waypointElement_ == null ? utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.getDefaultInstance() : waypointElement_;
-      }
-      /**
-       * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
-       */
-      public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElementOrBuilder getWaypointElementOrBuilder() {
-        return getWaypointElement();
-      }
-
-      public static final int HOTPOINT_ELEMENT_FIELD_NUMBER = 7;
-      private utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement hotpointElement_;
-      /**
-       * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
-       */
-      public boolean hasHotpointElement() {
-        return hotpointElement_ != null;
-      }
-      /**
-       * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
-       */
-      public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement getHotpointElement() {
-        return hotpointElement_ == null ? utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.getDefaultInstance() : hotpointElement_;
-      }
-      /**
-       * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
-       */
-      public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElementOrBuilder getHotpointElementOrBuilder() {
-        return getHotpointElement();
-      }
-
-      private byte memoizedIsInitialized = -1;
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized == 1) return true;
-        if (isInitialized == 0) return false;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        if (flightType_ != utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType.WAYPOINT.getNumber()) {
-          output.writeEnum(1, flightType_);
-        }
-        if (latitude_ != 0D) {
-          output.writeDouble(2, latitude_);
-        }
-        if (longitude_ != 0D) {
-          output.writeDouble(3, longitude_);
-        }
-        if (altitude_ != 0D) {
-          output.writeDouble(4, altitude_);
-        }
-        if (gimbalPitch_ != 0) {
-          output.writeInt32(5, gimbalPitch_);
-        }
-        if (waypointElement_ != null) {
-          output.writeMessage(6, getWaypointElement());
-        }
-        if (hotpointElement_ != null) {
-          output.writeMessage(7, getHotpointElement());
-        }
-      }
-
-      public int getSerializedSize() {
-        int size = memoizedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (flightType_ != utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType.WAYPOINT.getNumber()) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeEnumSize(1, flightType_);
-        }
-        if (latitude_ != 0D) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeDoubleSize(2, latitude_);
-        }
-        if (longitude_ != 0D) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeDoubleSize(3, longitude_);
-        }
-        if (altitude_ != 0D) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeDoubleSize(4, altitude_);
-        }
-        if (gimbalPitch_ != 0) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(5, gimbalPitch_);
-        }
-        if (waypointElement_ != null) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(6, getWaypointElement());
-        }
-        if (hotpointElement_ != null) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(7, getHotpointElement());
-        }
-        memoizedSize = size;
-        return size;
-      }
-
-      private static final long serialVersionUID = 0L;
-      @java.lang.Override
-      public boolean equals(final java.lang.Object obj) {
-        if (obj == this) {
-         return true;
-        }
-        if (!(obj instanceof utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement)) {
-          return super.equals(obj);
-        }
-        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement other = (utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement) obj;
-
-        boolean result = true;
-        result = result && flightType_ == other.flightType_;
-        result = result && (
-            java.lang.Double.doubleToLongBits(getLatitude())
-            == java.lang.Double.doubleToLongBits(
-                other.getLatitude()));
-        result = result && (
-            java.lang.Double.doubleToLongBits(getLongitude())
-            == java.lang.Double.doubleToLongBits(
-                other.getLongitude()));
-        result = result && (
-            java.lang.Double.doubleToLongBits(getAltitude())
-            == java.lang.Double.doubleToLongBits(
-                other.getAltitude()));
-        result = result && (getGimbalPitch()
-            == other.getGimbalPitch());
-        result = result && (hasWaypointElement() == other.hasWaypointElement());
-        if (hasWaypointElement()) {
-          result = result && getWaypointElement()
-              .equals(other.getWaypointElement());
-        }
-        result = result && (hasHotpointElement() == other.hasHotpointElement());
-        if (hasHotpointElement()) {
-          result = result && getHotpointElement()
-              .equals(other.getHotpointElement());
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public int hashCode() {
-        if (memoizedHashCode != 0) {
-          return memoizedHashCode;
-        }
-        int hash = 41;
-        hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + FLIGHT_TYPE_FIELD_NUMBER;
-        hash = (53 * hash) + flightType_;
-        hash = (37 * hash) + LATITUDE_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getLatitude()));
-        hash = (37 * hash) + LONGITUDE_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getLongitude()));
-        hash = (37 * hash) + ALTITUDE_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getAltitude()));
-        hash = (37 * hash) + GIMBAL_PITCH_FIELD_NUMBER;
-        hash = (53 * hash) + getGimbalPitch();
-        if (hasWaypointElement()) {
-          hash = (37 * hash) + WAYPOINT_ELEMENT_FIELD_NUMBER;
-          hash = (53 * hash) + getWaypointElement().hashCode();
-        }
-        if (hasHotpointElement()) {
-          hash = (37 * hash) + HOTPOINT_ELEMENT_FIELD_NUMBER;
-          hash = (53 * hash) + getHotpointElement().hashCode();
-        }
-        hash = (29 * hash) + unknownFields.hashCode();
-        memoizedHashCode = hash;
-        return hash;
-      }
-
-      public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input);
-      }
-      public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-      }
-      public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input);
-      }
-      public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return com.google.protobuf.GeneratedMessageV3
-            .parseWithIOException(PARSER, input, extensionRegistry);
-      }
-
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder() {
-        return DEFAULT_INSTANCE.toBuilder();
-      }
-      public static Builder newBuilder(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement prototype) {
-        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-      }
-      public Builder toBuilder() {
-        return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
-      }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code uavdisasterprobev2.FlightPlan.FlightElement}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-          // @@protoc_insertion_point(builder_implements:uavdisasterprobev2.FlightPlan.FlightElement)
-          utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElementOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.class, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder.class);
-        }
-
-        // Construct using utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
-        }
-        public Builder clear() {
-          super.clear();
-          flightType_ = 0;
-
-          latitude_ = 0D;
-
-          longitude_ = 0D;
-
-          altitude_ = 0D;
-
-          gimbalPitch_ = 0;
-
-          if (waypointElementBuilder_ == null) {
-            waypointElement_ = null;
-          } else {
-            waypointElement_ = null;
-            waypointElementBuilder_ = null;
-          }
-          if (hotpointElementBuilder_ == null) {
-            hotpointElement_ = null;
-          } else {
-            hotpointElement_ = null;
-            hotpointElementBuilder_ = null;
-          }
-          return this;
-        }
-
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_descriptor;
-        }
-
-        public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement getDefaultInstanceForType() {
-          return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.getDefaultInstance();
-        }
-
-        public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement build() {
-          utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement buildPartial() {
-          utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement result = new utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement(this);
-          result.flightType_ = flightType_;
-          result.latitude_ = latitude_;
-          result.longitude_ = longitude_;
-          result.altitude_ = altitude_;
-          result.gimbalPitch_ = gimbalPitch_;
-          if (waypointElementBuilder_ == null) {
-            result.waypointElement_ = waypointElement_;
-          } else {
-            result.waypointElement_ = waypointElementBuilder_.build();
-          }
-          if (hotpointElementBuilder_ == null) {
-            result.hotpointElement_ = hotpointElement_;
-          } else {
-            result.hotpointElement_ = hotpointElementBuilder_.build();
-          }
-          onBuilt();
-          return result;
-        }
-
-        public Builder clone() {
-          return (Builder) super.clone();
-        }
-        public Builder setField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            Object value) {
-          return (Builder) super.setField(field, value);
-        }
-        public Builder clearField(
-            com.google.protobuf.Descriptors.FieldDescriptor field) {
-          return (Builder) super.clearField(field);
-        }
-        public Builder clearOneof(
-            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-          return (Builder) super.clearOneof(oneof);
-        }
-        public Builder setRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            int index, Object value) {
-          return (Builder) super.setRepeatedField(field, index, value);
-        }
-        public Builder addRepeatedField(
-            com.google.protobuf.Descriptors.FieldDescriptor field,
-            Object value) {
-          return (Builder) super.addRepeatedField(field, value);
-        }
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement) {
-            return mergeFrom((utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement other) {
-          if (other == utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.getDefaultInstance()) return this;
-          if (other.flightType_ != 0) {
-            setFlightTypeValue(other.getFlightTypeValue());
-          }
-          if (other.getLatitude() != 0D) {
-            setLatitude(other.getLatitude());
-          }
-          if (other.getLongitude() != 0D) {
-            setLongitude(other.getLongitude());
-          }
-          if (other.getAltitude() != 0D) {
-            setAltitude(other.getAltitude());
-          }
-          if (other.getGimbalPitch() != 0) {
-            setGimbalPitch(other.getGimbalPitch());
-          }
-          if (other.hasWaypointElement()) {
-            mergeWaypointElement(other.getWaypointElement());
-          }
-          if (other.hasHotpointElement()) {
-            mergeHotpointElement(other.getHotpointElement());
-          }
-          onChanged();
-          return this;
-        }
-
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement) e.getUnfinishedMessage();
-            throw e.unwrapIOException();
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-
-        private int flightType_ = 0;
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.FlightType flight_type = 1;</code>
-         */
-        public int getFlightTypeValue() {
-          return flightType_;
-        }
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.FlightType flight_type = 1;</code>
-         */
-        public Builder setFlightTypeValue(int value) {
-          flightType_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.FlightType flight_type = 1;</code>
-         */
-        public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType getFlightType() {
-          utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType result = utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType.valueOf(flightType_);
-          return result == null ? utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType.UNRECOGNIZED : result;
-        }
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.FlightType flight_type = 1;</code>
-         */
-        public Builder setFlightType(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType value) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          
-          flightType_ = value.getNumber();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.FlightType flight_type = 1;</code>
-         */
-        public Builder clearFlightType() {
-          
-          flightType_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private double latitude_ ;
-        /**
-         * <code>double latitude = 2;</code>
-         */
-        public double getLatitude() {
-          return latitude_;
-        }
-        /**
-         * <code>double latitude = 2;</code>
-         */
-        public Builder setLatitude(double value) {
-          
-          latitude_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>double latitude = 2;</code>
-         */
-        public Builder clearLatitude() {
-          
-          latitude_ = 0D;
-          onChanged();
-          return this;
-        }
-
-        private double longitude_ ;
-        /**
-         * <code>double longitude = 3;</code>
-         */
-        public double getLongitude() {
-          return longitude_;
-        }
-        /**
-         * <code>double longitude = 3;</code>
-         */
-        public Builder setLongitude(double value) {
-          
-          longitude_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>double longitude = 3;</code>
-         */
-        public Builder clearLongitude() {
-          
-          longitude_ = 0D;
-          onChanged();
-          return this;
-        }
-
-        private double altitude_ ;
-        /**
-         * <code>double altitude = 4;</code>
-         */
-        public double getAltitude() {
-          return altitude_;
-        }
-        /**
-         * <code>double altitude = 4;</code>
-         */
-        public Builder setAltitude(double value) {
-          
-          altitude_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>double altitude = 4;</code>
-         */
-        public Builder clearAltitude() {
-          
-          altitude_ = 0D;
-          onChanged();
-          return this;
-        }
-
-        private int gimbalPitch_ ;
-        /**
-         * <code>int32 gimbal_pitch = 5;</code>
-         */
-        public int getGimbalPitch() {
-          return gimbalPitch_;
-        }
-        /**
-         * <code>int32 gimbal_pitch = 5;</code>
-         */
-        public Builder setGimbalPitch(int value) {
-          
-          gimbalPitch_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>int32 gimbal_pitch = 5;</code>
-         */
-        public Builder clearGimbalPitch() {
-          
-          gimbalPitch_ = 0;
-          onChanged();
-          return this;
-        }
-
-        private utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement waypointElement_ = null;
-        private com.google.protobuf.SingleFieldBuilderV3<
-            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.Builder, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElementOrBuilder> waypointElementBuilder_;
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
-         */
-        public boolean hasWaypointElement() {
-          return waypointElementBuilder_ != null || waypointElement_ != null;
-        }
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
-         */
-        public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement getWaypointElement() {
-          if (waypointElementBuilder_ == null) {
-            return waypointElement_ == null ? utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.getDefaultInstance() : waypointElement_;
-          } else {
-            return waypointElementBuilder_.getMessage();
-          }
-        }
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
-         */
-        public Builder setWaypointElement(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement value) {
-          if (waypointElementBuilder_ == null) {
-            if (value == null) {
-              throw new NullPointerException();
-            }
-            waypointElement_ = value;
-            onChanged();
-          } else {
-            waypointElementBuilder_.setMessage(value);
-          }
-
-          return this;
-        }
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
-         */
-        public Builder setWaypointElement(
-            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.Builder builderForValue) {
-          if (waypointElementBuilder_ == null) {
-            waypointElement_ = builderForValue.build();
-            onChanged();
-          } else {
-            waypointElementBuilder_.setMessage(builderForValue.build());
-          }
-
-          return this;
-        }
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
-         */
-        public Builder mergeWaypointElement(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement value) {
-          if (waypointElementBuilder_ == null) {
-            if (waypointElement_ != null) {
-              waypointElement_ =
-                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.newBuilder(waypointElement_).mergeFrom(value).buildPartial();
-            } else {
-              waypointElement_ = value;
-            }
-            onChanged();
-          } else {
-            waypointElementBuilder_.mergeFrom(value);
-          }
-
-          return this;
-        }
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
-         */
-        public Builder clearWaypointElement() {
-          if (waypointElementBuilder_ == null) {
-            waypointElement_ = null;
-            onChanged();
-          } else {
-            waypointElement_ = null;
-            waypointElementBuilder_ = null;
-          }
-
-          return this;
-        }
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
-         */
-        public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.Builder getWaypointElementBuilder() {
-          
-          onChanged();
-          return getWaypointElementFieldBuilder().getBuilder();
-        }
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
-         */
-        public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElementOrBuilder getWaypointElementOrBuilder() {
-          if (waypointElementBuilder_ != null) {
-            return waypointElementBuilder_.getMessageOrBuilder();
-          } else {
-            return waypointElement_ == null ?
-                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.getDefaultInstance() : waypointElement_;
-          }
-        }
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
-         */
-        private com.google.protobuf.SingleFieldBuilderV3<
-            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.Builder, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElementOrBuilder> 
-            getWaypointElementFieldBuilder() {
-          if (waypointElementBuilder_ == null) {
-            waypointElementBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.Builder, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElementOrBuilder>(
-                    getWaypointElement(),
-                    getParentForChildren(),
-                    isClean());
-            waypointElement_ = null;
-          }
-          return waypointElementBuilder_;
-        }
-
-        private utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement hotpointElement_ = null;
-        private com.google.protobuf.SingleFieldBuilderV3<
-            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.Builder, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElementOrBuilder> hotpointElementBuilder_;
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
-         */
-        public boolean hasHotpointElement() {
-          return hotpointElementBuilder_ != null || hotpointElement_ != null;
-        }
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
-         */
-        public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement getHotpointElement() {
-          if (hotpointElementBuilder_ == null) {
-            return hotpointElement_ == null ? utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.getDefaultInstance() : hotpointElement_;
-          } else {
-            return hotpointElementBuilder_.getMessage();
-          }
-        }
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
-         */
-        public Builder setHotpointElement(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement value) {
-          if (hotpointElementBuilder_ == null) {
-            if (value == null) {
-              throw new NullPointerException();
-            }
-            hotpointElement_ = value;
-            onChanged();
-          } else {
-            hotpointElementBuilder_.setMessage(value);
-          }
-
-          return this;
-        }
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
-         */
-        public Builder setHotpointElement(
-            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.Builder builderForValue) {
-          if (hotpointElementBuilder_ == null) {
-            hotpointElement_ = builderForValue.build();
-            onChanged();
-          } else {
-            hotpointElementBuilder_.setMessage(builderForValue.build());
-          }
-
-          return this;
-        }
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
-         */
-        public Builder mergeHotpointElement(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement value) {
-          if (hotpointElementBuilder_ == null) {
-            if (hotpointElement_ != null) {
-              hotpointElement_ =
-                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.newBuilder(hotpointElement_).mergeFrom(value).buildPartial();
-            } else {
-              hotpointElement_ = value;
-            }
-            onChanged();
-          } else {
-            hotpointElementBuilder_.mergeFrom(value);
-          }
-
-          return this;
-        }
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
-         */
-        public Builder clearHotpointElement() {
-          if (hotpointElementBuilder_ == null) {
-            hotpointElement_ = null;
-            onChanged();
-          } else {
-            hotpointElement_ = null;
-            hotpointElementBuilder_ = null;
-          }
-
-          return this;
-        }
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
-         */
-        public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.Builder getHotpointElementBuilder() {
-          
-          onChanged();
-          return getHotpointElementFieldBuilder().getBuilder();
-        }
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
-         */
-        public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElementOrBuilder getHotpointElementOrBuilder() {
-          if (hotpointElementBuilder_ != null) {
-            return hotpointElementBuilder_.getMessageOrBuilder();
-          } else {
-            return hotpointElement_ == null ?
-                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.getDefaultInstance() : hotpointElement_;
-          }
-        }
-        /**
-         * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
-         */
-        private com.google.protobuf.SingleFieldBuilderV3<
-            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.Builder, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElementOrBuilder> 
-            getHotpointElementFieldBuilder() {
-          if (hotpointElementBuilder_ == null) {
-            hotpointElementBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.Builder, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElementOrBuilder>(
-                    getHotpointElement(),
-                    getParentForChildren(),
-                    isClean());
-            hotpointElement_ = null;
-          }
-          return hotpointElementBuilder_;
-        }
-        public final Builder setUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return this;
-        }
-
-        public final Builder mergeUnknownFields(
-            final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return this;
-        }
-
-
-        // @@protoc_insertion_point(builder_scope:uavdisasterprobev2.FlightPlan.FlightElement)
-      }
-
-      // @@protoc_insertion_point(class_scope:uavdisasterprobev2.FlightPlan.FlightElement)
-      private static final utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement DEFAULT_INSTANCE;
-      static {
-        DEFAULT_INSTANCE = new utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement();
-      }
-
-      public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-      }
-
-      private static final com.google.protobuf.Parser<FlightElement>
-          PARSER = new com.google.protobuf.AbstractParser<FlightElement>() {
-        public FlightElement parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-            return new FlightElement(input, extensionRegistry);
-        }
-      };
-
-      public static com.google.protobuf.Parser<FlightElement> parser() {
-        return PARSER;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<FlightElement> getParserForType() {
-        return PARSER;
-      }
-
-      public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement getDefaultInstanceForType() {
-        return DEFAULT_INSTANCE;
-      }
-
-    }
-
-    public static final int FLIGHT_ELEMENT_FIELD_NUMBER = 1;
-    private java.util.List<utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement> flightElement_;
-    /**
-     * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-     */
-    public java.util.List<utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement> getFlightElementList() {
-      return flightElement_;
-    }
-    /**
-     * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-     */
-    public java.util.List<? extends utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElementOrBuilder> 
-        getFlightElementOrBuilderList() {
-      return flightElement_;
-    }
-    /**
-     * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-     */
-    public int getFlightElementCount() {
-      return flightElement_.size();
-    }
-    /**
-     * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-     */
-    public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement getFlightElement(int index) {
-      return flightElement_.get(index);
-    }
-    /**
-     * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-     */
-    public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElementOrBuilder getFlightElementOrBuilder(
-        int index) {
-      return flightElement_.get(index);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      for (int i = 0; i < flightElement_.size(); i++) {
-        output.writeMessage(1, flightElement_.get(i));
-      }
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      for (int i = 0; i < flightElement_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, flightElement_.get(i));
-      }
-      memoizedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan)) {
-        return super.equals(obj);
-      }
-      utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan other = (utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan) obj;
-
-      boolean result = true;
-      result = result && getFlightElementList()
-          .equals(other.getFlightElementList());
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (getFlightElementCount() > 0) {
-        hash = (37 * hash) + FLIGHT_ELEMENT_FIELD_NUMBER;
-        hash = (53 * hash) + getFlightElementList().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
     /**
      * Protobuf type {@code uavdisasterprobev2.FlightPlan}
      */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:uavdisasterprobev2.FlightPlan)
-        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlanOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.class, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.Builder.class);
-      }
-
-      // Construct using utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getFlightElementFieldBuilder();
+    public static final class FlightPlan extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:uavdisasterprobev2.FlightPlan)
+            FlightPlanOrBuilder {
+        // Use FlightPlan.newBuilder() to construct.
+        private FlightPlan(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
         }
-      }
-      public Builder clear() {
-        super.clear();
-        if (flightElementBuilder_ == null) {
-          flightElement_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          flightElementBuilder_.clear();
+
+        private FlightPlan() {
+            flightElement_ = java.util.Collections.emptyList();
         }
-        return this;
-      }
 
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_descriptor;
-      }
-
-      public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan getDefaultInstanceForType() {
-        return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.getDefaultInstance();
-      }
-
-      public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan build() {
-        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
         }
-        return result;
-      }
 
-      public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan buildPartial() {
-        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan result = new utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan(this);
-        int from_bitField0_ = bitField0_;
-        if (flightElementBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            flightElement_ = java.util.Collections.unmodifiableList(flightElement_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.flightElement_ = flightElement_;
-        } else {
-          result.flightElement_ = flightElementBuilder_.build();
-        }
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan) {
-          return mergeFrom((utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan other) {
-        if (other == utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.getDefaultInstance()) return this;
-        if (flightElementBuilder_ == null) {
-          if (!other.flightElement_.isEmpty()) {
-            if (flightElement_.isEmpty()) {
-              flightElement_ = other.flightElement_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureFlightElementIsMutable();
-              flightElement_.addAll(other.flightElement_);
+        private FlightPlan(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            this();
+            int mutable_bitField0_ = 0;
+            try {
+                boolean done = false;
+                while (!done) {
+                    int tag = input.readTag();
+                    switch (tag) {
+                        case 0:
+                            done = true;
+                            break;
+                        default: {
+                            if (!input.skipField(tag)) {
+                                done = true;
+                            }
+                            break;
+                        }
+                        case 10: {
+                            if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                                flightElement_ = new java.util.ArrayList<utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement>();
+                                mutable_bitField0_ |= 0x00000001;
+                            }
+                            flightElement_.add(
+                                    input.readMessage(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.parser(), extensionRegistry));
+                            break;
+                        }
+                    }
+                }
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(this);
+            } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                        e).setUnfinishedMessage(this);
+            } finally {
+                if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                    flightElement_ = java.util.Collections.unmodifiableList(flightElement_);
+                }
+                makeExtensionsImmutable();
             }
-            onChanged();
-          }
-        } else {
-          if (!other.flightElement_.isEmpty()) {
-            if (flightElementBuilder_.isEmpty()) {
-              flightElementBuilder_.dispose();
-              flightElementBuilder_ = null;
-              flightElement_ = other.flightElement_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              flightElementBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getFlightElementFieldBuilder() : null;
-            } else {
-              flightElementBuilder_.addAllMessages(other.flightElement_);
+        }
+
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.class, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.Builder.class);
+        }
+
+        public interface FlightElementOrBuilder extends
+                // @@protoc_insertion_point(interface_extends:uavdisasterprobev2.FlightPlan.FlightElement)
+                com.google.protobuf.MessageOrBuilder {
+
+            /**
+             * <code>.uavdisasterprobev2.FlightPlan.FlightElement.FlightType flight_type = 1;</code>
+             */
+            int getFlightTypeValue();
+
+            /**
+             * <code>.uavdisasterprobev2.FlightPlan.FlightElement.FlightType flight_type = 1;</code>
+             */
+            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType getFlightType();
+
+            /**
+             * <code>double latitude = 2;</code>
+             */
+            double getLatitude();
+
+            /**
+             * <code>double longitude = 3;</code>
+             */
+            double getLongitude();
+
+            /**
+             * <code>double altitude = 4;</code>
+             */
+            double getAltitude();
+
+            /**
+             * <code>int32 gimbal_pitch = 5;</code>
+             */
+            int getGimbalPitch();
+
+            /**
+             * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
+             */
+            boolean hasWaypointElement();
+
+            /**
+             * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
+             */
+            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement getWaypointElement();
+
+            /**
+             * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
+             */
+            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElementOrBuilder getWaypointElementOrBuilder();
+
+            /**
+             * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
+             */
+            boolean hasHotpointElement();
+
+            /**
+             * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
+             */
+            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement getHotpointElement();
+
+            /**
+             * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
+             */
+            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElementOrBuilder getHotpointElementOrBuilder();
+        }
+
+        /**
+         * Protobuf type {@code uavdisasterprobev2.FlightPlan.FlightElement}
+         */
+        public static final class FlightElement extends
+                com.google.protobuf.GeneratedMessageV3 implements
+                // @@protoc_insertion_point(message_implements:uavdisasterprobev2.FlightPlan.FlightElement)
+                FlightElementOrBuilder {
+            // Use FlightElement.newBuilder() to construct.
+            private FlightElement(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+                super(builder);
             }
-          }
-        }
-        onChanged();
-        return this;
-      }
 
-      public final boolean isInitialized() {
-        return true;
-      }
+            private FlightElement() {
+                flightType_ = 0;
+                latitude_ = 0D;
+                longitude_ = 0D;
+                altitude_ = 0D;
+                gimbalPitch_ = 0;
+            }
 
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
+            @java.lang.Override
+            public final com.google.protobuf.UnknownFieldSet
+            getUnknownFields() {
+                return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+            }
 
-      private java.util.List<utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement> flightElement_ =
-        java.util.Collections.emptyList();
-      private void ensureFlightElementIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          flightElement_ = new java.util.ArrayList<utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement>(flightElement_);
-          bitField0_ |= 0x00000001;
-         }
-      }
+            private FlightElement(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                this();
+                int mutable_bitField0_ = 0;
+                try {
+                    boolean done = false;
+                    while (!done) {
+                        int tag = input.readTag();
+                        switch (tag) {
+                            case 0:
+                                done = true;
+                                break;
+                            default: {
+                                if (!input.skipField(tag)) {
+                                    done = true;
+                                }
+                                break;
+                            }
+                            case 8: {
+                                int rawValue = input.readEnum();
 
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElementOrBuilder> flightElementBuilder_;
+                                flightType_ = rawValue;
+                                break;
+                            }
+                            case 17: {
 
-      /**
-       * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-       */
-      public java.util.List<utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement> getFlightElementList() {
-        if (flightElementBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(flightElement_);
-        } else {
-          return flightElementBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-       */
-      public int getFlightElementCount() {
-        if (flightElementBuilder_ == null) {
-          return flightElement_.size();
-        } else {
-          return flightElementBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-       */
-      public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement getFlightElement(int index) {
-        if (flightElementBuilder_ == null) {
-          return flightElement_.get(index);
-        } else {
-          return flightElementBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-       */
-      public Builder setFlightElement(
-          int index, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement value) {
-        if (flightElementBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureFlightElementIsMutable();
-          flightElement_.set(index, value);
-          onChanged();
-        } else {
-          flightElementBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-       */
-      public Builder setFlightElement(
-          int index, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder builderForValue) {
-        if (flightElementBuilder_ == null) {
-          ensureFlightElementIsMutable();
-          flightElement_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          flightElementBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-       */
-      public Builder addFlightElement(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement value) {
-        if (flightElementBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureFlightElementIsMutable();
-          flightElement_.add(value);
-          onChanged();
-        } else {
-          flightElementBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-       */
-      public Builder addFlightElement(
-          int index, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement value) {
-        if (flightElementBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureFlightElementIsMutable();
-          flightElement_.add(index, value);
-          onChanged();
-        } else {
-          flightElementBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-       */
-      public Builder addFlightElement(
-          utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder builderForValue) {
-        if (flightElementBuilder_ == null) {
-          ensureFlightElementIsMutable();
-          flightElement_.add(builderForValue.build());
-          onChanged();
-        } else {
-          flightElementBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-       */
-      public Builder addFlightElement(
-          int index, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder builderForValue) {
-        if (flightElementBuilder_ == null) {
-          ensureFlightElementIsMutable();
-          flightElement_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          flightElementBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-       */
-      public Builder addAllFlightElement(
-          java.lang.Iterable<? extends utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement> values) {
-        if (flightElementBuilder_ == null) {
-          ensureFlightElementIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, flightElement_);
-          onChanged();
-        } else {
-          flightElementBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-       */
-      public Builder clearFlightElement() {
-        if (flightElementBuilder_ == null) {
-          flightElement_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          flightElementBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-       */
-      public Builder removeFlightElement(int index) {
-        if (flightElementBuilder_ == null) {
-          ensureFlightElementIsMutable();
-          flightElement_.remove(index);
-          onChanged();
-        } else {
-          flightElementBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-       */
-      public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder getFlightElementBuilder(
-          int index) {
-        return getFlightElementFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-       */
-      public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElementOrBuilder getFlightElementOrBuilder(
-          int index) {
-        if (flightElementBuilder_ == null) {
-          return flightElement_.get(index);  } else {
-          return flightElementBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-       */
-      public java.util.List<? extends utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElementOrBuilder> 
-           getFlightElementOrBuilderList() {
-        if (flightElementBuilder_ != null) {
-          return flightElementBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(flightElement_);
-        }
-      }
-      /**
-       * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-       */
-      public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder addFlightElementBuilder() {
-        return getFlightElementFieldBuilder().addBuilder(
-            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-       */
-      public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder addFlightElementBuilder(
-          int index) {
-        return getFlightElementFieldBuilder().addBuilder(
-            index, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
-       */
-      public java.util.List<utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder> 
-           getFlightElementBuilderList() {
-        return getFlightElementFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElementOrBuilder> 
-          getFlightElementFieldBuilder() {
-        if (flightElementBuilder_ == null) {
-          flightElementBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElementOrBuilder>(
-                  flightElement_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
-                  getParentForChildren(),
-                  isClean());
-          flightElement_ = null;
-        }
-        return flightElementBuilder_;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
+                                latitude_ = input.readDouble();
+                                break;
+                            }
+                            case 25: {
 
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
+                                longitude_ = input.readDouble();
+                                break;
+                            }
+                            case 33: {
+
+                                altitude_ = input.readDouble();
+                                break;
+                            }
+                            case 40: {
+
+                                gimbalPitch_ = input.readInt32();
+                                break;
+                            }
+                            case 50: {
+                                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.Builder subBuilder = null;
+                                if (waypointElement_ != null) {
+                                    subBuilder = waypointElement_.toBuilder();
+                                }
+                                waypointElement_ = input.readMessage(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.parser(), extensionRegistry);
+                                if (subBuilder != null) {
+                                    subBuilder.mergeFrom(waypointElement_);
+                                    waypointElement_ = subBuilder.buildPartial();
+                                }
+
+                                break;
+                            }
+                            case 58: {
+                                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.Builder subBuilder = null;
+                                if (hotpointElement_ != null) {
+                                    subBuilder = hotpointElement_.toBuilder();
+                                }
+                                hotpointElement_ = input.readMessage(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.parser(), extensionRegistry);
+                                if (subBuilder != null) {
+                                    subBuilder.mergeFrom(hotpointElement_);
+                                    hotpointElement_ = subBuilder.buildPartial();
+                                }
+
+                                break;
+                            }
+                        }
+                    }
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    throw e.setUnfinishedMessage(this);
+                } catch (java.io.IOException e) {
+                    throw new com.google.protobuf.InvalidProtocolBufferException(
+                            e).setUnfinishedMessage(this);
+                } finally {
+                    makeExtensionsImmutable();
+                }
+            }
+
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_descriptor;
+            }
+
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.class, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder.class);
+            }
+
+            /**
+             * Protobuf enum {@code uavdisasterprobev2.FlightPlan.FlightElement.FlightType}
+             */
+            public enum FlightType
+                    implements com.google.protobuf.ProtocolMessageEnum {
+                /**
+                 * <code>WAYPOINT = 0;</code>
+                 */
+                WAYPOINT(0),
+                /**
+                 * <code>HOTPOINT = 1;</code>
+                 */
+                HOTPOINT(1),
+                UNRECOGNIZED(-1),;
+
+                /**
+                 * <code>WAYPOINT = 0;</code>
+                 */
+                public static final int WAYPOINT_VALUE = 0;
+                /**
+                 * <code>HOTPOINT = 1;</code>
+                 */
+                public static final int HOTPOINT_VALUE = 1;
 
 
-      // @@protoc_insertion_point(builder_scope:uavdisasterprobev2.FlightPlan)
-    }
+                public final int getNumber() {
+                    if (this == UNRECOGNIZED) {
+                        throw new java.lang.IllegalArgumentException(
+                                "Can't get the number of an unknown enum value.");
+                    }
+                    return value;
+                }
 
-    // @@protoc_insertion_point(class_scope:uavdisasterprobev2.FlightPlan)
-    private static final utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan();
-    }
+                /**
+                 * @deprecated Use {@link #forNumber(int)} instead.
+                 */
+                @java.lang.Deprecated
+                public static FlightType valueOf(int value) {
+                    return forNumber(value);
+                }
 
-    public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
+                public static FlightType forNumber(int value) {
+                    switch (value) {
+                        case 0:
+                            return WAYPOINT;
+                        case 1:
+                            return HOTPOINT;
+                        default:
+                            return null;
+                    }
+                }
 
-    private static final com.google.protobuf.Parser<FlightPlan>
-        PARSER = new com.google.protobuf.AbstractParser<FlightPlan>() {
-      public FlightPlan parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new FlightPlan(input, extensionRegistry);
-      }
-    };
+                public static com.google.protobuf.Internal.EnumLiteMap<FlightType>
+                internalGetValueMap() {
+                    return internalValueMap;
+                }
 
-    public static com.google.protobuf.Parser<FlightPlan> parser() {
-      return PARSER;
-    }
+                private static final com.google.protobuf.Internal.EnumLiteMap<
+                        FlightType> internalValueMap =
+                        new com.google.protobuf.Internal.EnumLiteMap<FlightType>() {
+                            public FlightType findValueByNumber(int number) {
+                                return FlightType.forNumber(number);
+                            }
+                        };
 
-    @java.lang.Override
-    public com.google.protobuf.Parser<FlightPlan> getParserForType() {
-      return PARSER;
-    }
+                public final com.google.protobuf.Descriptors.EnumValueDescriptor
+                getValueDescriptor() {
+                    return getDescriptor().getValues().get(ordinal());
+                }
 
-    public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
+                public final com.google.protobuf.Descriptors.EnumDescriptor
+                getDescriptorForType() {
+                    return getDescriptor();
+                }
 
-  }
+                public static final com.google.protobuf.Descriptors.EnumDescriptor
+                getDescriptor() {
+                    return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.getDescriptor().getEnumTypes().get(0);
+                }
 
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_uavdisasterprobev2_FlightPlan_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_uavdisasterprobev2_FlightPlan_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_uavdisasterprobev2_FlightPlan_FlightElement_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_uavdisasterprobev2_FlightPlan_FlightElement_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_uavdisasterprobev2_FlightPlan_FlightElement_WaypointElement_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_uavdisasterprobev2_FlightPlan_FlightElement_WaypointElement_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_uavdisasterprobev2_FlightPlan_FlightElement_HotpointElement_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_uavdisasterprobev2_FlightPlan_FlightElement_HotpointElement_fieldAccessorTable;
+                private static final FlightType[] VALUES = values();
 
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    java.lang.String[] descriptorData = {
-      "\n\021flight-plan.proto\022\022uavdisasterprobev2\"" +
-      "\376\005\n\nFlightPlan\022D\n\016flight_element\030\001 \003(\0132," +
-      ".uavdisasterprobev2.FlightPlan.FlightEle" +
-      "ment\032\251\005\n\rFlightElement\022L\n\013flight_type\030\001 " +
-      "\001(\01627.uavdisasterprobev2.FlightPlan.Flig" +
-      "htElement.FlightType\022\020\n\010latitude\030\002 \001(\001\022\021" +
-      "\n\tlongitude\030\003 \001(\001\022\020\n\010altitude\030\004 \001(\001\022\024\n\014g" +
-      "imbal_pitch\030\005 \001(\005\022V\n\020waypoint_element\030\006 " +
-      "\001(\0132<.uavdisasterprobev2.FlightPlan.Flig" +
-      "htElement.WaypointElement\022V\n\020hotpoint_el",
-      "ement\030\007 \001(\0132<.uavdisasterprobev2.FlightP" +
-      "lan.FlightElement.HotpointElement\032\036\n\017Way" +
-      "pointElement\022\013\n\003yaw\030\001 \001(\001\032\202\002\n\017HotpointEl" +
-      "ement\022\016\n\006radius\030\001 \001(\001\022\031\n\021surrounding_ang" +
-      "le\030\002 \001(\001\022\021\n\tclockwise\030\003 \001(\010\022\016\n\006photos\030\004 " +
-      "\001(\005\022\\\n\013start_point\030\005 \001(\0162G.uavdisasterpr" +
-      "obev2.FlightPlan.FlightElement.HotpointE" +
-      "lement.StartPoint\"C\n\nStartPoint\022\t\n\005NORTH" +
-      "\020\000\022\t\n\005SOUTH\020\001\022\010\n\004WEST\020\002\022\010\n\004EAST\020\003\022\013\n\007NEA" +
-      "REST\020\004\"(\n\nFlightType\022\014\n\010WAYPOINT\020\000\022\014\n\010HO",
-      "TPOINT\020\001B9\n%utwente.uav.uavdisasterprobe" +
-      "v2.protosB\020FlightPlanProtosb\006proto3"
-    };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
+                public static FlightType valueOf(
+                        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+                    if (desc.getType() != getDescriptor()) {
+                        throw new java.lang.IllegalArgumentException(
+                                "EnumValueDescriptor is not for this type.");
+                    }
+                    if (desc.getIndex() == -1) {
+                        return UNRECOGNIZED;
+                    }
+                    return VALUES[desc.getIndex()];
+                }
+
+                private final int value;
+
+                private FlightType(int value) {
+                    this.value = value;
+                }
+
+                // @@protoc_insertion_point(enum_scope:uavdisasterprobev2.FlightPlan.FlightElement.FlightType)
+            }
+
+            public interface WaypointElementOrBuilder extends
+                    // @@protoc_insertion_point(interface_extends:uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement)
+                    com.google.protobuf.MessageOrBuilder {
+
+                /**
+                 * <code>double yaw = 1;</code>
+                 */
+                double getYaw();
+            }
+
+            /**
+             * Protobuf type {@code uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement}
+             */
+            public static final class WaypointElement extends
+                    com.google.protobuf.GeneratedMessageV3 implements
+                    // @@protoc_insertion_point(message_implements:uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement)
+                    WaypointElementOrBuilder {
+                // Use WaypointElement.newBuilder() to construct.
+                private WaypointElement(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+                    super(builder);
+                }
+
+                private WaypointElement() {
+                    yaw_ = 0D;
+                }
+
+                @java.lang.Override
+                public final com.google.protobuf.UnknownFieldSet
+                getUnknownFields() {
+                    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+                }
+
+                private WaypointElement(
+                        com.google.protobuf.CodedInputStream input,
+                        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                        throws com.google.protobuf.InvalidProtocolBufferException {
+                    this();
+                    int mutable_bitField0_ = 0;
+                    try {
+                        boolean done = false;
+                        while (!done) {
+                            int tag = input.readTag();
+                            switch (tag) {
+                                case 0:
+                                    done = true;
+                                    break;
+                                default: {
+                                    if (!input.skipField(tag)) {
+                                        done = true;
+                                    }
+                                    break;
+                                }
+                                case 9: {
+
+                                    yaw_ = input.readDouble();
+                                    break;
+                                }
+                            }
+                        }
+                    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (java.io.IOException e) {
+                        throw new com.google.protobuf.InvalidProtocolBufferException(
+                                e).setUnfinishedMessage(this);
+                    } finally {
+                        makeExtensionsImmutable();
+                    }
+                }
+
+                public static final com.google.protobuf.Descriptors.Descriptor
+                getDescriptor() {
+                    return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_WaypointElement_descriptor;
+                }
+
+                protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+                internalGetFieldAccessorTable() {
+                    return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_WaypointElement_fieldAccessorTable
+                            .ensureFieldAccessorsInitialized(
+                                    utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.class, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.Builder.class);
+                }
+
+                public static final int YAW_FIELD_NUMBER = 1;
+                private double yaw_;
+
+                /**
+                 * <code>double yaw = 1;</code>
+                 */
+                public double getYaw() {
+                    return yaw_;
+                }
+
+                private byte memoizedIsInitialized = -1;
+
+                public final boolean isInitialized() {
+                    byte isInitialized = memoizedIsInitialized;
+                    if (isInitialized == 1) return true;
+                    if (isInitialized == 0) return false;
+
+                    memoizedIsInitialized = 1;
+                    return true;
+                }
+
+                public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+                    if (yaw_ != 0D) {
+                        output.writeDouble(1, yaw_);
+                    }
+                }
+
+                public int getSerializedSize() {
+                    int size = memoizedSize;
+                    if (size != -1) return size;
+
+                    size = 0;
+                    if (yaw_ != 0D) {
+                        size += com.google.protobuf.CodedOutputStream
+                                .computeDoubleSize(1, yaw_);
+                    }
+                    memoizedSize = size;
+                    return size;
+                }
+
+                private static final long serialVersionUID = 0L;
+
+                @java.lang.Override
+                public boolean equals(final java.lang.Object obj) {
+                    if (obj == this) {
+                        return true;
+                    }
+                    if (!(obj instanceof utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement)) {
+                        return super.equals(obj);
+                    }
+                    utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement other = (utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement) obj;
+
+                    boolean result = true;
+                    result = result && (
+                            java.lang.Double.doubleToLongBits(getYaw())
+                                    == java.lang.Double.doubleToLongBits(
+                                    other.getYaw()));
+                    return result;
+                }
+
+                @java.lang.Override
+                public int hashCode() {
+                    if (memoizedHashCode != 0) {
+                        return memoizedHashCode;
+                    }
+                    int hash = 41;
+                    hash = (19 * hash) + getDescriptor().hashCode();
+                    hash = (37 * hash) + YAW_FIELD_NUMBER;
+                    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+                            java.lang.Double.doubleToLongBits(getYaw()));
+                    hash = (29 * hash) + unknownFields.hashCode();
+                    memoizedHashCode = hash;
+                    return hash;
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parseFrom(
+                        com.google.protobuf.ByteString data)
+                        throws com.google.protobuf.InvalidProtocolBufferException {
+                    return PARSER.parseFrom(data);
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parseFrom(
+                        com.google.protobuf.ByteString data,
+                        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                        throws com.google.protobuf.InvalidProtocolBufferException {
+                    return PARSER.parseFrom(data, extensionRegistry);
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parseFrom(byte[] data)
+                        throws com.google.protobuf.InvalidProtocolBufferException {
+                    return PARSER.parseFrom(data);
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parseFrom(
+                        byte[] data,
+                        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                        throws com.google.protobuf.InvalidProtocolBufferException {
+                    return PARSER.parseFrom(data, extensionRegistry);
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parseFrom(java.io.InputStream input)
+                        throws java.io.IOException {
+                    return com.google.protobuf.GeneratedMessageV3
+                            .parseWithIOException(PARSER, input);
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parseFrom(
+                        java.io.InputStream input,
+                        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                        throws java.io.IOException {
+                    return com.google.protobuf.GeneratedMessageV3
+                            .parseWithIOException(PARSER, input, extensionRegistry);
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parseDelimitedFrom(java.io.InputStream input)
+                        throws java.io.IOException {
+                    return com.google.protobuf.GeneratedMessageV3
+                            .parseDelimitedWithIOException(PARSER, input);
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parseDelimitedFrom(
+                        java.io.InputStream input,
+                        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                        throws java.io.IOException {
+                    return com.google.protobuf.GeneratedMessageV3
+                            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parseFrom(
+                        com.google.protobuf.CodedInputStream input)
+                        throws java.io.IOException {
+                    return com.google.protobuf.GeneratedMessageV3
+                            .parseWithIOException(PARSER, input);
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parseFrom(
+                        com.google.protobuf.CodedInputStream input,
+                        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                        throws java.io.IOException {
+                    return com.google.protobuf.GeneratedMessageV3
+                            .parseWithIOException(PARSER, input, extensionRegistry);
+                }
+
+                public Builder newBuilderForType() {
+                    return newBuilder();
+                }
+
+                public static Builder newBuilder() {
+                    return DEFAULT_INSTANCE.toBuilder();
+                }
+
+                public static Builder newBuilder(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement prototype) {
+                    return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+                }
+
+                public Builder toBuilder() {
+                    return this == DEFAULT_INSTANCE
+                            ? new Builder() : new Builder().mergeFrom(this);
+                }
+
+                @java.lang.Override
+                protected Builder newBuilderForType(
+                        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                    Builder builder = new Builder(parent);
+                    return builder;
+                }
+
+                /**
+                 * Protobuf type {@code uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement}
+                 */
+                public static final class Builder extends
+                        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                        // @@protoc_insertion_point(builder_implements:uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement)
+                        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElementOrBuilder {
+                    public static final com.google.protobuf.Descriptors.Descriptor
+                    getDescriptor() {
+                        return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_WaypointElement_descriptor;
+                    }
+
+                    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+                    internalGetFieldAccessorTable() {
+                        return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_WaypointElement_fieldAccessorTable
+                                .ensureFieldAccessorsInitialized(
+                                        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.class, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.Builder.class);
+                    }
+
+                    // Construct using utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.newBuilder()
+                    private Builder() {
+                        maybeForceBuilderInitialization();
+                    }
+
+                    private Builder(
+                            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                        super(parent);
+                        maybeForceBuilderInitialization();
+                    }
+
+                    private void maybeForceBuilderInitialization() {
+                        if (com.google.protobuf.GeneratedMessageV3
+                                .alwaysUseFieldBuilders) {
+                        }
+                    }
+
+                    public Builder clear() {
+                        super.clear();
+                        yaw_ = 0D;
+
+                        return this;
+                    }
+
+                    public com.google.protobuf.Descriptors.Descriptor
+                    getDescriptorForType() {
+                        return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_WaypointElement_descriptor;
+                    }
+
+                    public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement getDefaultInstanceForType() {
+                        return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.getDefaultInstance();
+                    }
+
+                    public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement build() {
+                        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement result = buildPartial();
+                        if (!result.isInitialized()) {
+                            throw newUninitializedMessageException(result);
+                        }
+                        return result;
+                    }
+
+                    public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement buildPartial() {
+                        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement result = new utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement(this);
+                        result.yaw_ = yaw_;
+                        onBuilt();
+                        return result;
+                    }
+
+                    public Builder clone() {
+                        return (Builder) super.clone();
+                    }
+
+                    public Builder setField(
+                            com.google.protobuf.Descriptors.FieldDescriptor field,
+                            Object value) {
+                        return (Builder) super.setField(field, value);
+                    }
+
+                    public Builder clearField(
+                            com.google.protobuf.Descriptors.FieldDescriptor field) {
+                        return (Builder) super.clearField(field);
+                    }
+
+                    public Builder clearOneof(
+                            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                        return (Builder) super.clearOneof(oneof);
+                    }
+
+                    public Builder setRepeatedField(
+                            com.google.protobuf.Descriptors.FieldDescriptor field,
+                            int index, Object value) {
+                        return (Builder) super.setRepeatedField(field, index, value);
+                    }
+
+                    public Builder addRepeatedField(
+                            com.google.protobuf.Descriptors.FieldDescriptor field,
+                            Object value) {
+                        return (Builder) super.addRepeatedField(field, value);
+                    }
+
+                    public Builder mergeFrom(com.google.protobuf.Message other) {
+                        if (other instanceof utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement) {
+                            return mergeFrom((utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement) other);
+                        } else {
+                            super.mergeFrom(other);
+                            return this;
+                        }
+                    }
+
+                    public Builder mergeFrom(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement other) {
+                        if (other == utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.getDefaultInstance())
+                            return this;
+                        if (other.getYaw() != 0D) {
+                            setYaw(other.getYaw());
+                        }
+                        onChanged();
+                        return this;
+                    }
+
+                    public final boolean isInitialized() {
+                        return true;
+                    }
+
+                    public Builder mergeFrom(
+                            com.google.protobuf.CodedInputStream input,
+                            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                            throws java.io.IOException {
+                        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement parsedMessage = null;
+                        try {
+                            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                            parsedMessage = (utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement) e.getUnfinishedMessage();
+                            throw e.unwrapIOException();
+                        } finally {
+                            if (parsedMessage != null) {
+                                mergeFrom(parsedMessage);
+                            }
+                        }
+                        return this;
+                    }
+
+                    private double yaw_;
+
+                    /**
+                     * <code>double yaw = 1;</code>
+                     */
+                    public double getYaw() {
+                        return yaw_;
+                    }
+
+                    /**
+                     * <code>double yaw = 1;</code>
+                     */
+                    public Builder setYaw(double value) {
+
+                        yaw_ = value;
+                        onChanged();
+                        return this;
+                    }
+
+                    /**
+                     * <code>double yaw = 1;</code>
+                     */
+                    public Builder clearYaw() {
+
+                        yaw_ = 0D;
+                        onChanged();
+                        return this;
+                    }
+
+                    public final Builder setUnknownFields(
+                            final com.google.protobuf.UnknownFieldSet unknownFields) {
+                        return this;
+                    }
+
+                    public final Builder mergeUnknownFields(
+                            final com.google.protobuf.UnknownFieldSet unknownFields) {
+                        return this;
+                    }
+
+
+                    // @@protoc_insertion_point(builder_scope:uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement)
+                }
+
+                // @@protoc_insertion_point(class_scope:uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement)
+                private static final utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement DEFAULT_INSTANCE;
+
+                static {
+                    DEFAULT_INSTANCE = new utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement();
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement getDefaultInstance() {
+                    return DEFAULT_INSTANCE;
+                }
+
+                private static final com.google.protobuf.Parser<WaypointElement>
+                        PARSER = new com.google.protobuf.AbstractParser<WaypointElement>() {
+                    public WaypointElement parsePartialFrom(
+                            com.google.protobuf.CodedInputStream input,
+                            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                            throws com.google.protobuf.InvalidProtocolBufferException {
+                        return new WaypointElement(input, extensionRegistry);
+                    }
+                };
+
+                public static com.google.protobuf.Parser<WaypointElement> parser() {
+                    return PARSER;
+                }
+
+                @java.lang.Override
+                public com.google.protobuf.Parser<WaypointElement> getParserForType() {
+                    return PARSER;
+                }
+
+                public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement getDefaultInstanceForType() {
+                    return DEFAULT_INSTANCE;
+                }
+
+            }
+
+            public interface HotpointElementOrBuilder extends
+                    // @@protoc_insertion_point(interface_extends:uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement)
+                    com.google.protobuf.MessageOrBuilder {
+
+                /**
+                 * <code>double radius = 1;</code>
+                 */
+                double getRadius();
+
+                /**
+                 * <code>double surrounding_angle = 2;</code>
+                 */
+                double getSurroundingAngle();
+
+                /**
+                 * <code>bool clockwise = 3;</code>
+                 */
+                boolean getClockwise();
+
+                /**
+                 * <code>int32 photos = 4;</code>
+                 */
+                int getPhotos();
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint start_point = 5;</code>
+                 */
+                int getStartPointValue();
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint start_point = 5;</code>
+                 */
+                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint getStartPoint();
+            }
+
+            /**
+             * Protobuf type {@code uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement}
+             */
+            public static final class HotpointElement extends
+                    com.google.protobuf.GeneratedMessageV3 implements
+                    // @@protoc_insertion_point(message_implements:uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement)
+                    HotpointElementOrBuilder {
+                // Use HotpointElement.newBuilder() to construct.
+                private HotpointElement(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+                    super(builder);
+                }
+
+                private HotpointElement() {
+                    radius_ = 0D;
+                    surroundingAngle_ = 0D;
+                    clockwise_ = false;
+                    photos_ = 0;
+                    startPoint_ = 0;
+                }
+
+                @java.lang.Override
+                public final com.google.protobuf.UnknownFieldSet
+                getUnknownFields() {
+                    return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+                }
+
+                private HotpointElement(
+                        com.google.protobuf.CodedInputStream input,
+                        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                        throws com.google.protobuf.InvalidProtocolBufferException {
+                    this();
+                    int mutable_bitField0_ = 0;
+                    try {
+                        boolean done = false;
+                        while (!done) {
+                            int tag = input.readTag();
+                            switch (tag) {
+                                case 0:
+                                    done = true;
+                                    break;
+                                default: {
+                                    if (!input.skipField(tag)) {
+                                        done = true;
+                                    }
+                                    break;
+                                }
+                                case 9: {
+
+                                    radius_ = input.readDouble();
+                                    break;
+                                }
+                                case 17: {
+
+                                    surroundingAngle_ = input.readDouble();
+                                    break;
+                                }
+                                case 24: {
+
+                                    clockwise_ = input.readBool();
+                                    break;
+                                }
+                                case 32: {
+
+                                    photos_ = input.readInt32();
+                                    break;
+                                }
+                                case 40: {
+                                    int rawValue = input.readEnum();
+
+                                    startPoint_ = rawValue;
+                                    break;
+                                }
+                            }
+                        }
+                    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
+                    } catch (java.io.IOException e) {
+                        throw new com.google.protobuf.InvalidProtocolBufferException(
+                                e).setUnfinishedMessage(this);
+                    } finally {
+                        makeExtensionsImmutable();
+                    }
+                }
+
+                public static final com.google.protobuf.Descriptors.Descriptor
+                getDescriptor() {
+                    return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_HotpointElement_descriptor;
+                }
+
+                protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+                internalGetFieldAccessorTable() {
+                    return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_HotpointElement_fieldAccessorTable
+                            .ensureFieldAccessorsInitialized(
+                                    utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.class, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.Builder.class);
+                }
+
+                /**
+                 * Protobuf enum {@code uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint}
+                 */
+                public enum StartPoint
+                        implements com.google.protobuf.ProtocolMessageEnum {
+                    /**
+                     * <code>NORTH = 0;</code>
+                     */
+                    NORTH(0),
+                    /**
+                     * <code>SOUTH = 1;</code>
+                     */
+                    SOUTH(1),
+                    /**
+                     * <code>WEST = 2;</code>
+                     */
+                    WEST(2),
+                    /**
+                     * <code>EAST = 3;</code>
+                     */
+                    EAST(3),
+                    /**
+                     * <code>NEAREST = 4;</code>
+                     */
+                    NEAREST(4),
+                    UNRECOGNIZED(-1),;
+
+                    /**
+                     * <code>NORTH = 0;</code>
+                     */
+                    public static final int NORTH_VALUE = 0;
+                    /**
+                     * <code>SOUTH = 1;</code>
+                     */
+                    public static final int SOUTH_VALUE = 1;
+                    /**
+                     * <code>WEST = 2;</code>
+                     */
+                    public static final int WEST_VALUE = 2;
+                    /**
+                     * <code>EAST = 3;</code>
+                     */
+                    public static final int EAST_VALUE = 3;
+                    /**
+                     * <code>NEAREST = 4;</code>
+                     */
+                    public static final int NEAREST_VALUE = 4;
+
+
+                    public final int getNumber() {
+                        if (this == UNRECOGNIZED) {
+                            throw new java.lang.IllegalArgumentException(
+                                    "Can't get the number of an unknown enum value.");
+                        }
+                        return value;
+                    }
+
+                    /**
+                     * @deprecated Use {@link #forNumber(int)} instead.
+                     */
+                    @java.lang.Deprecated
+                    public static StartPoint valueOf(int value) {
+                        return forNumber(value);
+                    }
+
+                    public static StartPoint forNumber(int value) {
+                        switch (value) {
+                            case 0:
+                                return NORTH;
+                            case 1:
+                                return SOUTH;
+                            case 2:
+                                return WEST;
+                            case 3:
+                                return EAST;
+                            case 4:
+                                return NEAREST;
+                            default:
+                                return null;
+                        }
+                    }
+
+                    public static com.google.protobuf.Internal.EnumLiteMap<StartPoint>
+                    internalGetValueMap() {
+                        return internalValueMap;
+                    }
+
+                    private static final com.google.protobuf.Internal.EnumLiteMap<
+                            StartPoint> internalValueMap =
+                            new com.google.protobuf.Internal.EnumLiteMap<StartPoint>() {
+                                public StartPoint findValueByNumber(int number) {
+                                    return StartPoint.forNumber(number);
+                                }
+                            };
+
+                    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+                    getValueDescriptor() {
+                        return getDescriptor().getValues().get(ordinal());
+                    }
+
+                    public final com.google.protobuf.Descriptors.EnumDescriptor
+                    getDescriptorForType() {
+                        return getDescriptor();
+                    }
+
+                    public static final com.google.protobuf.Descriptors.EnumDescriptor
+                    getDescriptor() {
+                        return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.getDescriptor().getEnumTypes().get(0);
+                    }
+
+                    private static final StartPoint[] VALUES = values();
+
+                    public static StartPoint valueOf(
+                            com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+                        if (desc.getType() != getDescriptor()) {
+                            throw new java.lang.IllegalArgumentException(
+                                    "EnumValueDescriptor is not for this type.");
+                        }
+                        if (desc.getIndex() == -1) {
+                            return UNRECOGNIZED;
+                        }
+                        return VALUES[desc.getIndex()];
+                    }
+
+                    private final int value;
+
+                    private StartPoint(int value) {
+                        this.value = value;
+                    }
+
+                    // @@protoc_insertion_point(enum_scope:uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint)
+                }
+
+                public static final int RADIUS_FIELD_NUMBER = 1;
+                private double radius_;
+
+                /**
+                 * <code>double radius = 1;</code>
+                 */
+                public double getRadius() {
+                    return radius_;
+                }
+
+                public static final int SURROUNDING_ANGLE_FIELD_NUMBER = 2;
+                private double surroundingAngle_;
+
+                /**
+                 * <code>double surrounding_angle = 2;</code>
+                 */
+                public double getSurroundingAngle() {
+                    return surroundingAngle_;
+                }
+
+                public static final int CLOCKWISE_FIELD_NUMBER = 3;
+                private boolean clockwise_;
+
+                /**
+                 * <code>bool clockwise = 3;</code>
+                 */
+                public boolean getClockwise() {
+                    return clockwise_;
+                }
+
+                public static final int PHOTOS_FIELD_NUMBER = 4;
+                private int photos_;
+
+                /**
+                 * <code>int32 photos = 4;</code>
+                 */
+                public int getPhotos() {
+                    return photos_;
+                }
+
+                public static final int START_POINT_FIELD_NUMBER = 5;
+                private int startPoint_;
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint start_point = 5;</code>
+                 */
+                public int getStartPointValue() {
+                    return startPoint_;
+                }
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint start_point = 5;</code>
+                 */
+                public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint getStartPoint() {
+                    utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint result = utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint.valueOf(startPoint_);
+                    return result == null ? utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint.UNRECOGNIZED : result;
+                }
+
+                private byte memoizedIsInitialized = -1;
+
+                public final boolean isInitialized() {
+                    byte isInitialized = memoizedIsInitialized;
+                    if (isInitialized == 1) return true;
+                    if (isInitialized == 0) return false;
+
+                    memoizedIsInitialized = 1;
+                    return true;
+                }
+
+                public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+                    if (radius_ != 0D) {
+                        output.writeDouble(1, radius_);
+                    }
+                    if (surroundingAngle_ != 0D) {
+                        output.writeDouble(2, surroundingAngle_);
+                    }
+                    if (clockwise_ != false) {
+                        output.writeBool(3, clockwise_);
+                    }
+                    if (photos_ != 0) {
+                        output.writeInt32(4, photos_);
+                    }
+                    if (startPoint_ != utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint.NORTH.getNumber()) {
+                        output.writeEnum(5, startPoint_);
+                    }
+                }
+
+                public int getSerializedSize() {
+                    int size = memoizedSize;
+                    if (size != -1) return size;
+
+                    size = 0;
+                    if (radius_ != 0D) {
+                        size += com.google.protobuf.CodedOutputStream
+                                .computeDoubleSize(1, radius_);
+                    }
+                    if (surroundingAngle_ != 0D) {
+                        size += com.google.protobuf.CodedOutputStream
+                                .computeDoubleSize(2, surroundingAngle_);
+                    }
+                    if (clockwise_ != false) {
+                        size += com.google.protobuf.CodedOutputStream
+                                .computeBoolSize(3, clockwise_);
+                    }
+                    if (photos_ != 0) {
+                        size += com.google.protobuf.CodedOutputStream
+                                .computeInt32Size(4, photos_);
+                    }
+                    if (startPoint_ != utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint.NORTH.getNumber()) {
+                        size += com.google.protobuf.CodedOutputStream
+                                .computeEnumSize(5, startPoint_);
+                    }
+                    memoizedSize = size;
+                    return size;
+                }
+
+                private static final long serialVersionUID = 0L;
+
+                @java.lang.Override
+                public boolean equals(final java.lang.Object obj) {
+                    if (obj == this) {
+                        return true;
+                    }
+                    if (!(obj instanceof utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement)) {
+                        return super.equals(obj);
+                    }
+                    utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement other = (utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement) obj;
+
+                    boolean result = true;
+                    result = result && (
+                            java.lang.Double.doubleToLongBits(getRadius())
+                                    == java.lang.Double.doubleToLongBits(
+                                    other.getRadius()));
+                    result = result && (
+                            java.lang.Double.doubleToLongBits(getSurroundingAngle())
+                                    == java.lang.Double.doubleToLongBits(
+                                    other.getSurroundingAngle()));
+                    result = result && (getClockwise()
+                            == other.getClockwise());
+                    result = result && (getPhotos()
+                            == other.getPhotos());
+                    result = result && startPoint_ == other.startPoint_;
+                    return result;
+                }
+
+                @java.lang.Override
+                public int hashCode() {
+                    if (memoizedHashCode != 0) {
+                        return memoizedHashCode;
+                    }
+                    int hash = 41;
+                    hash = (19 * hash) + getDescriptor().hashCode();
+                    hash = (37 * hash) + RADIUS_FIELD_NUMBER;
+                    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+                            java.lang.Double.doubleToLongBits(getRadius()));
+                    hash = (37 * hash) + SURROUNDING_ANGLE_FIELD_NUMBER;
+                    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+                            java.lang.Double.doubleToLongBits(getSurroundingAngle()));
+                    hash = (37 * hash) + CLOCKWISE_FIELD_NUMBER;
+                    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+                            getClockwise());
+                    hash = (37 * hash) + PHOTOS_FIELD_NUMBER;
+                    hash = (53 * hash) + getPhotos();
+                    hash = (37 * hash) + START_POINT_FIELD_NUMBER;
+                    hash = (53 * hash) + startPoint_;
+                    hash = (29 * hash) + unknownFields.hashCode();
+                    memoizedHashCode = hash;
+                    return hash;
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parseFrom(
+                        com.google.protobuf.ByteString data)
+                        throws com.google.protobuf.InvalidProtocolBufferException {
+                    return PARSER.parseFrom(data);
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parseFrom(
+                        com.google.protobuf.ByteString data,
+                        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                        throws com.google.protobuf.InvalidProtocolBufferException {
+                    return PARSER.parseFrom(data, extensionRegistry);
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parseFrom(byte[] data)
+                        throws com.google.protobuf.InvalidProtocolBufferException {
+                    return PARSER.parseFrom(data);
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parseFrom(
+                        byte[] data,
+                        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                        throws com.google.protobuf.InvalidProtocolBufferException {
+                    return PARSER.parseFrom(data, extensionRegistry);
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parseFrom(java.io.InputStream input)
+                        throws java.io.IOException {
+                    return com.google.protobuf.GeneratedMessageV3
+                            .parseWithIOException(PARSER, input);
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parseFrom(
+                        java.io.InputStream input,
+                        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                        throws java.io.IOException {
+                    return com.google.protobuf.GeneratedMessageV3
+                            .parseWithIOException(PARSER, input, extensionRegistry);
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parseDelimitedFrom(java.io.InputStream input)
+                        throws java.io.IOException {
+                    return com.google.protobuf.GeneratedMessageV3
+                            .parseDelimitedWithIOException(PARSER, input);
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parseDelimitedFrom(
+                        java.io.InputStream input,
+                        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                        throws java.io.IOException {
+                    return com.google.protobuf.GeneratedMessageV3
+                            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parseFrom(
+                        com.google.protobuf.CodedInputStream input)
+                        throws java.io.IOException {
+                    return com.google.protobuf.GeneratedMessageV3
+                            .parseWithIOException(PARSER, input);
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parseFrom(
+                        com.google.protobuf.CodedInputStream input,
+                        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                        throws java.io.IOException {
+                    return com.google.protobuf.GeneratedMessageV3
+                            .parseWithIOException(PARSER, input, extensionRegistry);
+                }
+
+                public Builder newBuilderForType() {
+                    return newBuilder();
+                }
+
+                public static Builder newBuilder() {
+                    return DEFAULT_INSTANCE.toBuilder();
+                }
+
+                public static Builder newBuilder(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement prototype) {
+                    return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+                }
+
+                public Builder toBuilder() {
+                    return this == DEFAULT_INSTANCE
+                            ? new Builder() : new Builder().mergeFrom(this);
+                }
+
+                @java.lang.Override
+                protected Builder newBuilderForType(
+                        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                    Builder builder = new Builder(parent);
+                    return builder;
+                }
+
+                /**
+                 * Protobuf type {@code uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement}
+                 */
+                public static final class Builder extends
+                        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                        // @@protoc_insertion_point(builder_implements:uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement)
+                        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElementOrBuilder {
+                    public static final com.google.protobuf.Descriptors.Descriptor
+                    getDescriptor() {
+                        return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_HotpointElement_descriptor;
+                    }
+
+                    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+                    internalGetFieldAccessorTable() {
+                        return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_HotpointElement_fieldAccessorTable
+                                .ensureFieldAccessorsInitialized(
+                                        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.class, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.Builder.class);
+                    }
+
+                    // Construct using utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.newBuilder()
+                    private Builder() {
+                        maybeForceBuilderInitialization();
+                    }
+
+                    private Builder(
+                            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                        super(parent);
+                        maybeForceBuilderInitialization();
+                    }
+
+                    private void maybeForceBuilderInitialization() {
+                        if (com.google.protobuf.GeneratedMessageV3
+                                .alwaysUseFieldBuilders) {
+                        }
+                    }
+
+                    public Builder clear() {
+                        super.clear();
+                        radius_ = 0D;
+
+                        surroundingAngle_ = 0D;
+
+                        clockwise_ = false;
+
+                        photos_ = 0;
+
+                        startPoint_ = 0;
+
+                        return this;
+                    }
+
+                    public com.google.protobuf.Descriptors.Descriptor
+                    getDescriptorForType() {
+                        return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_HotpointElement_descriptor;
+                    }
+
+                    public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement getDefaultInstanceForType() {
+                        return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.getDefaultInstance();
+                    }
+
+                    public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement build() {
+                        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement result = buildPartial();
+                        if (!result.isInitialized()) {
+                            throw newUninitializedMessageException(result);
+                        }
+                        return result;
+                    }
+
+                    public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement buildPartial() {
+                        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement result = new utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement(this);
+                        result.radius_ = radius_;
+                        result.surroundingAngle_ = surroundingAngle_;
+                        result.clockwise_ = clockwise_;
+                        result.photos_ = photos_;
+                        result.startPoint_ = startPoint_;
+                        onBuilt();
+                        return result;
+                    }
+
+                    public Builder clone() {
+                        return (Builder) super.clone();
+                    }
+
+                    public Builder setField(
+                            com.google.protobuf.Descriptors.FieldDescriptor field,
+                            Object value) {
+                        return (Builder) super.setField(field, value);
+                    }
+
+                    public Builder clearField(
+                            com.google.protobuf.Descriptors.FieldDescriptor field) {
+                        return (Builder) super.clearField(field);
+                    }
+
+                    public Builder clearOneof(
+                            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                        return (Builder) super.clearOneof(oneof);
+                    }
+
+                    public Builder setRepeatedField(
+                            com.google.protobuf.Descriptors.FieldDescriptor field,
+                            int index, Object value) {
+                        return (Builder) super.setRepeatedField(field, index, value);
+                    }
+
+                    public Builder addRepeatedField(
+                            com.google.protobuf.Descriptors.FieldDescriptor field,
+                            Object value) {
+                        return (Builder) super.addRepeatedField(field, value);
+                    }
+
+                    public Builder mergeFrom(com.google.protobuf.Message other) {
+                        if (other instanceof utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement) {
+                            return mergeFrom((utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement) other);
+                        } else {
+                            super.mergeFrom(other);
+                            return this;
+                        }
+                    }
+
+                    public Builder mergeFrom(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement other) {
+                        if (other == utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.getDefaultInstance())
+                            return this;
+                        if (other.getRadius() != 0D) {
+                            setRadius(other.getRadius());
+                        }
+                        if (other.getSurroundingAngle() != 0D) {
+                            setSurroundingAngle(other.getSurroundingAngle());
+                        }
+                        if (other.getClockwise() != false) {
+                            setClockwise(other.getClockwise());
+                        }
+                        if (other.getPhotos() != 0) {
+                            setPhotos(other.getPhotos());
+                        }
+                        if (other.startPoint_ != 0) {
+                            setStartPointValue(other.getStartPointValue());
+                        }
+                        onChanged();
+                        return this;
+                    }
+
+                    public final boolean isInitialized() {
+                        return true;
+                    }
+
+                    public Builder mergeFrom(
+                            com.google.protobuf.CodedInputStream input,
+                            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                            throws java.io.IOException {
+                        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement parsedMessage = null;
+                        try {
+                            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                            parsedMessage = (utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement) e.getUnfinishedMessage();
+                            throw e.unwrapIOException();
+                        } finally {
+                            if (parsedMessage != null) {
+                                mergeFrom(parsedMessage);
+                            }
+                        }
+                        return this;
+                    }
+
+                    private double radius_;
+
+                    /**
+                     * <code>double radius = 1;</code>
+                     */
+                    public double getRadius() {
+                        return radius_;
+                    }
+
+                    /**
+                     * <code>double radius = 1;</code>
+                     */
+                    public Builder setRadius(double value) {
+
+                        radius_ = value;
+                        onChanged();
+                        return this;
+                    }
+
+                    /**
+                     * <code>double radius = 1;</code>
+                     */
+                    public Builder clearRadius() {
+
+                        radius_ = 0D;
+                        onChanged();
+                        return this;
+                    }
+
+                    private double surroundingAngle_;
+
+                    /**
+                     * <code>double surrounding_angle = 2;</code>
+                     */
+                    public double getSurroundingAngle() {
+                        return surroundingAngle_;
+                    }
+
+                    /**
+                     * <code>double surrounding_angle = 2;</code>
+                     */
+                    public Builder setSurroundingAngle(double value) {
+
+                        surroundingAngle_ = value;
+                        onChanged();
+                        return this;
+                    }
+
+                    /**
+                     * <code>double surrounding_angle = 2;</code>
+                     */
+                    public Builder clearSurroundingAngle() {
+
+                        surroundingAngle_ = 0D;
+                        onChanged();
+                        return this;
+                    }
+
+                    private boolean clockwise_;
+
+                    /**
+                     * <code>bool clockwise = 3;</code>
+                     */
+                    public boolean getClockwise() {
+                        return clockwise_;
+                    }
+
+                    /**
+                     * <code>bool clockwise = 3;</code>
+                     */
+                    public Builder setClockwise(boolean value) {
+
+                        clockwise_ = value;
+                        onChanged();
+                        return this;
+                    }
+
+                    /**
+                     * <code>bool clockwise = 3;</code>
+                     */
+                    public Builder clearClockwise() {
+
+                        clockwise_ = false;
+                        onChanged();
+                        return this;
+                    }
+
+                    private int photos_;
+
+                    /**
+                     * <code>int32 photos = 4;</code>
+                     */
+                    public int getPhotos() {
+                        return photos_;
+                    }
+
+                    /**
+                     * <code>int32 photos = 4;</code>
+                     */
+                    public Builder setPhotos(int value) {
+
+                        photos_ = value;
+                        onChanged();
+                        return this;
+                    }
+
+                    /**
+                     * <code>int32 photos = 4;</code>
+                     */
+                    public Builder clearPhotos() {
+
+                        photos_ = 0;
+                        onChanged();
+                        return this;
+                    }
+
+                    private int startPoint_ = 0;
+
+                    /**
+                     * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint start_point = 5;</code>
+                     */
+                    public int getStartPointValue() {
+                        return startPoint_;
+                    }
+
+                    /**
+                     * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint start_point = 5;</code>
+                     */
+                    public Builder setStartPointValue(int value) {
+                        startPoint_ = value;
+                        onChanged();
+                        return this;
+                    }
+
+                    /**
+                     * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint start_point = 5;</code>
+                     */
+                    public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint getStartPoint() {
+                        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint result = utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint.valueOf(startPoint_);
+                        return result == null ? utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint.UNRECOGNIZED : result;
+                    }
+
+                    /**
+                     * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint start_point = 5;</code>
+                     */
+                    public Builder setStartPoint(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.StartPoint value) {
+                        if (value == null) {
+                            throw new NullPointerException();
+                        }
+
+                        startPoint_ = value.getNumber();
+                        onChanged();
+                        return this;
+                    }
+
+                    /**
+                     * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement.StartPoint start_point = 5;</code>
+                     */
+                    public Builder clearStartPoint() {
+
+                        startPoint_ = 0;
+                        onChanged();
+                        return this;
+                    }
+
+                    public final Builder setUnknownFields(
+                            final com.google.protobuf.UnknownFieldSet unknownFields) {
+                        return this;
+                    }
+
+                    public final Builder mergeUnknownFields(
+                            final com.google.protobuf.UnknownFieldSet unknownFields) {
+                        return this;
+                    }
+
+
+                    // @@protoc_insertion_point(builder_scope:uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement)
+                }
+
+                // @@protoc_insertion_point(class_scope:uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement)
+                private static final utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement DEFAULT_INSTANCE;
+
+                static {
+                    DEFAULT_INSTANCE = new utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement();
+                }
+
+                public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement getDefaultInstance() {
+                    return DEFAULT_INSTANCE;
+                }
+
+                private static final com.google.protobuf.Parser<HotpointElement>
+                        PARSER = new com.google.protobuf.AbstractParser<HotpointElement>() {
+                    public HotpointElement parsePartialFrom(
+                            com.google.protobuf.CodedInputStream input,
+                            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                            throws com.google.protobuf.InvalidProtocolBufferException {
+                        return new HotpointElement(input, extensionRegistry);
+                    }
+                };
+
+                public static com.google.protobuf.Parser<HotpointElement> parser() {
+                    return PARSER;
+                }
+
+                @java.lang.Override
+                public com.google.protobuf.Parser<HotpointElement> getParserForType() {
+                    return PARSER;
+                }
+
+                public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement getDefaultInstanceForType() {
+                    return DEFAULT_INSTANCE;
+                }
+
+            }
+
+            public static final int FLIGHT_TYPE_FIELD_NUMBER = 1;
+            private int flightType_;
+
+            /**
+             * <code>.uavdisasterprobev2.FlightPlan.FlightElement.FlightType flight_type = 1;</code>
+             */
+            public int getFlightTypeValue() {
+                return flightType_;
+            }
+
+            /**
+             * <code>.uavdisasterprobev2.FlightPlan.FlightElement.FlightType flight_type = 1;</code>
+             */
+            public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType getFlightType() {
+                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType result = utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType.valueOf(flightType_);
+                return result == null ? utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType.UNRECOGNIZED : result;
+            }
+
+            public static final int LATITUDE_FIELD_NUMBER = 2;
+            private double latitude_;
+
+            /**
+             * <code>double latitude = 2;</code>
+             */
+            public double getLatitude() {
+                return latitude_;
+            }
+
+            public static final int LONGITUDE_FIELD_NUMBER = 3;
+            private double longitude_;
+
+            /**
+             * <code>double longitude = 3;</code>
+             */
+            public double getLongitude() {
+                return longitude_;
+            }
+
+            public static final int ALTITUDE_FIELD_NUMBER = 4;
+            private double altitude_;
+
+            /**
+             * <code>double altitude = 4;</code>
+             */
+            public double getAltitude() {
+                return altitude_;
+            }
+
+            public static final int GIMBAL_PITCH_FIELD_NUMBER = 5;
+            private int gimbalPitch_;
+
+            /**
+             * <code>int32 gimbal_pitch = 5;</code>
+             */
+            public int getGimbalPitch() {
+                return gimbalPitch_;
+            }
+
+            public static final int WAYPOINT_ELEMENT_FIELD_NUMBER = 6;
+            private utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement waypointElement_;
+
+            /**
+             * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
+             */
+            public boolean hasWaypointElement() {
+                return waypointElement_ != null;
+            }
+
+            /**
+             * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
+             */
+            public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement getWaypointElement() {
+                return waypointElement_ == null ? utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.getDefaultInstance() : waypointElement_;
+            }
+
+            /**
+             * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
+             */
+            public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElementOrBuilder getWaypointElementOrBuilder() {
+                return getWaypointElement();
+            }
+
+            public static final int HOTPOINT_ELEMENT_FIELD_NUMBER = 7;
+            private utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement hotpointElement_;
+
+            /**
+             * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
+             */
+            public boolean hasHotpointElement() {
+                return hotpointElement_ != null;
+            }
+
+            /**
+             * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
+             */
+            public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement getHotpointElement() {
+                return hotpointElement_ == null ? utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.getDefaultInstance() : hotpointElement_;
+            }
+
+            /**
+             * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
+             */
+            public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElementOrBuilder getHotpointElementOrBuilder() {
+                return getHotpointElement();
+            }
+
+            private byte memoizedIsInitialized = -1;
+
+            public final boolean isInitialized() {
+                byte isInitialized = memoizedIsInitialized;
+                if (isInitialized == 1) return true;
+                if (isInitialized == 0) return false;
+
+                memoizedIsInitialized = 1;
+                return true;
+            }
+
+            public void writeTo(com.google.protobuf.CodedOutputStream output)
+                    throws java.io.IOException {
+                if (flightType_ != utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType.WAYPOINT.getNumber()) {
+                    output.writeEnum(1, flightType_);
+                }
+                if (latitude_ != 0D) {
+                    output.writeDouble(2, latitude_);
+                }
+                if (longitude_ != 0D) {
+                    output.writeDouble(3, longitude_);
+                }
+                if (altitude_ != 0D) {
+                    output.writeDouble(4, altitude_);
+                }
+                if (gimbalPitch_ != 0) {
+                    output.writeInt32(5, gimbalPitch_);
+                }
+                if (waypointElement_ != null) {
+                    output.writeMessage(6, getWaypointElement());
+                }
+                if (hotpointElement_ != null) {
+                    output.writeMessage(7, getHotpointElement());
+                }
+            }
+
+            public int getSerializedSize() {
+                int size = memoizedSize;
+                if (size != -1) return size;
+
+                size = 0;
+                if (flightType_ != utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType.WAYPOINT.getNumber()) {
+                    size += com.google.protobuf.CodedOutputStream
+                            .computeEnumSize(1, flightType_);
+                }
+                if (latitude_ != 0D) {
+                    size += com.google.protobuf.CodedOutputStream
+                            .computeDoubleSize(2, latitude_);
+                }
+                if (longitude_ != 0D) {
+                    size += com.google.protobuf.CodedOutputStream
+                            .computeDoubleSize(3, longitude_);
+                }
+                if (altitude_ != 0D) {
+                    size += com.google.protobuf.CodedOutputStream
+                            .computeDoubleSize(4, altitude_);
+                }
+                if (gimbalPitch_ != 0) {
+                    size += com.google.protobuf.CodedOutputStream
+                            .computeInt32Size(5, gimbalPitch_);
+                }
+                if (waypointElement_ != null) {
+                    size += com.google.protobuf.CodedOutputStream
+                            .computeMessageSize(6, getWaypointElement());
+                }
+                if (hotpointElement_ != null) {
+                    size += com.google.protobuf.CodedOutputStream
+                            .computeMessageSize(7, getHotpointElement());
+                }
+                memoizedSize = size;
+                return size;
+            }
+
+            private static final long serialVersionUID = 0L;
+
+            @java.lang.Override
+            public boolean equals(final java.lang.Object obj) {
+                if (obj == this) {
+                    return true;
+                }
+                if (!(obj instanceof utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement)) {
+                    return super.equals(obj);
+                }
+                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement other = (utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement) obj;
+
+                boolean result = true;
+                result = result && flightType_ == other.flightType_;
+                result = result && (
+                        java.lang.Double.doubleToLongBits(getLatitude())
+                                == java.lang.Double.doubleToLongBits(
+                                other.getLatitude()));
+                result = result && (
+                        java.lang.Double.doubleToLongBits(getLongitude())
+                                == java.lang.Double.doubleToLongBits(
+                                other.getLongitude()));
+                result = result && (
+                        java.lang.Double.doubleToLongBits(getAltitude())
+                                == java.lang.Double.doubleToLongBits(
+                                other.getAltitude()));
+                result = result && (getGimbalPitch()
+                        == other.getGimbalPitch());
+                result = result && (hasWaypointElement() == other.hasWaypointElement());
+                if (hasWaypointElement()) {
+                    result = result && getWaypointElement()
+                            .equals(other.getWaypointElement());
+                }
+                result = result && (hasHotpointElement() == other.hasHotpointElement());
+                if (hasHotpointElement()) {
+                    result = result && getHotpointElement()
+                            .equals(other.getHotpointElement());
+                }
+                return result;
+            }
+
+            @java.lang.Override
+            public int hashCode() {
+                if (memoizedHashCode != 0) {
+                    return memoizedHashCode;
+                }
+                int hash = 41;
+                hash = (19 * hash) + getDescriptor().hashCode();
+                hash = (37 * hash) + FLIGHT_TYPE_FIELD_NUMBER;
+                hash = (53 * hash) + flightType_;
+                hash = (37 * hash) + LATITUDE_FIELD_NUMBER;
+                hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+                        java.lang.Double.doubleToLongBits(getLatitude()));
+                hash = (37 * hash) + LONGITUDE_FIELD_NUMBER;
+                hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+                        java.lang.Double.doubleToLongBits(getLongitude()));
+                hash = (37 * hash) + ALTITUDE_FIELD_NUMBER;
+                hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+                        java.lang.Double.doubleToLongBits(getAltitude()));
+                hash = (37 * hash) + GIMBAL_PITCH_FIELD_NUMBER;
+                hash = (53 * hash) + getGimbalPitch();
+                if (hasWaypointElement()) {
+                    hash = (37 * hash) + WAYPOINT_ELEMENT_FIELD_NUMBER;
+                    hash = (53 * hash) + getWaypointElement().hashCode();
+                }
+                if (hasHotpointElement()) {
+                    hash = (37 * hash) + HOTPOINT_ELEMENT_FIELD_NUMBER;
+                    hash = (53 * hash) + getHotpointElement().hashCode();
+                }
+                hash = (29 * hash) + unknownFields.hashCode();
+                memoizedHashCode = hash;
+                return hash;
+            }
+
+            public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parseFrom(
+                    com.google.protobuf.ByteString data)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return PARSER.parseFrom(data);
+            }
+
+            public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parseFrom(
+                    com.google.protobuf.ByteString data,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return PARSER.parseFrom(data, extensionRegistry);
+            }
+
+            public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parseFrom(byte[] data)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return PARSER.parseFrom(data);
+            }
+
+            public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parseFrom(
+                    byte[] data,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return PARSER.parseFrom(data, extensionRegistry);
+            }
+
+            public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parseFrom(java.io.InputStream input)
+                    throws java.io.IOException {
+                return com.google.protobuf.GeneratedMessageV3
+                        .parseWithIOException(PARSER, input);
+            }
+
+            public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parseFrom(
+                    java.io.InputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                return com.google.protobuf.GeneratedMessageV3
+                        .parseWithIOException(PARSER, input, extensionRegistry);
+            }
+
+            public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parseDelimitedFrom(java.io.InputStream input)
+                    throws java.io.IOException {
+                return com.google.protobuf.GeneratedMessageV3
+                        .parseDelimitedWithIOException(PARSER, input);
+            }
+
+            public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parseDelimitedFrom(
+                    java.io.InputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                return com.google.protobuf.GeneratedMessageV3
+                        .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+            }
+
+            public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parseFrom(
+                    com.google.protobuf.CodedInputStream input)
+                    throws java.io.IOException {
+                return com.google.protobuf.GeneratedMessageV3
+                        .parseWithIOException(PARSER, input);
+            }
+
+            public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parseFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                return com.google.protobuf.GeneratedMessageV3
+                        .parseWithIOException(PARSER, input, extensionRegistry);
+            }
+
+            public Builder newBuilderForType() {
+                return newBuilder();
+            }
+
+            public static Builder newBuilder() {
+                return DEFAULT_INSTANCE.toBuilder();
+            }
+
+            public static Builder newBuilder(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement prototype) {
+                return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+            }
+
+            public Builder toBuilder() {
+                return this == DEFAULT_INSTANCE
+                        ? new Builder() : new Builder().mergeFrom(this);
+            }
+
+            @java.lang.Override
+            protected Builder newBuilderForType(
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                Builder builder = new Builder(parent);
+                return builder;
+            }
+
+            /**
+             * Protobuf type {@code uavdisasterprobev2.FlightPlan.FlightElement}
+             */
+            public static final class Builder extends
+                    com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                    // @@protoc_insertion_point(builder_implements:uavdisasterprobev2.FlightPlan.FlightElement)
+                    utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElementOrBuilder {
+                public static final com.google.protobuf.Descriptors.Descriptor
+                getDescriptor() {
+                    return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_descriptor;
+                }
+
+                protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+                internalGetFieldAccessorTable() {
+                    return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_fieldAccessorTable
+                            .ensureFieldAccessorsInitialized(
+                                    utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.class, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder.class);
+                }
+
+                // Construct using utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.newBuilder()
+                private Builder() {
+                    maybeForceBuilderInitialization();
+                }
+
+                private Builder(
+                        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                    super(parent);
+                    maybeForceBuilderInitialization();
+                }
+
+                private void maybeForceBuilderInitialization() {
+                    if (com.google.protobuf.GeneratedMessageV3
+                            .alwaysUseFieldBuilders) {
+                    }
+                }
+
+                public Builder clear() {
+                    super.clear();
+                    flightType_ = 0;
+
+                    latitude_ = 0D;
+
+                    longitude_ = 0D;
+
+                    altitude_ = 0D;
+
+                    gimbalPitch_ = 0;
+
+                    if (waypointElementBuilder_ == null) {
+                        waypointElement_ = null;
+                    } else {
+                        waypointElement_ = null;
+                        waypointElementBuilder_ = null;
+                    }
+                    if (hotpointElementBuilder_ == null) {
+                        hotpointElement_ = null;
+                    } else {
+                        hotpointElement_ = null;
+                        hotpointElementBuilder_ = null;
+                    }
+                    return this;
+                }
+
+                public com.google.protobuf.Descriptors.Descriptor
+                getDescriptorForType() {
+                    return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_FlightElement_descriptor;
+                }
+
+                public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement getDefaultInstanceForType() {
+                    return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.getDefaultInstance();
+                }
+
+                public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement build() {
+                    utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement result = buildPartial();
+                    if (!result.isInitialized()) {
+                        throw newUninitializedMessageException(result);
+                    }
+                    return result;
+                }
+
+                public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement buildPartial() {
+                    utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement result = new utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement(this);
+                    result.flightType_ = flightType_;
+                    result.latitude_ = latitude_;
+                    result.longitude_ = longitude_;
+                    result.altitude_ = altitude_;
+                    result.gimbalPitch_ = gimbalPitch_;
+                    if (waypointElementBuilder_ == null) {
+                        result.waypointElement_ = waypointElement_;
+                    } else {
+                        result.waypointElement_ = waypointElementBuilder_.build();
+                    }
+                    if (hotpointElementBuilder_ == null) {
+                        result.hotpointElement_ = hotpointElement_;
+                    } else {
+                        result.hotpointElement_ = hotpointElementBuilder_.build();
+                    }
+                    onBuilt();
+                    return result;
+                }
+
+                public Builder clone() {
+                    return (Builder) super.clone();
+                }
+
+                public Builder setField(
+                        com.google.protobuf.Descriptors.FieldDescriptor field,
+                        Object value) {
+                    return (Builder) super.setField(field, value);
+                }
+
+                public Builder clearField(
+                        com.google.protobuf.Descriptors.FieldDescriptor field) {
+                    return (Builder) super.clearField(field);
+                }
+
+                public Builder clearOneof(
+                        com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                    return (Builder) super.clearOneof(oneof);
+                }
+
+                public Builder setRepeatedField(
+                        com.google.protobuf.Descriptors.FieldDescriptor field,
+                        int index, Object value) {
+                    return (Builder) super.setRepeatedField(field, index, value);
+                }
+
+                public Builder addRepeatedField(
+                        com.google.protobuf.Descriptors.FieldDescriptor field,
+                        Object value) {
+                    return (Builder) super.addRepeatedField(field, value);
+                }
+
+                public Builder mergeFrom(com.google.protobuf.Message other) {
+                    if (other instanceof utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement) {
+                        return mergeFrom((utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement) other);
+                    } else {
+                        super.mergeFrom(other);
+                        return this;
+                    }
+                }
+
+                public Builder mergeFrom(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement other) {
+                    if (other == utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.getDefaultInstance())
+                        return this;
+                    if (other.flightType_ != 0) {
+                        setFlightTypeValue(other.getFlightTypeValue());
+                    }
+                    if (other.getLatitude() != 0D) {
+                        setLatitude(other.getLatitude());
+                    }
+                    if (other.getLongitude() != 0D) {
+                        setLongitude(other.getLongitude());
+                    }
+                    if (other.getAltitude() != 0D) {
+                        setAltitude(other.getAltitude());
+                    }
+                    if (other.getGimbalPitch() != 0) {
+                        setGimbalPitch(other.getGimbalPitch());
+                    }
+                    if (other.hasWaypointElement()) {
+                        mergeWaypointElement(other.getWaypointElement());
+                    }
+                    if (other.hasHotpointElement()) {
+                        mergeHotpointElement(other.getHotpointElement());
+                    }
+                    onChanged();
+                    return this;
+                }
+
+                public final boolean isInitialized() {
+                    return true;
+                }
+
+                public Builder mergeFrom(
+                        com.google.protobuf.CodedInputStream input,
+                        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                        throws java.io.IOException {
+                    utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement parsedMessage = null;
+                    try {
+                        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                        parsedMessage = (utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement) e.getUnfinishedMessage();
+                        throw e.unwrapIOException();
+                    } finally {
+                        if (parsedMessage != null) {
+                            mergeFrom(parsedMessage);
+                        }
+                    }
+                    return this;
+                }
+
+                private int flightType_ = 0;
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.FlightType flight_type = 1;</code>
+                 */
+                public int getFlightTypeValue() {
+                    return flightType_;
+                }
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.FlightType flight_type = 1;</code>
+                 */
+                public Builder setFlightTypeValue(int value) {
+                    flightType_ = value;
+                    onChanged();
+                    return this;
+                }
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.FlightType flight_type = 1;</code>
+                 */
+                public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType getFlightType() {
+                    utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType result = utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType.valueOf(flightType_);
+                    return result == null ? utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType.UNRECOGNIZED : result;
+                }
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.FlightType flight_type = 1;</code>
+                 */
+                public Builder setFlightType(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.FlightType value) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+
+                    flightType_ = value.getNumber();
+                    onChanged();
+                    return this;
+                }
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.FlightType flight_type = 1;</code>
+                 */
+                public Builder clearFlightType() {
+
+                    flightType_ = 0;
+                    onChanged();
+                    return this;
+                }
+
+                private double latitude_;
+
+                /**
+                 * <code>double latitude = 2;</code>
+                 */
+                public double getLatitude() {
+                    return latitude_;
+                }
+
+                /**
+                 * <code>double latitude = 2;</code>
+                 */
+                public Builder setLatitude(double value) {
+
+                    latitude_ = value;
+                    onChanged();
+                    return this;
+                }
+
+                /**
+                 * <code>double latitude = 2;</code>
+                 */
+                public Builder clearLatitude() {
+
+                    latitude_ = 0D;
+                    onChanged();
+                    return this;
+                }
+
+                private double longitude_;
+
+                /**
+                 * <code>double longitude = 3;</code>
+                 */
+                public double getLongitude() {
+                    return longitude_;
+                }
+
+                /**
+                 * <code>double longitude = 3;</code>
+                 */
+                public Builder setLongitude(double value) {
+
+                    longitude_ = value;
+                    onChanged();
+                    return this;
+                }
+
+                /**
+                 * <code>double longitude = 3;</code>
+                 */
+                public Builder clearLongitude() {
+
+                    longitude_ = 0D;
+                    onChanged();
+                    return this;
+                }
+
+                private double altitude_;
+
+                /**
+                 * <code>double altitude = 4;</code>
+                 */
+                public double getAltitude() {
+                    return altitude_;
+                }
+
+                /**
+                 * <code>double altitude = 4;</code>
+                 */
+                public Builder setAltitude(double value) {
+
+                    altitude_ = value;
+                    onChanged();
+                    return this;
+                }
+
+                /**
+                 * <code>double altitude = 4;</code>
+                 */
+                public Builder clearAltitude() {
+
+                    altitude_ = 0D;
+                    onChanged();
+                    return this;
+                }
+
+                private int gimbalPitch_;
+
+                /**
+                 * <code>int32 gimbal_pitch = 5;</code>
+                 */
+                public int getGimbalPitch() {
+                    return gimbalPitch_;
+                }
+
+                /**
+                 * <code>int32 gimbal_pitch = 5;</code>
+                 */
+                public Builder setGimbalPitch(int value) {
+
+                    gimbalPitch_ = value;
+                    onChanged();
+                    return this;
+                }
+
+                /**
+                 * <code>int32 gimbal_pitch = 5;</code>
+                 */
+                public Builder clearGimbalPitch() {
+
+                    gimbalPitch_ = 0;
+                    onChanged();
+                    return this;
+                }
+
+                private utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement waypointElement_ = null;
+                private com.google.protobuf.SingleFieldBuilderV3<
+                        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.Builder, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElementOrBuilder> waypointElementBuilder_;
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
+                 */
+                public boolean hasWaypointElement() {
+                    return waypointElementBuilder_ != null || waypointElement_ != null;
+                }
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
+                 */
+                public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement getWaypointElement() {
+                    if (waypointElementBuilder_ == null) {
+                        return waypointElement_ == null ? utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.getDefaultInstance() : waypointElement_;
+                    } else {
+                        return waypointElementBuilder_.getMessage();
+                    }
+                }
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
+                 */
+                public Builder setWaypointElement(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement value) {
+                    if (waypointElementBuilder_ == null) {
+                        if (value == null) {
+                            throw new NullPointerException();
+                        }
+                        waypointElement_ = value;
+                        onChanged();
+                    } else {
+                        waypointElementBuilder_.setMessage(value);
+                    }
+
+                    return this;
+                }
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
+                 */
+                public Builder setWaypointElement(
+                        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.Builder builderForValue) {
+                    if (waypointElementBuilder_ == null) {
+                        waypointElement_ = builderForValue.build();
+                        onChanged();
+                    } else {
+                        waypointElementBuilder_.setMessage(builderForValue.build());
+                    }
+
+                    return this;
+                }
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
+                 */
+                public Builder mergeWaypointElement(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement value) {
+                    if (waypointElementBuilder_ == null) {
+                        if (waypointElement_ != null) {
+                            waypointElement_ =
+                                    utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.newBuilder(waypointElement_).mergeFrom(value).buildPartial();
+                        } else {
+                            waypointElement_ = value;
+                        }
+                        onChanged();
+                    } else {
+                        waypointElementBuilder_.mergeFrom(value);
+                    }
+
+                    return this;
+                }
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
+                 */
+                public Builder clearWaypointElement() {
+                    if (waypointElementBuilder_ == null) {
+                        waypointElement_ = null;
+                        onChanged();
+                    } else {
+                        waypointElement_ = null;
+                        waypointElementBuilder_ = null;
+                    }
+
+                    return this;
+                }
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
+                 */
+                public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.Builder getWaypointElementBuilder() {
+
+                    onChanged();
+                    return getWaypointElementFieldBuilder().getBuilder();
+                }
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
+                 */
+                public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElementOrBuilder getWaypointElementOrBuilder() {
+                    if (waypointElementBuilder_ != null) {
+                        return waypointElementBuilder_.getMessageOrBuilder();
+                    } else {
+                        return waypointElement_ == null ?
+                                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.getDefaultInstance() : waypointElement_;
+                    }
+                }
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.WaypointElement waypoint_element = 6;</code>
+                 */
+                private com.google.protobuf.SingleFieldBuilderV3<
+                        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.Builder, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElementOrBuilder>
+                getWaypointElementFieldBuilder() {
+                    if (waypointElementBuilder_ == null) {
+                        waypointElementBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElement.Builder, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.WaypointElementOrBuilder>(
+                                getWaypointElement(),
+                                getParentForChildren(),
+                                isClean());
+                        waypointElement_ = null;
+                    }
+                    return waypointElementBuilder_;
+                }
+
+                private utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement hotpointElement_ = null;
+                private com.google.protobuf.SingleFieldBuilderV3<
+                        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.Builder, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElementOrBuilder> hotpointElementBuilder_;
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
+                 */
+                public boolean hasHotpointElement() {
+                    return hotpointElementBuilder_ != null || hotpointElement_ != null;
+                }
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
+                 */
+                public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement getHotpointElement() {
+                    if (hotpointElementBuilder_ == null) {
+                        return hotpointElement_ == null ? utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.getDefaultInstance() : hotpointElement_;
+                    } else {
+                        return hotpointElementBuilder_.getMessage();
+                    }
+                }
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
+                 */
+                public Builder setHotpointElement(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement value) {
+                    if (hotpointElementBuilder_ == null) {
+                        if (value == null) {
+                            throw new NullPointerException();
+                        }
+                        hotpointElement_ = value;
+                        onChanged();
+                    } else {
+                        hotpointElementBuilder_.setMessage(value);
+                    }
+
+                    return this;
+                }
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
+                 */
+                public Builder setHotpointElement(
+                        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.Builder builderForValue) {
+                    if (hotpointElementBuilder_ == null) {
+                        hotpointElement_ = builderForValue.build();
+                        onChanged();
+                    } else {
+                        hotpointElementBuilder_.setMessage(builderForValue.build());
+                    }
+
+                    return this;
+                }
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
+                 */
+                public Builder mergeHotpointElement(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement value) {
+                    if (hotpointElementBuilder_ == null) {
+                        if (hotpointElement_ != null) {
+                            hotpointElement_ =
+                                    utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.newBuilder(hotpointElement_).mergeFrom(value).buildPartial();
+                        } else {
+                            hotpointElement_ = value;
+                        }
+                        onChanged();
+                    } else {
+                        hotpointElementBuilder_.mergeFrom(value);
+                    }
+
+                    return this;
+                }
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
+                 */
+                public Builder clearHotpointElement() {
+                    if (hotpointElementBuilder_ == null) {
+                        hotpointElement_ = null;
+                        onChanged();
+                    } else {
+                        hotpointElement_ = null;
+                        hotpointElementBuilder_ = null;
+                    }
+
+                    return this;
+                }
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
+                 */
+                public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.Builder getHotpointElementBuilder() {
+
+                    onChanged();
+                    return getHotpointElementFieldBuilder().getBuilder();
+                }
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
+                 */
+                public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElementOrBuilder getHotpointElementOrBuilder() {
+                    if (hotpointElementBuilder_ != null) {
+                        return hotpointElementBuilder_.getMessageOrBuilder();
+                    } else {
+                        return hotpointElement_ == null ?
+                                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.getDefaultInstance() : hotpointElement_;
+                    }
+                }
+
+                /**
+                 * <code>.uavdisasterprobev2.FlightPlan.FlightElement.HotpointElement hotpoint_element = 7;</code>
+                 */
+                private com.google.protobuf.SingleFieldBuilderV3<
+                        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.Builder, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElementOrBuilder>
+                getHotpointElementFieldBuilder() {
+                    if (hotpointElementBuilder_ == null) {
+                        hotpointElementBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElement.Builder, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.HotpointElementOrBuilder>(
+                                getHotpointElement(),
+                                getParentForChildren(),
+                                isClean());
+                        hotpointElement_ = null;
+                    }
+                    return hotpointElementBuilder_;
+                }
+
+                public final Builder setUnknownFields(
+                        final com.google.protobuf.UnknownFieldSet unknownFields) {
+                    return this;
+                }
+
+                public final Builder mergeUnknownFields(
+                        final com.google.protobuf.UnknownFieldSet unknownFields) {
+                    return this;
+                }
+
+
+                // @@protoc_insertion_point(builder_scope:uavdisasterprobev2.FlightPlan.FlightElement)
+            }
+
+            // @@protoc_insertion_point(class_scope:uavdisasterprobev2.FlightPlan.FlightElement)
+            private static final utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement DEFAULT_INSTANCE;
+
+            static {
+                DEFAULT_INSTANCE = new utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement();
+            }
+
+            public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement getDefaultInstance() {
+                return DEFAULT_INSTANCE;
+            }
+
+            private static final com.google.protobuf.Parser<FlightElement>
+                    PARSER = new com.google.protobuf.AbstractParser<FlightElement>() {
+                public FlightElement parsePartialFrom(
+                        com.google.protobuf.CodedInputStream input,
+                        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                        throws com.google.protobuf.InvalidProtocolBufferException {
+                    return new FlightElement(input, extensionRegistry);
+                }
+            };
+
+            public static com.google.protobuf.Parser<FlightElement> parser() {
+                return PARSER;
+            }
+
+            @java.lang.Override
+            public com.google.protobuf.Parser<FlightElement> getParserForType() {
+                return PARSER;
+            }
+
+            public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement getDefaultInstanceForType() {
+                return DEFAULT_INSTANCE;
+            }
+
+        }
+
+        public static final int FLIGHT_ELEMENT_FIELD_NUMBER = 1;
+        private java.util.List<utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement> flightElement_;
+
+        /**
+         * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+         */
+        public java.util.List<utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement> getFlightElementList() {
+            return flightElement_;
+        }
+
+        /**
+         * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+         */
+        public java.util.List<? extends utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElementOrBuilder>
+        getFlightElementOrBuilderList() {
+            return flightElement_;
+        }
+
+        /**
+         * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+         */
+        public int getFlightElementCount() {
+            return flightElement_.size();
+        }
+
+        /**
+         * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+         */
+        public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement getFlightElement(int index) {
+            return flightElement_.get(index);
+        }
+
+        /**
+         * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+         */
+        public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElementOrBuilder getFlightElementOrBuilder(
+                int index) {
+            return flightElement_.get(index);
+        }
+
+        private byte memoizedIsInitialized = -1;
+
+        public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            for (int i = 0; i < flightElement_.size(); i++) {
+                output.writeMessage(1, flightElement_.get(i));
+            }
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            for (int i = 0; i < flightElement_.size(); i++) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(1, flightElement_.get(i));
+            }
+            memoizedSize = size;
+            return size;
+        }
+
+        private static final long serialVersionUID = 0L;
+
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan)) {
+                return super.equals(obj);
+            }
+            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan other = (utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan) obj;
+
+            boolean result = true;
+            result = result && getFlightElementList()
+                    .equals(other.getFlightElementList());
+            return result;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+            if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            if (getFlightElementCount() > 0) {
+                hash = (37 * hash) + FLIGHT_ELEMENT_FIELD_NUMBER;
+                hash = (53 * hash) + getFlightElementList().hashCode();
+            }
+            hash = (29 * hash) + unknownFields.hashCode();
+            memoizedHashCode = hash;
+            return hash;
+        }
+
+        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
+
+        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public Builder newBuilderForType() {
+            return newBuilder();
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
+
+        /**
+         * Protobuf type {@code uavdisasterprobev2.FlightPlan}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:uavdisasterprobev2.FlightPlan)
+                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlanOrBuilder {
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_descriptor;
+            }
+
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.class, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.Builder.class);
+            }
+
+            // Construct using utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.newBuilder()
+            private Builder() {
+                maybeForceBuilderInitialization();
+            }
+
+            private Builder(
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                super(parent);
+                maybeForceBuilderInitialization();
+            }
+
+            private void maybeForceBuilderInitialization() {
+                if (com.google.protobuf.GeneratedMessageV3
+                        .alwaysUseFieldBuilders) {
+                    getFlightElementFieldBuilder();
+                }
+            }
+
+            public Builder clear() {
+                super.clear();
+                if (flightElementBuilder_ == null) {
+                    flightElement_ = java.util.Collections.emptyList();
+                    bitField0_ = (bitField0_ & ~0x00000001);
+                } else {
+                    flightElementBuilder_.clear();
+                }
+                return this;
+            }
+
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.internal_static_uavdisasterprobev2_FlightPlan_descriptor;
+            }
+
+            public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan getDefaultInstanceForType() {
+                return utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.getDefaultInstance();
+            }
+
+            public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan build() {
+                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan result = buildPartial();
+                if (!result.isInitialized()) {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
+
+            public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan buildPartial() {
+                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan result = new utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan(this);
+                int from_bitField0_ = bitField0_;
+                if (flightElementBuilder_ == null) {
+                    if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                        flightElement_ = java.util.Collections.unmodifiableList(flightElement_);
+                        bitField0_ = (bitField0_ & ~0x00000001);
+                    }
+                    result.flightElement_ = flightElement_;
+                } else {
+                    result.flightElement_ = flightElementBuilder_.build();
+                }
+                onBuilt();
+                return result;
+            }
+
+            public Builder clone() {
+                return (Builder) super.clone();
+            }
+
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    Object value) {
+                return (Builder) super.setField(field, value);
+            }
+
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return (Builder) super.clearField(field);
+            }
+
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return (Builder) super.clearOneof(oneof);
+            }
+
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, Object value) {
+                return (Builder) super.setRepeatedField(field, index, value);
+            }
+
+            public Builder addRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    Object value) {
+                return (Builder) super.addRepeatedField(field, value);
+            }
+
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan) {
+                    return mergeFrom((utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan) other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
+
+            public Builder mergeFrom(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan other) {
+                if (other == utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.getDefaultInstance())
+                    return this;
+                if (flightElementBuilder_ == null) {
+                    if (!other.flightElement_.isEmpty()) {
+                        if (flightElement_.isEmpty()) {
+                            flightElement_ = other.flightElement_;
+                            bitField0_ = (bitField0_ & ~0x00000001);
+                        } else {
+                            ensureFlightElementIsMutable();
+                            flightElement_.addAll(other.flightElement_);
+                        }
+                        onChanged();
+                    }
+                } else {
+                    if (!other.flightElement_.isEmpty()) {
+                        if (flightElementBuilder_.isEmpty()) {
+                            flightElementBuilder_.dispose();
+                            flightElementBuilder_ = null;
+                            flightElement_ = other.flightElement_;
+                            bitField0_ = (bitField0_ & ~0x00000001);
+                            flightElementBuilder_ =
+                                    com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                                            getFlightElementFieldBuilder() : null;
+                        } else {
+                            flightElementBuilder_.addAllMessages(other.flightElement_);
+                        }
+                    }
+                }
+                onChanged();
+                return this;
+            }
+
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan parsedMessage = null;
+                try {
+                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    parsedMessage = (utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan) e.getUnfinishedMessage();
+                    throw e.unwrapIOException();
+                } finally {
+                    if (parsedMessage != null) {
+                        mergeFrom(parsedMessage);
+                    }
+                }
+                return this;
+            }
+
+            private int bitField0_;
+
+            private java.util.List<utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement> flightElement_ =
+                    java.util.Collections.emptyList();
+
+            private void ensureFlightElementIsMutable() {
+                if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+                    flightElement_ = new java.util.ArrayList<utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement>(flightElement_);
+                    bitField0_ |= 0x00000001;
+                }
+            }
+
+            private com.google.protobuf.RepeatedFieldBuilderV3<
+                    utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElementOrBuilder> flightElementBuilder_;
+
+            /**
+             * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+             */
+            public java.util.List<utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement> getFlightElementList() {
+                if (flightElementBuilder_ == null) {
+                    return java.util.Collections.unmodifiableList(flightElement_);
+                } else {
+                    return flightElementBuilder_.getMessageList();
+                }
+            }
+
+            /**
+             * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+             */
+            public int getFlightElementCount() {
+                if (flightElementBuilder_ == null) {
+                    return flightElement_.size();
+                } else {
+                    return flightElementBuilder_.getCount();
+                }
+            }
+
+            /**
+             * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+             */
+            public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement getFlightElement(int index) {
+                if (flightElementBuilder_ == null) {
+                    return flightElement_.get(index);
+                } else {
+                    return flightElementBuilder_.getMessage(index);
+                }
+            }
+
+            /**
+             * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+             */
+            public Builder setFlightElement(
+                    int index, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement value) {
+                if (flightElementBuilder_ == null) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+                    ensureFlightElementIsMutable();
+                    flightElement_.set(index, value);
+                    onChanged();
+                } else {
+                    flightElementBuilder_.setMessage(index, value);
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+             */
+            public Builder setFlightElement(
+                    int index, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder builderForValue) {
+                if (flightElementBuilder_ == null) {
+                    ensureFlightElementIsMutable();
+                    flightElement_.set(index, builderForValue.build());
+                    onChanged();
+                } else {
+                    flightElementBuilder_.setMessage(index, builderForValue.build());
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+             */
+            public Builder addFlightElement(utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement value) {
+                if (flightElementBuilder_ == null) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+                    ensureFlightElementIsMutable();
+                    flightElement_.add(value);
+                    onChanged();
+                } else {
+                    flightElementBuilder_.addMessage(value);
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+             */
+            public Builder addFlightElement(
+                    int index, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement value) {
+                if (flightElementBuilder_ == null) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+                    ensureFlightElementIsMutable();
+                    flightElement_.add(index, value);
+                    onChanged();
+                } else {
+                    flightElementBuilder_.addMessage(index, value);
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+             */
+            public Builder addFlightElement(
+                    utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder builderForValue) {
+                if (flightElementBuilder_ == null) {
+                    ensureFlightElementIsMutable();
+                    flightElement_.add(builderForValue.build());
+                    onChanged();
+                } else {
+                    flightElementBuilder_.addMessage(builderForValue.build());
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+             */
+            public Builder addFlightElement(
+                    int index, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder builderForValue) {
+                if (flightElementBuilder_ == null) {
+                    ensureFlightElementIsMutable();
+                    flightElement_.add(index, builderForValue.build());
+                    onChanged();
+                } else {
+                    flightElementBuilder_.addMessage(index, builderForValue.build());
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+             */
+            public Builder addAllFlightElement(
+                    java.lang.Iterable<? extends utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement> values) {
+                if (flightElementBuilder_ == null) {
+                    ensureFlightElementIsMutable();
+                    com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                            values, flightElement_);
+                    onChanged();
+                } else {
+                    flightElementBuilder_.addAllMessages(values);
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+             */
+            public Builder clearFlightElement() {
+                if (flightElementBuilder_ == null) {
+                    flightElement_ = java.util.Collections.emptyList();
+                    bitField0_ = (bitField0_ & ~0x00000001);
+                    onChanged();
+                } else {
+                    flightElementBuilder_.clear();
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+             */
+            public Builder removeFlightElement(int index) {
+                if (flightElementBuilder_ == null) {
+                    ensureFlightElementIsMutable();
+                    flightElement_.remove(index);
+                    onChanged();
+                } else {
+                    flightElementBuilder_.remove(index);
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+             */
+            public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder getFlightElementBuilder(
+                    int index) {
+                return getFlightElementFieldBuilder().getBuilder(index);
+            }
+
+            /**
+             * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+             */
+            public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElementOrBuilder getFlightElementOrBuilder(
+                    int index) {
+                if (flightElementBuilder_ == null) {
+                    return flightElement_.get(index);
+                } else {
+                    return flightElementBuilder_.getMessageOrBuilder(index);
+                }
+            }
+
+            /**
+             * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+             */
+            public java.util.List<? extends utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElementOrBuilder>
+            getFlightElementOrBuilderList() {
+                if (flightElementBuilder_ != null) {
+                    return flightElementBuilder_.getMessageOrBuilderList();
+                } else {
+                    return java.util.Collections.unmodifiableList(flightElement_);
+                }
+            }
+
+            /**
+             * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+             */
+            public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder addFlightElementBuilder() {
+                return getFlightElementFieldBuilder().addBuilder(
+                        utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.getDefaultInstance());
+            }
+
+            /**
+             * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+             */
+            public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder addFlightElementBuilder(
+                    int index) {
+                return getFlightElementFieldBuilder().addBuilder(
+                        index, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.getDefaultInstance());
+            }
+
+            /**
+             * <code>repeated .uavdisasterprobev2.FlightPlan.FlightElement flight_element = 1;</code>
+             */
+            public java.util.List<utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder>
+            getFlightElementBuilderList() {
+                return getFlightElementFieldBuilder().getBuilderList();
+            }
+
+            private com.google.protobuf.RepeatedFieldBuilderV3<
+                    utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElementOrBuilder>
+            getFlightElementFieldBuilder() {
+                if (flightElementBuilder_ == null) {
+                    flightElementBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                            utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElement.Builder, utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan.FlightElementOrBuilder>(
+                            flightElement_,
+                            ((bitField0_ & 0x00000001) == 0x00000001),
+                            getParentForChildren(),
+                            isClean());
+                    flightElement_ = null;
+                }
+                return flightElementBuilder_;
+            }
+
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return this;
+            }
+
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return this;
+            }
+
+
+            // @@protoc_insertion_point(builder_scope:uavdisasterprobev2.FlightPlan)
+        }
+
+        // @@protoc_insertion_point(class_scope:uavdisasterprobev2.FlightPlan)
+        private static final utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan();
+        }
+
+        public static utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static final com.google.protobuf.Parser<FlightPlan>
+                PARSER = new com.google.protobuf.AbstractParser<FlightPlan>() {
+            public FlightPlan parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return new FlightPlan(input, extensionRegistry);
+            }
         };
-    com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
-    internal_static_uavdisasterprobev2_FlightPlan_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_uavdisasterprobev2_FlightPlan_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_uavdisasterprobev2_FlightPlan_descriptor,
-        new java.lang.String[] { "FlightElement", });
-    internal_static_uavdisasterprobev2_FlightPlan_FlightElement_descriptor =
-      internal_static_uavdisasterprobev2_FlightPlan_descriptor.getNestedTypes().get(0);
-    internal_static_uavdisasterprobev2_FlightPlan_FlightElement_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_uavdisasterprobev2_FlightPlan_FlightElement_descriptor,
-        new java.lang.String[] { "FlightType", "Latitude", "Longitude", "Altitude", "GimbalPitch", "WaypointElement", "HotpointElement", });
-    internal_static_uavdisasterprobev2_FlightPlan_FlightElement_WaypointElement_descriptor =
-      internal_static_uavdisasterprobev2_FlightPlan_FlightElement_descriptor.getNestedTypes().get(0);
-    internal_static_uavdisasterprobev2_FlightPlan_FlightElement_WaypointElement_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_uavdisasterprobev2_FlightPlan_FlightElement_WaypointElement_descriptor,
-        new java.lang.String[] { "Yaw", });
-    internal_static_uavdisasterprobev2_FlightPlan_FlightElement_HotpointElement_descriptor =
-      internal_static_uavdisasterprobev2_FlightPlan_FlightElement_descriptor.getNestedTypes().get(1);
-    internal_static_uavdisasterprobev2_FlightPlan_FlightElement_HotpointElement_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_uavdisasterprobev2_FlightPlan_FlightElement_HotpointElement_descriptor,
-        new java.lang.String[] { "Radius", "SurroundingAngle", "Clockwise", "Photos", "StartPoint", });
-  }
 
-  // @@protoc_insertion_point(outer_class_scope)
+        public static com.google.protobuf.Parser<FlightPlan> parser() {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<FlightPlan> getParserForType() {
+            return PARSER;
+        }
+
+        public utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos.FlightPlan getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
+
+    }
+
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_uavdisasterprobev2_FlightPlan_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_uavdisasterprobev2_FlightPlan_fieldAccessorTable;
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_uavdisasterprobev2_FlightPlan_FlightElement_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_uavdisasterprobev2_FlightPlan_FlightElement_fieldAccessorTable;
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_uavdisasterprobev2_FlightPlan_FlightElement_WaypointElement_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_uavdisasterprobev2_FlightPlan_FlightElement_WaypointElement_fieldAccessorTable;
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_uavdisasterprobev2_FlightPlan_FlightElement_HotpointElement_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_uavdisasterprobev2_FlightPlan_FlightElement_HotpointElement_fieldAccessorTable;
+
+    public static com.google.protobuf.Descriptors.FileDescriptor
+    getDescriptor() {
+        return descriptor;
+    }
+
+    private static com.google.protobuf.Descriptors.FileDescriptor
+            descriptor;
+
+    static {
+        java.lang.String[] descriptorData = {
+                "\n\021flight-plan.proto\022\022uavdisasterprobev2\"" +
+                        "\376\005\n\nFlightPlan\022D\n\016flight_element\030\001 \003(\0132," +
+                        ".uavdisasterprobev2.FlightPlan.FlightEle" +
+                        "ment\032\251\005\n\rFlightElement\022L\n\013flight_type\030\001 " +
+                        "\001(\01627.uavdisasterprobev2.FlightPlan.Flig" +
+                        "htElement.FlightType\022\020\n\010latitude\030\002 \001(\001\022\021" +
+                        "\n\tlongitude\030\003 \001(\001\022\020\n\010altitude\030\004 \001(\001\022\024\n\014g" +
+                        "imbal_pitch\030\005 \001(\005\022V\n\020waypoint_element\030\006 " +
+                        "\001(\0132<.uavdisasterprobev2.FlightPlan.Flig" +
+                        "htElement.WaypointElement\022V\n\020hotpoint_el",
+                "ement\030\007 \001(\0132<.uavdisasterprobev2.FlightP" +
+                        "lan.FlightElement.HotpointElement\032\036\n\017Way" +
+                        "pointElement\022\013\n\003yaw\030\001 \001(\001\032\202\002\n\017HotpointEl" +
+                        "ement\022\016\n\006radius\030\001 \001(\001\022\031\n\021surrounding_ang" +
+                        "le\030\002 \001(\001\022\021\n\tclockwise\030\003 \001(\010\022\016\n\006photos\030\004 " +
+                        "\001(\005\022\\\n\013start_point\030\005 \001(\0162G.uavdisasterpr" +
+                        "obev2.FlightPlan.FlightElement.HotpointE" +
+                        "lement.StartPoint\"C\n\nStartPoint\022\t\n\005NORTH" +
+                        "\020\000\022\t\n\005SOUTH\020\001\022\010\n\004WEST\020\002\022\010\n\004EAST\020\003\022\013\n\007NEA" +
+                        "REST\020\004\"(\n\nFlightType\022\014\n\010WAYPOINT\020\000\022\014\n\010HO",
+                "TPOINT\020\001B9\n%utwente.uav.uavdisasterprobe" +
+                        "v2.protosB\020FlightPlanProtosb\006proto3"
+        };
+        com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+                new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
+                    public com.google.protobuf.ExtensionRegistry assignDescriptors(
+                            com.google.protobuf.Descriptors.FileDescriptor root) {
+                        descriptor = root;
+                        return null;
+                    }
+                };
+        com.google.protobuf.Descriptors.FileDescriptor
+                .internalBuildGeneratedFileFrom(descriptorData,
+                        new com.google.protobuf.Descriptors.FileDescriptor[]{
+                        }, assigner);
+        internal_static_uavdisasterprobev2_FlightPlan_descriptor =
+                getDescriptor().getMessageTypes().get(0);
+        internal_static_uavdisasterprobev2_FlightPlan_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_uavdisasterprobev2_FlightPlan_descriptor,
+                new java.lang.String[]{"FlightElement",});
+        internal_static_uavdisasterprobev2_FlightPlan_FlightElement_descriptor =
+                internal_static_uavdisasterprobev2_FlightPlan_descriptor.getNestedTypes().get(0);
+        internal_static_uavdisasterprobev2_FlightPlan_FlightElement_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_uavdisasterprobev2_FlightPlan_FlightElement_descriptor,
+                new java.lang.String[]{"FlightType", "Latitude", "Longitude", "Altitude", "GimbalPitch", "WaypointElement", "HotpointElement",});
+        internal_static_uavdisasterprobev2_FlightPlan_FlightElement_WaypointElement_descriptor =
+                internal_static_uavdisasterprobev2_FlightPlan_FlightElement_descriptor.getNestedTypes().get(0);
+        internal_static_uavdisasterprobev2_FlightPlan_FlightElement_WaypointElement_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_uavdisasterprobev2_FlightPlan_FlightElement_WaypointElement_descriptor,
+                new java.lang.String[]{"Yaw",});
+        internal_static_uavdisasterprobev2_FlightPlan_FlightElement_HotpointElement_descriptor =
+                internal_static_uavdisasterprobev2_FlightPlan_FlightElement_descriptor.getNestedTypes().get(1);
+        internal_static_uavdisasterprobev2_FlightPlan_FlightElement_HotpointElement_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_uavdisasterprobev2_FlightPlan_FlightElement_HotpointElement_descriptor,
+                new java.lang.String[]{"Radius", "SurroundingAngle", "Clockwise", "Photos", "StartPoint",});
+    }
+
+    // @@protoc_insertion_point(outer_class_scope)
 }

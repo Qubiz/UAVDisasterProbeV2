@@ -44,4 +44,3 @@ message FlightPlan {
 
     repeated FlightElement flight_element = 1;
 }
-

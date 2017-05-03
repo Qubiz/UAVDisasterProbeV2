@@ -1,189 +1,166 @@
 package utwente.uav.uavdisasterprobev2;
 
+import android.app.Activity;
+import android.os.Handler;
+import android.os.Looper;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import dji.common.error.DJIError;
-import dji.common.gimbal.Attitude;
-import dji.common.mission.hotpoint.HotpointHeading;
-import dji.common.mission.hotpoint.HotpointMission;
-import dji.common.mission.hotpoint.HotpointStartPoint;
 import dji.common.mission.waypoint.Waypoint;
 import dji.common.mission.waypoint.WaypointAction;
 import dji.common.mission.waypoint.WaypointActionType;
 import dji.common.mission.waypoint.WaypointMission;
+import dji.common.mission.waypoint.WaypointMissionDownloadEvent;
+import dji.common.mission.waypoint.WaypointMissionExecutionEvent;
 import dji.common.mission.waypoint.WaypointMissionFinishedAction;
 import dji.common.mission.waypoint.WaypointMissionFlightPathMode;
 import dji.common.mission.waypoint.WaypointMissionGotoWaypointMode;
 import dji.common.mission.waypoint.WaypointMissionHeadingMode;
-import dji.common.model.LocationCoordinate2D;
+import dji.common.mission.waypoint.WaypointMissionUploadEvent;
 import dji.sdk.mission.MissionControl;
-import dji.sdk.mission.hotpoint.HotpointMissionOperator;
-import dji.sdk.mission.timeline.Mission;
-import dji.sdk.mission.timeline.TimelineElement;
-import dji.sdk.mission.timeline.TimelineEvent;
-import dji.sdk.mission.timeline.actions.AircraftYawAction;
-import dji.sdk.mission.timeline.actions.GimbalAttitudeAction;
-import dji.sdk.mission.timeline.actions.GoHomeAction;
-import dji.sdk.mission.timeline.actions.GoToAction;
-import dji.sdk.mission.timeline.actions.HotpointAction;
-import dji.sdk.mission.timeline.actions.ShootPhotoAction;
-import dji.sdk.mission.timeline.actions.TakeOffAction;
+import dji.sdk.mission.waypoint.WaypointMissionOperator;
+import dji.sdk.mission.waypoint.WaypointMissionOperatorListener;
 import utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos;
 
 /**
  * Created by Mathijs on 4/11/2017.
  */
 
-public class FlightPlan {
+public class FlightPlan /*implements WaypointMissionOperatorListener*/ {
 
-    private FlightPlanProtos.FlightPlan flightPlan;
-    List<TimelineElement> elements;
+    private WaypointMissionOperator operator;
+    private WaypointMission mission;
+    private Status status = null;
 
-    public FlightPlan(FlightPlanProtos.FlightPlan flightPlan) {
-        this.flightPlan = flightPlan;
-        createTimeline();
+    public FlightPlan(FlightPlanProtos.FlightPlan flightPlanProtos) {
+        operator = MissionControl.getInstance().getWaypointMissionOperator();
+        mission = createFromProtosFile(flightPlanProtos);
+        operator.loadMission(mission);
     }
 
-    private void createTimeline() {
-        elements = new ArrayList<>();
+    public void update(FlightPlanProtos.FlightPlan flightPlanProtos) {
+        status = null;
+        operator = MissionControl.getInstance().getWaypointMissionOperator();
+        mission = createFromProtosFile(flightPlanProtos);
+        operator.loadMission(mission);
+    }
 
-        MissionControl missionControl = MissionControl.getInstance();
+    public Status getStatus() {
+        return status;
+    }
 
-        MissionControl.Listener missionControlListener = new MissionControl.Listener() {
-            @Override
-            public void onEvent(@Nullable TimelineElement element, TimelineEvent event, @Nullable DJIError error) {
+    public void setStatus(@Nullable Status status) {
+        this.status = status;
+    }
 
+    @Nullable
+    private WaypointMission createFromProtosFile(FlightPlanProtos.FlightPlan flightPlanProtos) {
+        WaypointMission.Builder builder = new WaypointMission.Builder();
+        List<Waypoint> waypoints = new ArrayList<>();
+
+        // SET-UP BUILDER PARAMETERS
+        builder.autoFlightSpeed(15f);
+        builder.maxFlightSpeed(15f);
+        builder.setExitMissionOnRCSignalLostEnabled(false);
+        builder.finishedAction(WaypointMissionFinishedAction.GO_HOME);
+        builder.flightPathMode(WaypointMissionFlightPathMode.NORMAL);
+        builder.gotoFirstWaypointMode(WaypointMissionGotoWaypointMode.SAFELY);
+        builder.headingMode(WaypointMissionHeadingMode.AUTO);
+        builder.repeatTimes(1);
+
+        // READ THE WAYPOINTS FROM THE PROTO FILE
+        if (flightPlanProtos.getFlightElementList().size() > 1) {
+            for (FlightPlanProtos.FlightPlan.FlightElement element : flightPlanProtos.getFlightElementList()) {
+                double latitude = element.getLatitude();
+                double longitude = element.getLongitude();
+                double altitude = element.getAltitude();
+                int gimbalPitch = element.getGimbalPitch();
+                double yaw = element.getWaypointElement().getYaw();
+
+                Waypoint waypoint = new Waypoint(latitude, longitude, (float) altitude);
+                waypoint.addAction(new WaypointAction(WaypointActionType.GIMBAL_PITCH, gimbalPitch));
+                if(gimbalPitch != -90) {
+                    waypoint.addAction(new WaypointAction(WaypointActionType.ROTATE_AIRCRAFT, (int) yaw));
+                }
+                waypoint.addAction(new WaypointAction(WaypointActionType.START_TAKE_PHOTO, 1));
+
+                waypoints.add(waypoint);
             }
-        };
-
-        // FIRST TIMELINE ELEMENT IS ALWAYS THE TAKEOFF ACTION
-        elements.add(new TakeOffAction());
-
-        // GET TIMELINE ELEMENTS FROM FLIGHT PLAN DATA
-        for(FlightPlanProtos.FlightPlan.FlightElement flightElement : flightPlan.getFlightElementList()) {
-            elements.add(new GimbalAttitudeAction(new Attitude(flightElement.getGimbalPitch(), 0, 0)));
-            switch(flightElement.getFlightType()) {
-                case WAYPOINT:
-                    elements.add(new GoToAction(new LocationCoordinate2D(flightElement.getLatitude(), flightElement.getLongitude()), (float) flightElement.getAltitude()));
-                    elements.add(new AircraftYawAction((float) flightElement.getWaypointElement().getYaw(), 100));
-                    // elements.add(createWaypointElement(flightElement));
-                    break;
-                case HOTPOINT:
-                    elements.add(createHotpointElement(flightElement));
-                    break;
-            }
-            elements.add(new ShootPhotoAction());
+        } else {
+            Log.d("createFromProtosFile", "Not enough flight elements, should be > 1! (getFlightElementList().size() = " + flightPlanProtos.getFlightElementList().size() + ")");
+            return null;
         }
 
-        // LAST TIMELINE ELEMENT IS ALWAYS THE GO HOME ACTION
-        elements.add(new GoHomeAction());
-
-        // EMPTY THE TIMELINE IF THERE ARE SCHEDULED TIMELINE ELEMENTS
-        if(missionControl.scheduledCount() > 0) {
-            missionControl.unscheduleEverything();
-            missionControl.removeAllListeners();
-        }
-
-        // SCHEDULE NEW TIMELINE ELEMENTS AND ADD THE LISTENER
-        missionControl.scheduleElements(elements);
-        missionControl.addListener(missionControlListener);
+        builder.waypointList(waypoints).waypointCount(waypoints.size());
+        return builder.build();
     }
 
-    private TimelineElement createWaypointElement(FlightPlanProtos.FlightPlan.FlightElement flightElement) {
-        TimelineElement timelineElement;
-
-        WaypointMission.Builder waypointMissionBuilder = new WaypointMission.Builder();
-        waypointMissionBuilder.autoFlightSpeed(10f);
-        waypointMissionBuilder.maxFlightSpeed(10f);
-        waypointMissionBuilder.setExitMissionOnRCSignalLostEnabled(false);
-        waypointMissionBuilder.finishedAction(WaypointMissionFinishedAction.NO_ACTION);
-        waypointMissionBuilder.flightPathMode(WaypointMissionFlightPathMode.NORMAL);
-        waypointMissionBuilder.gotoFirstWaypointMode(WaypointMissionGotoWaypointMode.SAFELY);
-        waypointMissionBuilder.headingMode(WaypointMissionHeadingMode.AUTO);
-        waypointMissionBuilder.repeatTimes(1);
-
-        Waypoint waypoint = new Waypoint(flightElement.getLatitude(), flightElement.getLongitude(), (float) flightElement.getAltitude());
-        waypoint.addAction(new WaypointAction(WaypointActionType.ROTATE_AIRCRAFT, (int) flightElement.getWaypointElement().getYaw()));
-
-        waypointMissionBuilder.addWaypoint(waypoint);
-
-        timelineElement = Mission.elementFromWaypointMission(waypointMissionBuilder.build());
-
-        String error = (waypointMissionBuilder.checkParameters() == null) ? "No Error" : waypointMissionBuilder.checkParameters().getDescription();
-
-        Log.d("createWaypointElement", error);
-
-        return timelineElement;
-    }
-
-    private TimelineElement createHotpointElement(FlightPlanProtos.FlightPlan.FlightElement flightElement) {
-        TimelineElement timelineElement;
-
-        HotpointMission hotpointMission = new HotpointMission();
-        hotpointMission.setHotpoint(new LocationCoordinate2D(flightElement.getLatitude(), flightElement.getLongitude()));
-        hotpointMission.setAltitude(flightElement.getAltitude());
-        hotpointMission.setRadius(flightElement.getHotpointElement().getRadius());
-        hotpointMission.setClockwise(flightElement.getHotpointElement().getClockwise());
-        hotpointMission.setAngularVelocity((float) HotpointMissionOperator.maxAngularVelocityForRadius(hotpointMission.getRadius()));
-        hotpointMission.setHeading(HotpointHeading.TOWARDS_HOT_POINT);
-
-        switch(flightElement.getHotpointElement().getStartPoint()) {
-            case NORTH:
-                hotpointMission.setStartPoint(HotpointStartPoint.NORTH);
-                break;
-            case EAST:
-                hotpointMission.setStartPoint(HotpointStartPoint.EAST);
-                break;
-            case WEST:
-                hotpointMission.setStartPoint(HotpointStartPoint.WEST);
-                break;
-            case SOUTH:
-                hotpointMission.setStartPoint(HotpointStartPoint.SOUTH);
-                break;
-            case NEAREST:
-                hotpointMission.setStartPoint(HotpointStartPoint.NEAREST);
-                break;
-        }
-
-        timelineElement = new HotpointAction(hotpointMission, (float) flightElement.getHotpointElement().getSurroundingAngle());
-
-        String error = (hotpointMission.checkParameters() == null) ? "No Error" : hotpointMission.checkParameters().getDescription();
-
-        Log.d("createHotpointElement", error);
-
-        return timelineElement;
-    }
-
-    public void start() {
-        if(MissionControl.getInstance().scheduledCount() > 0) {
-            MissionControl.getInstance().startTimeline();
-            Log.d("START", "LETS GO!");
+    /*
+    @Override
+    public void onDownloadUpdate(@NonNull WaypointMissionDownloadEvent event) {
+        if (event.getProgress() != null
+                && event.getProgress().isSummaryDownloaded
+                && event.getProgress().downloadedWaypointIndex == (event.getProgress().totalWaypointCount - 1)) {
+            //Toast.makeText(UAVDisasterProbeApplication.getContext(), "Download successful!", Toast.LENGTH_SHORT).show();
+            Log.d("FlightPlan", "Download successful!");
         }
     }
 
-    public void pause() {
-        MissionControl.getInstance().pauseTimeline();
+    @Override
+    public void onUploadUpdate(@NonNull WaypointMissionUploadEvent event) {
+        if (event.getProgress() != null
+                && event.getProgress().isSummaryUploaded
+                && event.getProgress().uploadedWaypointIndex == (event.getProgress().totalWaypointCount - 1)) {
+            //Toast.makeText(UAVDisasterProbeApplication.getContext(), "Upload successful!", Toast.LENGTH_SHORT).show();
+            Log.d("FlightPlan", "Upload successful!");
+        }
     }
 
-    public void resume() {
-        MissionControl.getInstance().resumeTimeline();
+    @Override
+    public void onExecutionUpdate(@NonNull WaypointMissionExecutionEvent event) {
+        Log.d("FlightPlan",
+                (event.getPreviousState() == null
+                        ? ""
+                        : event.getPreviousState().getName())
+                        + ", "
+                        + event.getCurrentState().getName()
+                        + (event.getProgress() == null
+                        ? ""
+                        : event.getProgress().targetWaypointIndex));
     }
 
-    public void stop() {
-        MissionControl.getInstance().stopTimeline();
+    @Override
+    public void onExecutionStart() {
+        //Toast.makeText(UAVDisasterProbeApplication.getContext(), "Execution started!", Toast.LENGTH_SHORT).show();
+        Log.d("FlightPlan", "Execution started!");
     }
 
-    public void updateFlightPlan(FlightPlanProtos.FlightPlan flightPlan) {
-        this.flightPlan = flightPlan;
-        createTimeline();
+    @Override
+    public void onExecutionFinish(@Nullable DJIError djiError) {
+        //Toast.makeText(UAVDisasterProbeApplication.getContext(), "Execution finished!", Toast.LENGTH_SHORT).show();
+        Log.d("FlightPlan", "Execution finished!");
+    }
+    */
+
+    public WaypointMissionOperator getOperator() {
+        return operator;
     }
 
-    public void verify() {
-
+    public WaypointMission getMission() {
+        return mission;
     }
 
+    public enum Status {
+        PREPARED,
+        STARTED,
+        PAUSED,
+        RESUMED,
+        STOPPED
+    }
 }
