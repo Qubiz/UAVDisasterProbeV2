@@ -38,6 +38,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
+import dji.common.camera.SystemState;
 import dji.common.error.DJIError;
 import dji.common.flightcontroller.FlightControllerState;
 import dji.common.flightcontroller.LocationCoordinate3D;
@@ -47,6 +48,10 @@ import dji.common.mission.waypoint.WaypointMissionExecutionEvent;
 import dji.common.mission.waypoint.WaypointMissionState;
 import dji.common.mission.waypoint.WaypointMissionUploadEvent;
 import dji.common.util.CommonCallbacks;
+import dji.keysdk.CameraKey;
+import dji.keysdk.FlightControllerKey;
+import dji.keysdk.KeyManager;
+import dji.keysdk.callback.KeyListener;
 import dji.sdk.base.BaseProduct;
 import dji.sdk.flightcontroller.FlightController;
 import dji.sdk.mission.MissionControl;
@@ -84,6 +89,24 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private FlightPlanProtos.FlightPlan flightPlanProtos;
     private FlightPlan flightPlan;
+    private FlightPlan loadedFlightPlan;
+
+    CameraKey cameraShootPhotoKey = CameraKey.create(CameraKey.IS_SHOOTING_PHOTO);
+    KeyListener cameraShootPhotoListener = new KeyListener() {
+        @Override
+        public void onValueChange(@Nullable Object o, @Nullable Object o1) {
+            Log.d("cameraListener", "Shoot photo:" + o1);
+
+            Log.d("Yaw", "" + KeyManager.getInstance().getValue(yawKey));
+            Log.d("Pitch", "" + KeyManager.getInstance().getValue(pitchKey));
+            Log.d("Roll", "" + KeyManager.getInstance().getValue(rollKey));
+
+        }
+    };
+
+    FlightControllerKey yawKey = FlightControllerKey.create(FlightControllerKey.ATTITUDE_YAW);
+    FlightControllerKey pitchKey = FlightControllerKey.create(FlightControllerKey.ATTITUDE_PITCH);
+    FlightControllerKey rollKey = FlightControllerKey.create(FlightControllerKey.ATTITUDE_ROLL);
 
     private static boolean checkGpsCoordination(double latitude, double longitude) {
         return (latitude > -90 && latitude < 90 && longitude > -180 && longitude < 180) && (latitude != 0f && longitude != 0f);
@@ -151,13 +174,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
         googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-
-        // Add a marker in Sydney, Australia,
-        // and move the map's camera to the same location.
-        LatLng sydney = new LatLng(-33.852, 151.211);
-        googleMap.addMarker(new MarkerOptions().position(sydney)
-                .title("Marker in Sydney"));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        googleMap.getUiSettings().setZoomControlsEnabled(true);
+        googleMap.getUiSettings().setMapToolbarEnabled(false);
+        updateDroneMarkerLocation(52.242588, 6.694284);
     }
 
     @Override
@@ -187,7 +206,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 });
                 ipAddressInputDialog.show();
                 break;
-            case R.id.action_refresh:
+            case R.id.action_locate:
                 cameraUpdate();
                 break;
             case R.id.create_fp_file:
@@ -330,10 +349,17 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             if(file.getName().endsWith(".fp")) {
                 try {
                     flightPlanProtos = FlightPlanProtos.FlightPlan.parseDelimitedFrom(new FileInputStream(file));
-                    if(flightPlan == null) {
-                        Log.d("flightPlan", "Creating first flight plan.");
-                        flightPlan = new FlightPlan(flightPlanProtos);
+
+                    if(loadedFlightPlan != null) {
+                        loadedFlightPlan.removeFromMap();
                     }
+                    loadedFlightPlan = new FlightPlan(flightPlanProtos, this);
+                    loadedFlightPlan.showOnMap(googleMap);
+
+                    if(flightPlan == null) {
+                        flightPlan = loadedFlightPlan;
+                    }
+
                     currentFileTextView.setText(file.getName());
                     statusPreparedTextView.setText("not prepared");
 
@@ -388,9 +414,69 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         builder.addWaypointElement(52.250540, 6.853982, 15, -45, -90);
         builder.addWaypointElement(52.250584, 6.854316, 15, 0, 180);
         builder.writeToFile("5wp_multi_directions_test");
+
+        builder = new FlightPlanBuilder();
+        builder.addWaypointElement(52.216180, 7.027042, 80, -90, 0);
+        builder.addWaypointElement(52.216491, 7.027503, 80, -90, 0);
+        builder.addWaypointElement(52.216452, 7.027254, 80, -90, 0);
+        builder.addWaypointElement(52.216501, 7.027004, 80, -90, 0);
+        builder.addWaypointElement(52.216581, 7.026779, 80, -90, 0);
+        builder.addWaypointElement(52.216124, 7.027301, 80, -90, 0);
+        builder.addWaypointElement(52.216256, 7.027411, 80, -90, 0);
+        builder.addWaypointElement(52.216308, 7.027144, 80, -90, 0);
+        builder.addWaypointElement(52.216388, 7.026907, 80, -90, 0);
+        builder.addWaypointElement(52.216463, 7.026666, 80, -90, 0);
+        builder.addWaypointElement(52.216646, 7.026509, 80, -90, 0);
+        builder.addWaypointElement(52.216532, 7.027623, 80, -90, 0);
+        builder.addWaypointElement(52.216595, 7.027364, 80, -90, 0);
+        builder.addWaypointElement(52.216718, 7.026892, 80, -90, 0);
+        builder.addWaypointElement(52.216779, 7.026654, 80, -90, 0);
+        builder.addWaypointElement(52.216542, 7.026372, 80, -90, 0);
+        builder.addWaypointElement(52.216262, 7.026779, 80, -90, 0);
+        builder.addWaypointElement(52.216346, 7.026526, 80, -90, 0);
+        builder.addWaypointElement(52.216428, 7.026237, 80, -90, 0);
+        builder.addWaypointElement(52.216057, 7.026941, 80, -90, 0);
+        builder.addWaypointElement(52.216138, 7.026676, 80, -90, 0);
+        builder.addWaypointElement(52.216204, 7.026406, 80, -90, 0);
+        builder.addWaypointElement(52.216296, 7.026182, 80, -90, 0);
+        builder.writeToFile("nadir_flight");
+
+        builder = new FlightPlanBuilder();
+        builder.addWaypointElement(52.215985, 7.026647, 80, -40, 25);
+        builder.addWaypointElement(52.215985, 7.026647, 60, -40, 25);
+        builder.addWaypointElement(52.216287, 7.027463, 80, -40, -65);
+        builder.addWaypointElement(52.216287, 7.027463, 60, -40, -65);
+        builder.addWaypointElement(52.216865, 7.027001, 80, -30, -155);
+        builder.addWaypointElement(52.216865, 7.027001, 60, -30, -155);
+        builder.addWaypointElement(52.216941, 7.026729, 80, -30, -155);
+        builder.addWaypointElement(52.216941, 7.026729, 60, -30, -155);
+        builder.addWaypointElement(52.216123, 7.026113, 80, -40, 25);
+        builder.addWaypointElement(52.216123, 7.026113, 60, -40, 25);
+        builder.addWaypointElement(52.216192, 7.027357, 80, -40, -65);
+        builder.addWaypointElement(52.216192, 7.027357, 60, -40, -65);
+        builder.addWaypointElement(52.216052, 7.026408, 80, -40, 25);
+        builder.addWaypointElement(52.216052, 7.026408, 60, -40, 25);
+        builder.addWaypointElement(52.216427, 7.027534, 80, -40, -65);
+        builder.addWaypointElement(52.216427, 7.027534, 60, -40, -65);
+        builder.addWaypointElement(52.216797, 7.027221, 80, -30, -155);
+        builder.addWaypointElement(52.216797, 7.027221, 60, -30, -155);
+        builder.writeToFile("oblique_flight");
     }
 
     public void prepare(final FlightPlan flightPlan) {
+        KeyManager.getInstance().addListener(cameraShootPhotoKey, cameraShootPhotoListener);
+
+        /*
+        UAVDisasterProbeApplication.getCameraInstance().setSystemStateCallback(new SystemState.Callback() {
+            @Override
+            public void onUpdate(@NonNull SystemState systemState) {
+                if(systemState.isShootingSinglePhoto()) {
+                    Log.d("systemState", "Shooting photo.");
+                    FlightControllerKey yawKey = FlightControllerKey.create(FlightControllerKey.ATTITUDE_YAW);
+                }
+            }
+        });*/
+
         if(flightPlan.getStatus() == null
                 || flightPlan.getStatus() == FlightPlan.Status.STOPPED
                 || flightPlan.getStatus() == FlightPlan.Status.PREPARED) {

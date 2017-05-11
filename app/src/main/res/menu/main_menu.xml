@@ -9,8 +9,8 @@
         android:icon="@drawable/disconnected_white"
         android:title="Bridge"/>
     <item
-        android:id="@+id/action_refresh"
-        android:title="Refresh">
+        android:id="@+id/action_locate"
+        android:title="Locate Drone">
     </item>
 
     <item
