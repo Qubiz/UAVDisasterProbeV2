@@ -91,6 +91,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private FlightPlan flightPlan;
     private FlightPlan loadedFlightPlan;
 
+    FetchMedia fetchMedia;
+
     CameraKey cameraShootPhotoKey = CameraKey.create(CameraKey.IS_SHOOTING_PHOTO);
     KeyListener cameraShootPhotoListener = new KeyListener() {
         @Override
@@ -211,6 +213,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 break;
             case R.id.create_fp_file:
                 createFlightPlan();
+                break;
+            case R.id.fetch_media:
+                fetchMedia = new FetchMedia();
+                break;
+            case R.id.download_media:
+                fetchMedia.fetchMediaData(fetchMedia.getMediaFile());
                 break;
             default:
                 break;

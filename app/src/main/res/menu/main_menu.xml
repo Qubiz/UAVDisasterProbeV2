@@ -17,4 +17,15 @@
         android:id="@+id/create_fp_file"
         android:title="Create Flight Plan">
     </item>
+
+    <item
+        android:id="@+id/fetch_media"
+        android:title="Fetch Media">
+    </item>
+
+    <item
+        android:id="@+id/download_media"
+        android:title="Download Media File">
+    </item>
+
 </menu>
