@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -38,10 +39,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
+import dji.common.camera.SettingsDefinitions;
 import dji.common.camera.SystemState;
 import dji.common.error.DJIError;
 import dji.common.flightcontroller.FlightControllerState;
 import dji.common.flightcontroller.LocationCoordinate3D;
+import dji.common.gimbal.Attitude;
 import dji.common.mission.waypoint.WaypointMission;
 import dji.common.mission.waypoint.WaypointMissionDownloadEvent;
 import dji.common.mission.waypoint.WaypointMissionExecutionEvent;
@@ -50,9 +53,11 @@ import dji.common.mission.waypoint.WaypointMissionUploadEvent;
 import dji.common.util.CommonCallbacks;
 import dji.keysdk.CameraKey;
 import dji.keysdk.FlightControllerKey;
+import dji.keysdk.GimbalKey;
 import dji.keysdk.KeyManager;
 import dji.keysdk.callback.KeyListener;
 import dji.sdk.base.BaseProduct;
+import dji.sdk.camera.Camera;
 import dji.sdk.flightcontroller.FlightController;
 import dji.sdk.mission.MissionControl;
 import dji.sdk.mission.timeline.Mission;
@@ -91,24 +96,44 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private FlightPlan flightPlan;
     private FlightPlan loadedFlightPlan;
 
-    FetchMedia fetchMedia;
+    private boolean shootPhoto = false;
 
     CameraKey cameraShootPhotoKey = CameraKey.create(CameraKey.IS_SHOOTING_PHOTO);
     KeyListener cameraShootPhotoListener = new KeyListener() {
         @Override
         public void onValueChange(@Nullable Object o, @Nullable Object o1) {
-            Log.d("cameraListener", "Shoot photo:" + o1);
+            if((boolean) o1 != shootPhoto) {
+                shootPhoto = (boolean) o1;
 
-            Log.d("Yaw", "" + KeyManager.getInstance().getValue(yawKey));
-            Log.d("Pitch", "" + KeyManager.getInstance().getValue(pitchKey));
-            Log.d("Roll", "" + KeyManager.getInstance().getValue(rollKey));
+                Log.d("cameraListener", "Shoot photo:" + shootPhoto);
+                if(!shootPhoto) {
+                    String yawString = "" + KeyManager.getInstance().getValue(yawKey);
+                    String pitchString = "" + KeyManager.getInstance().getValue(pitchKey);
+                    String rollString = "" + KeyManager.getInstance().getValue(rollKey);
 
+                    String aircraftAttitudeString = "aa[" + yawString + ";" + pitchString + ";" + rollString + "]";
+
+                    Attitude gimbalAttitude = (Attitude) KeyManager.getInstance().getValue(gimbalAttitudeKey);
+                    String gimbalAttitudeString = "ga[unknown]";
+
+                    if(gimbalAttitude != null) {
+                        gimbalAttitudeString = "ga[" + gimbalAttitude.getYaw()
+                                + ";" + gimbalAttitude.getPitch()
+                                + ";" + gimbalAttitude.getRoll() + "]";
+                    }
+
+                    String attitudeString = aircraftAttitudeString +"_"+ gimbalAttitudeString;
+
+                    FetchMedia.fetchLatestPhoto(Environment.getExternalStorageDirectory().getPath() + "/Test/", attitudeString);
+                }
+            }
         }
     };
 
     FlightControllerKey yawKey = FlightControllerKey.create(FlightControllerKey.ATTITUDE_YAW);
     FlightControllerKey pitchKey = FlightControllerKey.create(FlightControllerKey.ATTITUDE_PITCH);
     FlightControllerKey rollKey = FlightControllerKey.create(FlightControllerKey.ATTITUDE_ROLL);
+    GimbalKey gimbalAttitudeKey = GimbalKey.create(GimbalKey.ATTITUDE_IN_DEGREES);
 
     private static boolean checkGpsCoordination(double latitude, double longitude) {
         return (latitude > -90 && latitude < 90 && longitude > -180 && longitude < 180) && (latitude != 0f && longitude != 0f);
@@ -215,10 +240,27 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 createFlightPlan();
                 break;
             case R.id.fetch_media:
-                fetchMedia = new FetchMedia();
+                FetchMedia.fetchLatestPhoto(Environment.getExternalStorageDirectory().getPath() + "/Test/", null);
                 break;
             case R.id.download_media:
-                fetchMedia.fetchMediaData(fetchMedia.getMediaFile());
+                final Camera camera = UAVDisasterProbeApplication.getCameraInstance();
+                if(camera != null) {
+                    camera.setMode(SettingsDefinitions.CameraMode.SHOOT_PHOTO, new CommonCallbacks.CompletionCallback() {
+                        @Override
+                        public void onResult(DJIError djiError) {
+                            String error = (djiError == null) ? "Success" : djiError.getDescription();
+                            Log.d("MainActivity", "setMode() | " + error);
+
+                            camera.startShootPhoto(new CommonCallbacks.CompletionCallback() {
+                                @Override
+                                public void onResult(DJIError djiError) {
+                                    String error = (djiError == null) ? "Success" : djiError.getDescription();
+                                    Log.d("MainActivity", "startShootPhoto() | " + error);
+                                }
+                            });
+                        }
+                    });
+                }
                 break;
             default:
                 break;
@@ -254,6 +296,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 public void onUpdate(@NonNull FlightControllerState flightControllerState) {
                     aircraftLocation = flightControllerState.getAircraftLocation();
                     updateDroneMarkerLocation(aircraftLocation.getLatitude(), aircraftLocation.getLongitude());
+                    KeyManager.getInstance().addListener(cameraShootPhotoKey, cameraShootPhotoListener);
                 }
             });
         }
@@ -389,10 +432,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private void createFlightPlan() {
         FlightPlanBuilder builder = new FlightPlanBuilder();
 
-        builder.addWaypointElement(52.242370, 6.694944,5,-90,0);
-        builder.addWaypointElement(52.242314, 6.695175,6,-45,90);
-        builder.addWaypointElement(52.242271, 6.695444,7,0,180);
-        builder.addWaypointElement(52.242209, 6.695718,8,-15,-60);
+        builder.addWaypointElement(52.242370, 6.694944,50,-90,0);
+        builder.addWaypointElement(52.242314, 6.695175,50,-45,90);
+        builder.addWaypointElement(52.242271, 6.695444,50,0,180);
+        builder.addWaypointElement(52.242209, 6.695718,50,-15,-60);
         builder.writeToFile("flight1");
 
         builder = new FlightPlanBuilder();
