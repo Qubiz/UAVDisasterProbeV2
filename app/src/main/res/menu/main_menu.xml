@@ -3,17 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/preview_images_checkmark"
+        android:checkable="true"
+        android:title="Preview Images"
+        app:showAsAction="never">
+
+    </item>
+
+    <item
+        android:id="@+id/output_folder"
+        android:title="Select Output Folder"
+        app:showAsAction="never">
+    </item>
+
+    <item
         android:id="@+id/action_connect_bridge"
-        android:orderInCategory="100"
-        app:showAsAction="always|withText"
         android:icon="@drawable/disconnected_white"
-        android:title="Bridge"/>
+        android:orderInCategory="100"
+        android:title="Bridge"
+        app:showAsAction="always|withText"/>
+
     <item
         android:id="@+id/action_locate"
         android:title="Locate Drone">
     </item>
 
-    <item
+    <!--<item
         android:id="@+id/create_fp_file"
         android:title="Create Flight Plan">
     </item>
@@ -26,6 +41,6 @@
     <item
         android:id="@+id/download_media"
         android:title="Download Media File">
-    </item>
+    </item>-->
 
 </menu>

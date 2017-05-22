@@ -7,8 +7,8 @@
     tools:context="utwente.uav.uavdisasterprobev2.MainActivity">
 
     <fragment
-        class="com.google.android.gms.maps.MapFragment"
         android:id="@+id/map"
+        class="com.google.android.gms.maps.MapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </fragment>
@@ -55,42 +55,42 @@
             android:layout_height="22dp"/>
 
         <dji.ui.widget.ConnectionWidget
-            android:layout_marginTop="5dp"
             android:layout_width="22dp"
-            android:layout_height="22dp"/>
+            android:layout_height="22dp"
+            android:layout_marginTop="5dp"/>
     </LinearLayout>
 
     <dji.ui.widget.RemainingFlightTimeWidget
+        android:id="@+id/remaining_time_widget"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="18dp"
-        android:layout_width="match_parent"
-        android:background="@color/transparent"
-        android:layout_height="20dp"
-        android:id="@+id/remaining_time_widget"/>
+        android:background="@color/transparent"/>
 
     <!--  -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/remaining_time_widget"
-        android:padding="12dp"
+        android:background="@color/dark_gray"
         android:orientation="vertical"
-        android:background="@color/dark_gray">
+        android:padding="12dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="FLIGHT PLAN"
-            android:textStyle="bold"
             android:textColor="@color/white"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:textStyle="bold"/>
 
         <Button
+            android:id="@+id/load_file_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/load_file_button"
-            android:text="Load"
             android:drawableTop="@drawable/file_black_small"
+            android:text="Load"
             android:textSize="12sp"/>
 
         <LinearLayout
@@ -102,26 +102,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="File: "
-                android:textStyle="bold"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/current_file_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="italic"
                 android:text="not loaded"
                 android:textColor="@color/white"
-                android:id="@+id/current_file_text_view"/>
+                android:textStyle="italic"/>
         </LinearLayout>
 
         <Button
+            android:id="@+id/prepare_flight_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Prepare"
             android:drawableTop="@drawable/upload_black_small"
             android:enabled="false"
-            android:textSize="12sp"
-            android:id="@+id/prepare_flight_button"/>
+            android:text="Prepare"
+            android:textSize="12sp"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -131,20 +131,69 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
                 android:text="Status: "
                 android:textColor="@color/white"
+                android:textStyle="bold"
                 />
 
             <TextView
+                android:id="@+id/status_prepared_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textStyle="italic"
                 android:text="n/a"
                 android:textColor="@color/white"
-                android:id="@+id/status_prepared_text_view"/>
+                android:textStyle="italic"/>
 
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/remaining_time_widget"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Output Folder: "
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/output_folder_path_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="..."
+            android:textColor="@color/white"
+            android:textStyle="italic"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Download Status: "
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/current_download_image_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fetching: ..."
+            android:textColor="@color/white"
+            android:textStyle="italic"/>
+
+        <TextView
+            android:id="@+id/current_download_progress_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Progress: ..."
+            android:textColor="@color/white"
+            android:textStyle="italic"/>
+
+
     </LinearLayout>
 
     <LinearLayout
@@ -163,19 +212,19 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
-        android:id="@+id/linearLayout">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
 
             <dji.ui.widget.TakeOffWidget
                 android:layout_width="40dp"
@@ -195,22 +244,22 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/start_pause_flight_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableTop="@drawable/play_black_small"
-                android:text="START"
-                android:textSize="12sp"
                 android:enabled="false"
-                android:id="@+id/start_pause_flight_button"/>
+                android:text="START"
+                android:textSize="12sp"/>
 
             <Button
+                android:id="@+id/stop_flight_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableTop="@drawable/stop_black_small"
-                android:text="STOP"
-                android:textSize="12sp"
                 android:enabled="false"
-                android:id="@+id/stop_flight_button"/>
+                android:text="STOP"
+                android:textSize="12sp"/>
         </LinearLayout>
     </LinearLayout>
 

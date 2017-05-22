@@ -1,22 +1,20 @@
 package utwente.uav.uavdisasterprobev2;
 
-import android.os.Environment;
-import android.provider.MediaStore;
+import android.content.Context;
+import android.graphics.Bitmap;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
 import java.io.File;
-import java.lang.reflect.Array;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.math.RoundingMode;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import dji.common.camera.SettingsDefinitions;
 import dji.common.error.DJIError;
@@ -35,7 +33,28 @@ public class FetchMedia {
 
     private static List<MediaFile> mediaFileList = null;
 
-    private static void fetchMediaList(final MediaManager.DownloadListener downloadListener) {
+    private Context context;
+
+    private DownloadProgressCallback callback;
+
+    public FetchMedia(Context context, DownloadProgressCallback callback) {
+        this.context = context;
+        this.callback = callback;
+    }
+
+    private static void writeBitmapToFile(Bitmap bitmap, File destinationFolder, String fileName) throws IOException {
+        File file = new File(destinationFolder, fileName + ".jpg");
+        FileOutputStream outputStream = new FileOutputStream(file);
+
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+
+        outputStream.flush();
+        outputStream.close();
+
+        Log.d(LOG_TAG, "writeBitmapToFile() [PREVIEW] | Success: " + file.getPath());
+    }
+
+    private void fetchMediaList(final MediaManager.DownloadListener downloadListener) {
         setCameraToDownloadMode(new CommonCallbacks.CompletionCallback() {
             @Override
             public void onResult(DJIError djiError) {
@@ -54,7 +73,7 @@ public class FetchMedia {
         });
     }
 
-    static void fetchLatestPhoto(String destinationFolderPath, @Nullable final String attitudeDataString) {
+    public void fetchLatestPhoto(final String destinationFolderPath, final String fileName, @Nullable final String attitudeDataString, final boolean previewImage) {
         final File destination = new File(destinationFolderPath);
 
         fetchMediaList(new MediaManager.DownloadListener<List<MediaFile>>() {
@@ -85,7 +104,7 @@ public class FetchMedia {
 
                 if (mediaFileList != null) {
                     MediaManager mediaManager = UAVDisasterProbeApplication.getCameraInstance().getMediaManager();
-                    for(MediaFile mediaFile : mediaFileList) {
+                    for (MediaFile mediaFile : mediaFileList) {
                         Log.d(LOG_TAG, "fetchMediaList() | Name: " + mediaFile.getFileName() + " / Date: " + mediaFile.getDateCreated());
                     }
 
@@ -97,14 +116,14 @@ public class FetchMedia {
                         MediaFile mediaFile = null;
 
                         for (int i = 0; i < mediaFileList.size(); i++) {
-                            if(mediaFileList.get(i).getMediaType().equals(MediaFile.MediaType.JPEG)) {
+                            if (mediaFileList.get(i).getMediaType().equals(MediaFile.MediaType.JPEG)) {
                                 try {
                                     Date dateCompare = formatter.parse(mediaFiles.get(i).getDateCreated());
-                                    if(dateCurrentFile == null) {
+                                    if (dateCurrentFile == null) {
                                         dateCurrentFile = dateCompare;
                                         mediaFile = mediaFileList.get(i);
                                     } else {
-                                        if(dateCompare.after(dateCurrentFile)) {
+                                        if (dateCompare.after(dateCurrentFile)) {
                                             dateCurrentFile = dateCompare;
                                             mediaFile = mediaFileList.get(i);
                                         }
@@ -115,39 +134,86 @@ public class FetchMedia {
                             }
                         }
 
-                        if(mediaFile != null) {
-                            String fileName = mediaFile.getFileName().substring(0, mediaFile.getFileName().length() - 5);
-                            mediaManager.fetchMediaData(mediaFile, destination, (attitudeDataString == null) ? fileName : fileName + "_" + attitudeDataString, new MediaManager.DownloadListener<String>() {
-                                @Override
-                                public void onStart() {
-                                    Log.d(LOG_TAG, "fetchLatestPhoto() | Started");
-                                }
+                        if (mediaFile != null) {
+                            final String mediaFileName = mediaFile.getFileName().substring(0, mediaFile.getFileName().length() - 5);
+                            if (previewImage) {
+                                mediaManager.fetchPreviewImage(mediaFile, new MediaManager.DownloadListener<Bitmap>() {
+                                    @Override
+                                    public void onStart() {
+                                        Log.d(LOG_TAG, "fetchLatestPhoto() [PREVIEW] | Started");
+                                        callback.updateDownloadProgressText("Fetching: "  + mediaFileName + " (PREVIEW)"  , "Progress: Started... [0 %]");
+                                    }
 
-                                @Override
-                                public void onRateUpdate(long total, long current, long rate) {
-                                    DecimalFormat decimalFormat = new DecimalFormat("#.##");
-                                    decimalFormat.setRoundingMode(RoundingMode.CEILING);
+                                    @Override
+                                    public void onRateUpdate(long total, long current, long rate) {
+                                        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+                                        decimalFormat.setRoundingMode(RoundingMode.CEILING);
 
-                                    double percentage = ((double) current / (double) total) * 100;
+                                        double percentage = ((double) current / (double) total) * 100;
 
-                                    Log.d(LOG_TAG, "fetchLatestPhoto() | " + "[" + decimalFormat.format(percentage) + "%] " + current + " / " + total + "(" + rate + " B/s)");
-                                }
+                                        callback.updateDownloadProgressText("Fetching: "  + mediaFileName + " (FULL RES)", "Progress: [" + decimalFormat.format(percentage) + " %]" +  "(" + (rate/1000) + " KB/s)");
 
-                                @Override
-                                public void onProgress(long l, long l1) {
+                                        Log.d(LOG_TAG, "fetchLatestPhoto() [PREVIEW] | " + "[" + decimalFormat.format(percentage) + "%] " + current + " / " + total + "(" + rate + " B/s)");
+                                    }
 
-                                }
+                                    @Override
+                                    public void onProgress(long l, long l1) {
 
-                                @Override
-                                public void onSuccess(String path) {
-                                    Log.d(LOG_TAG, "fetchLatestPhoto() | Success: " + path);
-                                }
+                                    }
 
-                                @Override
-                                public void onFailure(DJIError djiError) {
-                                    Log.d(LOG_TAG, "fetchLatestPhoto() | " + djiError.getDescription());
-                                }
-                            });
+                                    @Override
+                                    public void onSuccess(Bitmap bitmap) {
+                                        callback.updateDownloadProgressText("Fetching: "  + mediaFileName + " (PREVIEW)", "Progress: Completed... [100 %]");
+                                        try {
+                                            writeBitmapToFile(bitmap, destination, (attitudeDataString == null) ? fileName : fileName + "_" + attitudeDataString);
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(DJIError djiError) {
+                                        Log.d(LOG_TAG, "fetchLatestPhoto() [PREVIEW] | " + djiError.getDescription());
+                                        callback.updateDownloadProgressText("Fetching: "  + mediaFileName + " (PREVIEW)", "Progress: Failed... ");
+                                    }
+                                });
+                            } else {
+                                mediaManager.fetchMediaData(mediaFile, destination, (attitudeDataString == null) ? fileName : fileName + "_" + attitudeDataString, new MediaManager.DownloadListener<String>() {
+                                    @Override
+                                    public void onStart() {
+                                        Log.d(LOG_TAG, "fetchLatestPhoto() | Started");
+                                        callback.updateDownloadProgressText("Fetching: "  + mediaFileName + " (FULL RES)"  , "Progress: Started... [0 %]");
+                                    }
+
+                                    @Override
+                                    public void onRateUpdate(long total, long current, long rate) {
+                                        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+                                        decimalFormat.setRoundingMode(RoundingMode.CEILING);
+
+                                        double percentage = ((double) current / (double) total) * 100;
+
+                                        callback.updateDownloadProgressText("Fetching: "  + mediaFileName + " (FULL RES)", "Progress: [" + decimalFormat.format(percentage) + " %]" +  "(" + (rate/1000) + " KB/s)");
+
+                                        Log.d(LOG_TAG, "fetchLatestPhoto() | " + "[" + decimalFormat.format(percentage) + " %] " + current + " / " + total + "(" + rate + " B/s)");
+                                    }
+
+                                    @Override
+                                    public void onProgress(long l, long l1) {
+
+                                    }
+
+                                    @Override
+                                    public void onSuccess(String path) {
+                                        callback.updateDownloadProgressText("Fetching: "  + mediaFileName + " (FULL RES)", "Progress: Completed... [100 %]");
+                                        Log.d(LOG_TAG, "fetchLatestPhoto() | Success: " + path);
+                                    }
+
+                                    @Override
+                                    public void onFailure(DJIError djiError) {
+                                        Log.d(LOG_TAG, "fetchLatestPhoto() | " + djiError.getDescription());
+                                    }
+                                });
+                            }
                         }
                     }
                 }
@@ -160,7 +226,7 @@ public class FetchMedia {
         });
     }
 
-    private static void setCameraToDownloadMode(final CommonCallbacks.CompletionCallback completionCallback) {
+    private void setCameraToDownloadMode(final CommonCallbacks.CompletionCallback completionCallback) {
         final Camera camera = UAVDisasterProbeApplication.getCameraInstance();
         if (camera != null) {
             camera.getMode(new CommonCallbacks.CompletionCallbackWith<SettingsDefinitions.CameraMode>() {
@@ -180,6 +246,10 @@ public class FetchMedia {
     @Nullable
     public List<MediaFile> getMediaFileList() {
         return mediaFileList;
+    }
+
+    public interface DownloadProgressCallback {
+        void updateDownloadProgressText(String fileName, String progress);
     }
 
 }

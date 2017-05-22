@@ -1,7 +1,6 @@
 package utwente.uav.uavdisasterprobev2;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +8,8 @@ import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -33,19 +34,17 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import net.rdrei.android.dirchooser.DirectoryChooserActivity;
+import net.rdrei.android.dirchooser.DirectoryChooserConfig;
+
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 
-import dji.common.camera.SettingsDefinitions;
-import dji.common.camera.SystemState;
 import dji.common.error.DJIError;
 import dji.common.flightcontroller.FlightControllerState;
 import dji.common.flightcontroller.LocationCoordinate3D;
 import dji.common.gimbal.Attitude;
-import dji.common.mission.waypoint.WaypointMission;
 import dji.common.mission.waypoint.WaypointMissionDownloadEvent;
 import dji.common.mission.waypoint.WaypointMissionExecutionEvent;
 import dji.common.mission.waypoint.WaypointMissionState;
@@ -57,7 +56,6 @@ import dji.keysdk.GimbalKey;
 import dji.keysdk.KeyManager;
 import dji.keysdk.callback.KeyListener;
 import dji.sdk.base.BaseProduct;
-import dji.sdk.camera.Camera;
 import dji.sdk.flightcontroller.FlightController;
 import dji.sdk.mission.MissionControl;
 import dji.sdk.mission.timeline.Mission;
@@ -69,36 +67,39 @@ import dji.sdk.products.Aircraft;
 import dji.sdk.sdkmanager.DJISDKManager;
 import utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos;
 
-public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, WaypointMissionOperatorListener {
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, WaypointMissionOperatorListener, FetchMedia.DownloadProgressCallback {
 
+    private static final int REQUEST_DIRECTORY_CODE = 0;
     private static final int FILE_REQUEST_CODE = 42;
 
     MapFragment mapFragment;
+    CameraKey cameraShootPhotoKey = CameraKey.create(CameraKey.IS_SHOOTING_PHOTO);
+    FlightControllerKey yawKey = FlightControllerKey.create(FlightControllerKey.ATTITUDE_YAW);
+    FlightControllerKey pitchKey = FlightControllerKey.create(FlightControllerKey.ATTITUDE_PITCH);
+    FlightControllerKey rollKey = FlightControllerKey.create(FlightControllerKey.ATTITUDE_ROLL);
+    GimbalKey gimbalAttitudeKey = GimbalKey.create(GimbalKey.ATTITUDE_IN_DEGREES);
     private FlightController flightController;
     private LocationCoordinate3D aircraftLocation;
     private Marker droneMarker = null;
     private GoogleMap googleMap;
-    protected BroadcastReceiver receiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            onProductConnectionChange();
-        }
-    };
     private Button loadFileButton;
     private Button prepareFlightButton;
     private Button startPauseFlightButton;
     private Button stopFlightButton;
-
     private TextView currentFileTextView;
     private TextView statusPreparedTextView;
-
+    private TextView outputFolderTextView;
+    private TextView currentImageDownloadTextView;
+    private TextView currentDownloadProgressTextView;
     private FlightPlanProtos.FlightPlan flightPlanProtos;
     private FlightPlan flightPlan;
     private FlightPlan loadedFlightPlan;
-
     private boolean shootPhoto = false;
-
-    CameraKey cameraShootPhotoKey = CameraKey.create(CameraKey.IS_SHOOTING_PHOTO);
+    private boolean previewImages = false;
+    private String flightPlanName = null;
+    private String outputDirectory = Environment.getExternalStorageDirectory().getPath() + "/Test/";
+    private FetchMedia fetchMedia = null;
+    private int photoCounter = 0;
     KeyListener cameraShootPhotoListener = new KeyListener() {
         @Override
         public void onValueChange(@Nullable Object o, @Nullable Object o1) {
@@ -122,18 +123,25 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 + ";" + gimbalAttitude.getRoll() + "]";
                     }
 
+                    photoCounter++;
+
                     String attitudeString = aircraftAttitudeString +"_"+ gimbalAttitudeString;
 
-                    FetchMedia.fetchLatestPhoto(Environment.getExternalStorageDirectory().getPath() + "/Test/", attitudeString);
+                    if(flightPlan != null) {
+                        fetchMedia.fetchLatestPhoto(outputDirectory, photoCounter + "_" +flightPlan.getName(), attitudeString, previewImages);
+                    } else {
+                        fetchMedia.fetchLatestPhoto(outputDirectory, null, attitudeString, previewImages);
+                    }
                 }
             }
         }
     };
-
-    FlightControllerKey yawKey = FlightControllerKey.create(FlightControllerKey.ATTITUDE_YAW);
-    FlightControllerKey pitchKey = FlightControllerKey.create(FlightControllerKey.ATTITUDE_PITCH);
-    FlightControllerKey rollKey = FlightControllerKey.create(FlightControllerKey.ATTITUDE_ROLL);
-    GimbalKey gimbalAttitudeKey = GimbalKey.create(GimbalKey.ATTITUDE_IN_DEGREES);
+    protected BroadcastReceiver receiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            onProductConnectionChange();
+        }
+    };
 
     private static boolean checkGpsCoordination(double latitude, double longitude) {
         return (latitude > -90 && latitude < 90 && longitude > -180 && longitude < 180) && (latitude != 0f && longitude != 0f);
@@ -170,6 +178,13 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         currentFileTextView = (TextView) findViewById(R.id.current_file_text_view);
         statusPreparedTextView = (TextView) findViewById(R.id.status_prepared_text_view);
+        outputFolderTextView = (TextView) findViewById(R.id.output_folder_path_tv);
+        currentImageDownloadTextView = (TextView) findViewById(R.id.current_download_image_name_tv);
+        currentDownloadProgressTextView = (TextView) findViewById(R.id.current_download_progress_tv);
+
+        outputFolderTextView.setText(outputDirectory);
+
+        fetchMedia = new FetchMedia(this, this);
 
         initButtons();
     }
@@ -233,14 +248,23 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 });
                 ipAddressInputDialog.show();
                 break;
+            case R.id.preview_images_checkmark:
+                if(item.isChecked()) {
+                    item.setChecked(false);
+                    previewImages = false;
+                } else {
+                    item.setChecked(true);
+                    previewImages = true;
+                }
+                break;
             case R.id.action_locate:
                 cameraUpdate();
                 break;
-            case R.id.create_fp_file:
+            /*case R.id.create_fp_file:
                 createFlightPlan();
                 break;
             case R.id.fetch_media:
-                FetchMedia.fetchLatestPhoto(Environment.getExternalStorageDirectory().getPath() + "/Test/", null);
+                fetchMedia.fetchLatestPhoto(outputDirectory, flightPlanName, null, true);
                 break;
             case R.id.download_media:
                 final Camera camera = UAVDisasterProbeApplication.getCameraInstance();
@@ -261,11 +285,28 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         }
                     });
                 }
+                break;*/
+            case R.id.output_folder:
+                openDirectoryChooser();
                 break;
             default:
                 break;
         }
         return true;
+    }
+
+    private void openDirectoryChooser() {
+        final Intent chooserIntent = new Intent(this, DirectoryChooserActivity.class);
+
+        final DirectoryChooserConfig config = DirectoryChooserConfig.builder()
+                .initialDirectory("/sdcard")
+                .newDirectoryName("UAVDisasterProbe")
+                .allowReadOnlyDirectory(true)
+                .allowNewDirectoryNameModification(true)
+                .build();
+
+        chooserIntent.putExtra(DirectoryChooserActivity.EXTRA_CONFIG, config);
+        startActivityForResult(chooserIntent, REQUEST_DIRECTORY_CODE);
     }
 
     private void onProductConnectionChange() {
@@ -404,7 +445,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     if(loadedFlightPlan != null) {
                         loadedFlightPlan.removeFromMap();
                     }
-                    loadedFlightPlan = new FlightPlan(flightPlanProtos, this);
+                    loadedFlightPlan = new FlightPlan(flightPlanProtos,  file.getName().substring(0, file.getName().length() - 3), this);
                     loadedFlightPlan.showOnMap(googleMap);
 
                     if(flightPlan == null) {
@@ -426,6 +467,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
             // TODO: Check whether the file has the right extension.
             // TODO: Create a flight plan from the file.
+        }
+
+        if(requestCode == REQUEST_DIRECTORY_CODE) {
+            if(resultCode == DirectoryChooserActivity.RESULT_CODE_DIR_SELECTED) {
+                outputDirectory = data.getStringExtra(DirectoryChooserActivity.RESULT_SELECTED_DIR);
+                outputFolderTextView.setText(outputDirectory);
+                Log.d("Output Directory", outputDirectory);
+            }
         }
     }
 
@@ -557,6 +606,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     startPauseFlightButton.setEnabled(true);
                                     startPauseFlightButton.setCompoundDrawablesWithIntrinsicBounds(null, ContextCompat.getDrawable(getApplicationContext(), R.drawable.play_black_small), null, null);
                                     prepareFlightButton.setEnabled(false);
+                                    stopFlightButton.setEnabled(true);
                                     statusPreparedTextView.setText("prepared");
                                 }
                             });
@@ -583,6 +633,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 stopFlightButton.setEnabled(true);
                             }
                         });
+                        photoCounter = 0;
                     }
                 }
             });
@@ -610,6 +661,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
             }
         });
+        photoCounter = 0;
     }
 
     public void pause(final FlightPlan flightPlan) {
@@ -721,5 +773,17 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         stop(flightPlan);
 
         Log.d("FlightPlan", "Execution finished!");
+    }
+
+    @Override
+    public void updateDownloadProgressText(final String fileName, final String progress) {
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                currentImageDownloadTextView.setText(fileName);
+                currentDownloadProgressTextView.setText(progress);
+            }
+        });
     }
 }

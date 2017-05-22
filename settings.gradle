@@ -1,3 +1,2 @@
+include ':dJISDKLIB_4.0.2'
 include ':app', ':android-uilib-release'
-include ':dJISDKLIB'
-include ':dJISDKLIB'

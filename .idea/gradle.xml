@@ -10,7 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/android-uilib-release" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/dJISDKLIB" />
+            <option value="$PROJECT_DIR$/dJISDKLIB_4.0.2" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

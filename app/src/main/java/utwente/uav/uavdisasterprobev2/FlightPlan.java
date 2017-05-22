@@ -1,18 +1,13 @@
 package utwente.uav.uavdisasterprobev2;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.os.Handler;
-import android.os.Looper;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -27,44 +22,45 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import java.util.ArrayList;
 import java.util.List;
 
-import dji.common.camera.SystemState;
-import dji.common.error.DJIError;
 import dji.common.mission.waypoint.Waypoint;
 import dji.common.mission.waypoint.WaypointAction;
 import dji.common.mission.waypoint.WaypointActionType;
 import dji.common.mission.waypoint.WaypointMission;
-import dji.common.mission.waypoint.WaypointMissionDownloadEvent;
-import dji.common.mission.waypoint.WaypointMissionExecutionEvent;
 import dji.common.mission.waypoint.WaypointMissionFinishedAction;
 import dji.common.mission.waypoint.WaypointMissionFlightPathMode;
 import dji.common.mission.waypoint.WaypointMissionGotoWaypointMode;
 import dji.common.mission.waypoint.WaypointMissionHeadingMode;
-import dji.common.mission.waypoint.WaypointMissionUploadEvent;
 import dji.sdk.mission.MissionControl;
 import dji.sdk.mission.waypoint.WaypointMissionOperator;
-import dji.sdk.mission.waypoint.WaypointMissionOperatorListener;
 import utwente.uav.uavdisasterprobev2.protos.FlightPlanProtos;
 
 /**
  * Created by Mathijs on 4/11/2017.
  */
 
-public class FlightPlan /*implements WaypointMissionOperatorListener*/ {
+public class FlightPlan {
 
+    private String name;
     private ArrayList<Marker> markers;
     private Polyline path;
-
     private WaypointMissionOperator operator;
     private WaypointMission mission;
     private Status status = null;
-
     private MainActivity mainActivity;
-
-    public FlightPlan(FlightPlanProtos.FlightPlan flightPlanProtos, MainActivity mainActivity) {
+    public FlightPlan(FlightPlanProtos.FlightPlan flightPlanProtos, String name, MainActivity mainActivity) {
+        this.name = name;
         operator = MissionControl.getInstance().getWaypointMissionOperator();
         mission = createFromProtosFile(flightPlanProtos);
         operator.loadMission(mission);
         this.mainActivity = mainActivity;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void update(FlightPlanProtos.FlightPlan flightPlanProtos) {
@@ -108,7 +104,7 @@ public class FlightPlan /*implements WaypointMissionOperatorListener*/ {
 
                 Waypoint waypoint = new Waypoint(latitude, longitude, (float) altitude);
                 waypoint.addAction(new WaypointAction(WaypointActionType.GIMBAL_PITCH, gimbalPitch));
-                if(gimbalPitch != -90) {
+                if (gimbalPitch != -90) {
                     waypoint.addAction(new WaypointAction(WaypointActionType.ROTATE_AIRCRAFT, (int) yaw));
                 }
                 waypoint.addAction(new WaypointAction(WaypointActionType.START_TAKE_PHOTO, 1));
@@ -131,14 +127,6 @@ public class FlightPlan /*implements WaypointMissionOperatorListener*/ {
         return mission;
     }
 
-    public enum Status {
-        PREPARED,
-        STARTED,
-        PAUSED,
-        RESUMED,
-        STOPPED
-    }
-
     public void showOnMap(GoogleMap googleMap) {
         createMarkers(mission.getWaypointList(), googleMap);
         createPolylinePath(mission.getWaypointList(), googleMap);
@@ -153,21 +141,21 @@ public class FlightPlan /*implements WaypointMissionOperatorListener*/ {
      * @param googleMap The GoogleMap reference to show the markers on.
      */
     private void createMarkers(List<Waypoint> waypoints, GoogleMap googleMap) {
-        if(markers == null) {
+        if (markers == null) {
             markers = new ArrayList<>();
         } else {
-            for(Marker marker : markers) {
+            for (Marker marker : markers) {
                 marker.remove();
             }
         }
 
-        for(int i = 0; i < waypoints.size(); i++) {
+        for (int i = 0; i < waypoints.size(); i++) {
             LatLng point = new LatLng(waypoints.get(i).coordinate.getLatitude(), waypoints.get(i).coordinate.getLongitude());
             MarkerOptions markerOptions = new MarkerOptions().position(point);
 
-            if(i == 0) { // START POINT OF THE FLIGHT PATH
+            if (i == 0) { // START POINT OF THE FLIGHT PATH
                 markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
-            } else if(i == waypoints.size() - 1) { // END POINT OF THE FLIGHT PATH
+            } else if (i == waypoints.size() - 1) { // END POINT OF THE FLIGHT PATH
                 markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
             } else {
                 markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
@@ -221,13 +209,13 @@ public class FlightPlan /*implements WaypointMissionOperatorListener*/ {
      * @param googleMap The GoogleMap reference to show the path on.
      */
     private void createPolylinePath(List<Waypoint> waypoints, GoogleMap googleMap) {
-        if(path != null) {
+        if (path != null) {
             path.remove();
         }
 
         PolylineOptions polylineOptions = new PolylineOptions();
 
-        for(int i = 0; i < waypoints.size() - 1; i++) {
+        for (int i = 0; i < waypoints.size() - 1; i++) {
             LatLng latLngBegin = new LatLng(waypoints.get(i).coordinate.getLatitude(), waypoints.get(i).coordinate.getLongitude());
             LatLng latLngEnd = new LatLng(waypoints.get(i + 1).coordinate.getLatitude(), waypoints.get(i + 1).coordinate.getLongitude());
 
@@ -243,22 +231,23 @@ public class FlightPlan /*implements WaypointMissionOperatorListener*/ {
      * Removes the flight path from the map.
      */
     public void removeFromMap() {
-        if(markers == null) {
+        if (markers == null) {
             markers = new ArrayList<>();
         } else {
-            Log.d("removeFromMap()","Removing markers...");
-            for(Marker marker : markers) {
+            Log.d("removeFromMap()", "Removing markers...");
+            for (Marker marker : markers) {
                 marker.remove();
             }
         }
 
-        if(path != null) {
+        if (path != null) {
             path.remove();
         }
     }
 
     /**
      * Zooms the camera the the flight path.
+     *
      * @param googleMap The GoogleMap reference.
      */
     public void zoomTo(GoogleMap googleMap) {
@@ -268,6 +257,7 @@ public class FlightPlan /*implements WaypointMissionOperatorListener*/ {
     /**
      * Determines a bounding box around the given path. Used to determine the size of the GoogleMap
      * view when zooming in.
+     *
      * @param path The path to create a bounding box around.
      * @return
      */
@@ -277,13 +267,21 @@ public class FlightPlan /*implements WaypointMissionOperatorListener*/ {
         double minLongitude = path.getPoints().get(0).longitude;
         double maxLongitude = path.getPoints().get(0).longitude;
 
-        for(LatLng point : path.getPoints()) {
-            if(point.latitude < minLatitude) minLatitude = point.latitude;
-            if(point.latitude > maxLatitude) maxLatitude = point.latitude;
-            if(point.longitude < minLongitude) minLongitude = point.longitude;
-            if(point.longitude > maxLongitude) maxLongitude = point.longitude;
+        for (LatLng point : path.getPoints()) {
+            if (point.latitude < minLatitude) minLatitude = point.latitude;
+            if (point.latitude > maxLatitude) maxLatitude = point.latitude;
+            if (point.longitude < minLongitude) minLongitude = point.longitude;
+            if (point.longitude > maxLongitude) maxLongitude = point.longitude;
         }
 
         return new LatLngBounds(new LatLng(minLatitude, minLongitude), new LatLng(maxLatitude, maxLongitude));
+    }
+
+    public enum Status {
+        PREPARED,
+        STARTED,
+        PAUSED,
+        RESUMED,
+        STOPPED
     }
 }
